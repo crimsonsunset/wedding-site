@@ -72,23 +72,18 @@ const Footer: React.SFC = () => {
           <Link to="/">{config.title}</Link> &copy; 2018
         </section>
         <SiteFooterNav>
-          <Link to="/">Latest Posts</Link>
-          {config.facebook && (
-            <a href={config.facebook} target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
-          )}
-          {config.twitter && (
-            <a href={config.twitter} target="_blank" rel="noopener noreferrer">
-              Twitter
-            </a>
-          )}
+          {/*<Link to="/">Latest Posts</Link>*/}
+          {/*{config.facebook && (*/}
+            {/*<a href={config.facebook} target="_blank" rel="noopener noreferrer">*/}
+              {/*Facebook*/}
+            {/*</a>*/}
+          {/*)}*/}
 
-          <a href="https://ghost.org" target="_blank" rel="noopener noreferrer">
-            Ghost
+          <Link to="/contact-us">Contact Us</Link>
+
+          <a href="https://gatsbyjs.org" target="_blank" rel="noopener noreferrer">
+            Made with ❤️ & GatsbyJS
           </a>
-
-          <Link to="/rss.xml">RSS</Link>
         </SiteFooterNav>
       </div>
     </footer>

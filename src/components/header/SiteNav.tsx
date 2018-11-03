@@ -3,10 +3,10 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import styled, { css } from 'react-emotion';
 
-import { SocialLink } from '../../styles/shared';
-import config from '../../website-config';
-import Facebook from '../icons/facebook';
-import Twitter from '../icons/twitter';
+// import { SocialLink } from '../../styles/shared';
+// import config from '../../website-config';
+// import Facebook from '../icons/facebook';
+// import Twitter from '../icons/twitter';
 import SubscribeModal from '../subsribe/SubscribeOverlay';
 import SiteNavLogo from './SiteNavLogo';
 
@@ -65,49 +65,14 @@ const NavStyles = css`
     margin: 0;
     padding: 10px 12px;
     color: #fff;
-    opacity: 0.8;
+    opacity: 0.8; 
+    font-size: 20px;
+    text-shadow: 1px 1px black;
   }
 
   li a:hover {
     text-decoration: none;
     opacity: 1;
-  }
-`;
-
-const SiteNavRight = styled.div`
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  height: 40px;
-
-  @media (max-width: 700px) {
-    display: none;
-  }
-`;
-
-const SocialLinks = styled.div`
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  a:last-of-type {
-    padding-right: 20px;
-  }
-`;
-
-const SubscribeButton = styled.a`
-  display: block;
-  padding: 4px 10px;
-  border: #fff 1px solid;
-  color: #fff;
-  font-size: 1.2rem;
-  line-height: 1em;
-  border-radius: 10px;
-  opacity: 0.8;
-
-  :hover {
-    text-decoration: none;
-    opacity: 1;
-    cursor: pointer;
   }
 `;
 
@@ -151,37 +116,75 @@ class SiteNav extends React.Component<SiteNavProps, SiteNaveState> {
             </li>
           </ul>
         </SiteNavLeft>
-        <SiteNavRight>
-          <SocialLinks>
-            <a
-              className={`${SocialLink}`}
-              href={config.facebook}
-              target="_blank"
-              title="Facebook"
-              rel="noopener noreferrer"
-            >
-              <Facebook />
-            </a>
-            <a
-              className={`${SocialLink}`}
-              href={config.twitter}
-              title="Twitter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter />
-            </a>
-          </SocialLinks>
-          {config.showSubscribe && (
-            <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>
-          )}
-          {config.showSubscribe && (
-            <SubscribeModal ref={this.subscribe} />
-          )}
-        </SiteNavRight>
+        {/*<SiteNavRight>*/}
+          {/*<SocialLinks>*/}
+            {/*<a*/}
+              {/*className={`${SocialLink}`}*/}
+              {/*href={config.facebook}*/}
+              {/*target="_blank"*/}
+              {/*title="Facebook"*/}
+              {/*rel="noopener noreferrer"*/}
+            {/*>*/}
+              {/*<Facebook />*/}
+            {/*</a>*/}
+            {/*<a*/}
+              {/*className={`${SocialLink}`}*/}
+              {/*href={config.twitter}*/}
+              {/*title="Twitter"*/}
+              {/*target="_blank"*/}
+              {/*rel="noopener noreferrer"*/}
+            {/*>*/}
+              {/*<Twitter />*/}
+            {/*</a>*/}
+          {/*</SocialLinks>*/}
+          {/*{config.showSubscribe && (*/}
+            {/*<SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>*/}
+          {/*)}*/}
+          {/*{config.showSubscribe && (*/}
+            {/*<SubscribeModal ref={this.subscribe} />*/}
+          {/*)}*/}
+        {/*</SiteNavRight>*/}
       </nav>
     );
   }
 }
 
 export default SiteNav;
+
+
+// const SiteNavRight = styled.div`
+//   flex-shrink: 0;
+//   display: flex;
+//   align-items: center;
+//   height: 40px;
+//
+//   @media (max-width: 700px) {
+//     display: none;
+//   }
+// `;
+//
+// const SocialLinks = styled.div`
+//   flex-shrink: 0;
+//   display: flex;
+//   align-items: center;
+//   a:last-of-type {
+//     padding-right: 20px;
+//   }
+// `;
+//
+// const SubscribeButton = styled.a`
+//   display: block;
+//   padding: 4px 10px;
+//   border: #fff 1px solid;
+//   color: #fff;
+//   font-size: 1.2rem;
+//   line-height: 1em;
+//   border-radius: 10px;
+//   opacity: 0.8;
+//
+//   :hover {
+//     text-decoration: none;
+//     opacity: 1;
+//     cursor: pointer;
+//   }
+// `;

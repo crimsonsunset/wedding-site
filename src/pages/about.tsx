@@ -17,7 +17,8 @@ const PageTemplate = css`
 `;
 
 
-const About: React.SFC = () => (
+const About: React.SFC = () => {
+  return (
   <IndexLayout>
     <Helmet>
       <title>About</title>
@@ -65,6 +66,6 @@ const About: React.SFC = () => (
       <Footer />
     </Wrapper>
   </IndexLayout>
-);
+)};
 
 export default About;
