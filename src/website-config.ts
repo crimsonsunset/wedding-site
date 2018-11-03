@@ -28,7 +28,7 @@ const config: WebsiteConfig = {
   description: '#blessed',
   coverImage: 'img/us/scotts-highfive.jpg',
   logo: 'img/knot.png',
-  siteUrl: 'https://gatsby-casper.netlify.com',
+  siteUrl: 'https://jj-wedding.netlify.com/',
   facebook: '',
   twitter: '',
   showSubscribe: true,
