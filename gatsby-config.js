@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Ghost',
-    description: 'The professional publishing platform',
+    title: 'Joe & Jess Tie the Knot',
+    description: `The official home for everything related to Joe & Jess' wedding` ,
     siteUrl: 'https://jj-wedding.netlify.com/', // full path to blog - no ending slash
   },
   mapping: {

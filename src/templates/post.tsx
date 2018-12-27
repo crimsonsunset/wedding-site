@@ -6,15 +6,16 @@ import * as React from 'react';
 import styled, { css } from 'react-emotion';
 import { Helmet } from 'react-helmet';
 
-import AuthorCard from '../components/AuthorCard';
+
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
-import PostCard from '../components/PostCard';
 import PostContent from '../components/PostContent';
-import PostFullFooter from '../components/PostFullFooter';
-import PostFullFooterRight from '../components/PostFullFooterRight';
-import ReadNextCard from '../components/ReadNextCard';
-import Subscribe from '../components/subsribe/Subscribe';
+// import AuthorCard from '../components/AuthorCard';
+// import PostCard from '../components/PostCard';
+// import PostFullFooter from '../components/PostFullFooter';
+// import PostFullFooterRight from '../components/PostFullFooterRight';
+// import ReadNextCard from '../components/ReadNextCard';
+// import Subscribe from '../components/subsribe/Subscribe';
 import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
@@ -265,20 +266,22 @@ const PageTemplate: React.SFC<PageTemplateProps> = props => {
             {/* TODO: no-image css tag? */}
             <article className={`${PostFull} ${!post.frontmatter.image ? NoImage : ''}`}>
               <PostFullHeader>
-                <PostFullMeta>
-                  <PostFullMetaDate dateTime={post.frontmatter.date}>
-                    {post.frontmatter.userDate}
-                  </PostFullMetaDate>
-                  {post.frontmatter.tags &&
-                    post.frontmatter.tags.length > 0 && (
-                      <>
-                        <DateDivider>/</DateDivider>
-                        <Link to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}>
-                          {post.frontmatter.tags[0]}
-                        </Link>
-                      </>
-                    )}
-                </PostFullMeta>
+
+                {/*<PostFullMeta>*/}
+                  {/*<PostFullMetaDate dateTime={post.frontmatter.date}>*/}
+                    {/*{post.frontmatter.userDate}*/}
+                  {/*</PostFullMetaDate>*/}
+                  {/*{post.frontmatter.tags &&*/}
+                    {/*post.frontmatter.tags.length > 0 && (*/}
+                      {/*<>*/}
+                        {/*<DateDivider>/</DateDivider>*/}
+                        {/*<Link to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}>*/}
+                          {/*{post.frontmatter.tags[0]}*/}
+                        {/*</Link>*/}
+                      {/*</>*/}
+                    {/*)}*/}
+                {/*</PostFullMeta>*/}
+
                 <PostFullTitle>{post.frontmatter.title}</PostFullTitle>
               </PostFullHeader>
 
@@ -293,29 +296,31 @@ const PageTemplate: React.SFC<PageTemplateProps> = props => {
               <PostContent htmlAst={post.htmlAst} />
 
               {/* The big email subscribe modal content */}
-              {config.showSubscribe && <Subscribe title={config.title} />}
+              {/*{config.showSubscribe && <Subscribe title={config.title} />}*/}
 
-              <PostFullFooter>
-                <AuthorCard author={post.frontmatter.author} />
-                <PostFullFooterRight authorId={post.frontmatter.author.id} />
-              </PostFullFooter>
+              {/*<PostFullFooter>*/}
+                {/*<AuthorCard author={post.frontmatter.author} />*/}
+                {/*<PostFullFooterRight authorId={post.frontmatter.author.id} />*/}
+              {/*</PostFullFooter>*/}
+
+
             </article>
           </div>
         </main>
 
         {/* Links to Previous/Next posts */}
-        <aside className={`read-next ${outer}`}>
-          <div className={`${inner}`}>
-            <ReadNextFeed>
-              {props.data.relatedPosts && (
-                <ReadNextCard tags={post.frontmatter.tags} relatedPosts={props.data.relatedPosts} />
-              )}
+        {/*<aside className={`read-next ${outer}`}>*/}
+          {/*<div className={`${inner}`}>*/}
+            {/*<ReadNextFeed>*/}
+              {/*{props.data.relatedPosts && (*/}
+                {/*<ReadNextCard tags={post.frontmatter.tags} relatedPosts={props.data.relatedPosts} />*/}
+              {/*)}*/}
 
-              {props.pageContext.prev && <PostCard post={props.pageContext.prev} />}
-              {props.pageContext.next && <PostCard post={props.pageContext.next} />}
-            </ReadNextFeed>
-          </div>
-        </aside>
+              {/*{props.pageContext.prev && <PostCard post={props.pageContext.prev} />}*/}
+              {/*{props.pageContext.next && <PostCard post={props.pageContext.next} />}*/}
+            {/*</ReadNextFeed>*/}
+          {/*</div>*/}
+        {/*</aside>*/}
         <Footer />
       </Wrapper>
     </IndexLayout>

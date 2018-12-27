@@ -24,7 +24,7 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: 'Joe + Jess tie the knot',
+  title: 'Joe & Jess tie the knot',
   description: '#blessed',
   coverImage: 'img/us/scotts-highfive.jpg',
   logo: 'img/knot.png',

@@ -1,10 +1,84 @@
 {
+
   "extends": [
-    "tslint-xo/space",
-    "tslint-config-blvd/react", 
     "tslint-config-prettier"
   ],
   "rules": {
-    "file-name-casing": false
-  }
+    "member-access": false,
+    "no-any": false,
+    "no-inferrable-types": false,
+    "no-internal-module": true,
+    "no-var-requires": false,
+    "typedef": true,
+    "ban": false,
+    "curly": false,
+    "forin": false,
+    "label-position": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-variable": true,
+    "no-empty": false,
+    "no-eval": true,
+    "no-null-keyword": false,
+    "no-shadowed-variable": true,
+    "no-string-literal": false,
+    "no-switch-case-fall-through": false,
+    "no-unused-expression": false,
+    "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "radix": false,
+    "switch-default": true,
+    "triple-equals": [true, "allow-null-check"],
+    "no-require-imports": false,
+    "no-trailing-whitespace": false,
+    "object-literal-sort-keys": false,
+    "align": false,
+    "class-name": true,
+    "comment-format": [true, "check-space"],
+    "interface-name": false,
+    "jsdoc-format": true,
+    "no-consecutive-blank-lines": false,
+    "no-parameter-properties": false,
+    "whitespace": [
+      false,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type",
+      "allow-pascal-case"
+    ],
+    "directive-selector": [true, "attribute", [], "camelCase"],
+    "component-selector": [true, "element", [], "kebab-case"],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": false,
+    "no-attribute-parameter-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "no-forward-ref": false,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "component-class-suffix": [true, "Component"],
+    "directive-class-suffix": [true, "Directive"],
+    "pipe-naming": [true, "camelCase"],
+    "new-parens": true,
+    "arrow-parens": true,
+    "no-extra-parens": [
+      "all",
+      {
+        "returnAssign": false,
+        "enforceForArrowConditionals": false
+      }
+    ],
+    "space-before-function-paren": false,
+    "no-access-missing-member": false
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
 }
