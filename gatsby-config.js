@@ -62,5 +62,20 @@ module.exports = {
         postCssPlugins: [require('postcss-color-function'), require('cssnano')()],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'jj-tie-the-knot',
+        short_name: 'jj-wedding',
+        start_url: '/',
+        // todo: update these colors
+        background_color: '#ffffff',
+        theme_color: '#0000ff',
+        display: 'minimal-ui',
+        icon: 'src/content/img/knot.png', // This path is relative to the root of the site.
+      },
+    },
+    'gatsby-plugin-offline',
+
   ],
 };
