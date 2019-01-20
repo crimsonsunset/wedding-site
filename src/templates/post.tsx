@@ -6,25 +6,25 @@ import * as React from 'react';
 import styled, { css } from 'react-emotion';
 import { Helmet } from 'react-helmet';
 
-
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
 import PostContent from '../components/PostContent';
-// import AuthorCard from '../components/AuthorCard';
-// import PostCard from '../components/PostCard';
-// import PostFullFooter from '../components/PostFullFooter';
-// import PostFullFooterRight from '../components/PostFullFooterRight';
-// import ReadNextCard from '../components/ReadNextCard';
-// import Subscribe from '../components/subsribe/Subscribe';
 import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
 import { inner, outer, SiteHeader, SiteMain } from '../styles/shared';
 import config from '../website-config';
 
+// import AuthorCard from '../components/AuthorCard';
+// import PostCard from '../components/PostCard';
+// import PostFullFooter from '../components/PostFullFooter';
+// import PostFullFooterRight from '../components/PostFullFooterRight';
+// import ReadNextCard from '../components/ReadNextCard';
+// import Subscribe from '../components/subsribe/Subscribe';
+
 const PostTemplate = css`
   .site-main {
-    background #fff;
+    background: #fff;
     padding-bottom: 4vw;
   }
 `;
