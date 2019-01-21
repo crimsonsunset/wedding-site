@@ -243,8 +243,8 @@ const PageTemplate: React.SFC<PageTemplateProps> = props => {
         {post.frontmatter.image && (
           <meta name="twitter:image" content={post.frontmatter.image.childImageSharp.fluid.src} />
         )}
-        <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content={post.frontmatter.author.id} />
+        {/*<meta name="twitter:label1" content="Written by" />*/}
+        {/*<meta name="twitter:data1" content={post.frontmatter.author} />*/}
         <meta name="twitter:label2" content="Filed under" />
         {post.frontmatter.tags && <meta name="twitter:data2" content={post.frontmatter.tags[0]} />}
         <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[0]}`} />
