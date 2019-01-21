@@ -110,6 +110,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const prev = index === 0 ? null : posts[index - 1].node;
     const next = index === posts.length - 1 ? null : posts[index + 1].node;
 
+
+    console.log('creating POST: ', slug)
     createPage({
       path: slug,
       // This will automatically resolve the template to a corresponding
@@ -142,6 +144,7 @@ exports.createPages = async ({ graphql, actions }) => {
     ),
   );
   tags.forEach(tag => {
+    console.log('creating TAG: ', tag)
     createPage({
       path: `/tags/${_.kebabCase(tag)}/`,
       component: tagTemplate,
@@ -154,6 +157,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create author pages
   const authorTemplate = path.resolve('./src/templates/author.tsx');
   result.data.allAuthorYaml.edges.forEach(edge => {
+    console.log('creating AUTHOR: ', edge.node.id)
     createPage({
       path: `/author/${_.kebabCase(edge.node.id)}/`,
       component: authorTemplate,
@@ -162,6 +166,18 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  const { createRedirect } = actions;
+
+  // todo: remove for actual site [just here for rsvp time]
+  createRedirect({
+    fromPath: `/`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/rsvp`,
+  });
+
+
 };
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {

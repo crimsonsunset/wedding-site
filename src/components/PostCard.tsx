@@ -196,19 +196,24 @@ export interface PostCardProps {
 }
 
 const PostCard: React.SFC<PostCardProps> = ({ post }) => {
+
+  // if (!_.get(post, 'frontmatter.author.id')) {
+  //   _.set(post, 'frontmatter.author.id',_.uniqueId())
+  // }
+
   return (
     <article className={`post-card ${PostCardStyles} ${!post.frontmatter.image ? 'no-image' : ''}`}>
       {post.frontmatter.image && (
         <Link className={`${PostCardImageLink} post-card-image-link`} to={post.fields.slug}>
           <PostCardImage className="post-card-image">
             {post.frontmatter.image &&
-              post.frontmatter.image.childImageSharp.fluid && (
-                <Img
-                  alt={`${post.frontmatter.title} cover image`}
-                  style={{ height: '100%' }}
-                  fluid={post.frontmatter.image.childImageSharp.fluid}
-                />
-              )}
+            post.frontmatter.image.childImageSharp.fluid && (
+              <Img
+                alt={`${post.frontmatter.title} cover image`}
+                style={{ height: '100%' }}
+                fluid={post.frontmatter.image.childImageSharp.fluid}
+              />
+            )}
           </PostCardImage>
         </Link>
       )}
@@ -223,23 +228,7 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
           </PostCardExcerpt>
         </Link>
         <PostCardMeta className="post-card-meta">
-          <AuthorList>
-            <AuthorListItem>
-              <AuthorNameTooltip className="author-name-tooltip">
-                {post.frontmatter.author.id}
-              </AuthorNameTooltip>
-              <Link
-                className={`${StaticAvatar}`}
-                to={`/author/${_.kebabCase(post.frontmatter.author.id)}/`}
-              >
-                <img
-                  className={`${AuthorProfileImage}`}
-                  src={post.frontmatter.author.avatar.children[0].fixed.src}
-                  alt={post.frontmatter.author.id}
-                />
-              </Link>
-            </AuthorListItem>
-          </AuthorList>
+
           <ReadingTime>{post.timeToRead} min read</ReadingTime>
         </PostCardMeta>
       </PostCardContent>

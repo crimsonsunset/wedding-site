@@ -6,6 +6,11 @@ import { darken, lighten } from 'polished';
 export const outer = css`
   position: relative;
   padding: 0 4vw;
+  
+  iframe{
+  border:5px solid red;
+  }
+  
 `;
 
 // Centered content container blocks

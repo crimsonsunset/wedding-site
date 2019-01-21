@@ -7,7 +7,6 @@ import styled, { css } from 'react-emotion';
 // import config from '../../website-config';
 // import Facebook from '../icons/facebook';
 // import Twitter from '../icons/twitter';
-import SubscribeModal from '../subsribe/SubscribeOverlay';
 import SiteNavLogo from './SiteNavLogo';
 
 const HomeNavRaise = css`
@@ -85,17 +84,17 @@ interface SiteNaveState {
 }
 
 class SiteNav extends React.Component<SiteNavProps, SiteNaveState> {
-  subscribe = React.createRef<SubscribeModal>();
 
   constructor(props: SiteNavProps) {
     super(props);
     this.state = { isOpen: false };
   }
-  openModal = () => {
-    if (this.subscribe.current) {
-      this.subscribe.current.open();
-    }
-  }
+
+  // openModal = () => {
+  //   if (this.subscribe.current) {
+  //     this.subscribe.current.open();
+  //   }
+  // }
 
   render() {
     const { isHome = false } = this.props;

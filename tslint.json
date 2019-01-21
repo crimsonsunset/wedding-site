@@ -76,6 +76,7 @@
       }
     ],
     "space-before-function-paren": false,
+    "no-unused-variable": false,
     "no-access-missing-member": false
   },
   "rulesDirectory": [
