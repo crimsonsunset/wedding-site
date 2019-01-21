@@ -1,7 +1,7 @@
 import IndexLayout from '../layouts';
 import React, { PureComponent } from 'react';
 import Helmet from 'react-helmet';
-import { styles } from './rsvp.style';
+import { styles } from '../styles/rsvp.style';
 import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 // import { SiteHeader, outer, inner, SiteMain } from '../styles/shared';

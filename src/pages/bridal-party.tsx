@@ -7,7 +7,7 @@ import React, { PureComponent } from 'react';
 // import { PostFullContent } from '../components/PostContent';
 import Footer from '../components/Footer';
 import Helmet from 'react-helmet';
-import { styles } from './bridal-party.style';
+import { styles } from '../styles/bridal-party.style';
 import { bindAll } from 'lodash';
 import { PostFullHeader, PostFullTitle } from '../templates/post';
 import { graphql, StaticQuery } from 'gatsby';
