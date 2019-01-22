@@ -7,7 +7,7 @@ export const styles = css`
  }
  
  .image-wrapper{
- border:5px solid blue;
+ //border:5px solid blue;
  margin: 0 auto;
  max-width: 950px;
  
@@ -15,7 +15,7 @@ export const styles = css`
  
  img{
  position: relative;
- border:5px solid red;
+ //border:5px solid red;
  max-width: 1050px;
  }
  
@@ -24,7 +24,7 @@ export const styles = css`
     position: absolute;
     top: 80px;
     right: 10vw;
-    color: blue;
+    color: white;
     font-size: 80px;
  }
  
