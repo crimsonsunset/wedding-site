@@ -38,7 +38,7 @@ import Img from 'gatsby-image';
 // `;
 
 
-export const RSVP_QUERY = graphql`
+const RSVP_QUERY = graphql`
     query rsvpQuery {
         site {
             siteMetadata {
