@@ -62,7 +62,7 @@ export const RSVP_QUERY = graphql`
 
 class RSVPView extends PureComponent {
 
-  private iframe;
+  private iframe: HTMLIFrameElement | null = null;
 
   constructor(props: any) {
     super(props);
@@ -79,7 +79,6 @@ class RSVPView extends PureComponent {
         <StaticQuery
           query={RSVP_QUERY}
           render={(data) => {
-            debugger
             return (
               <>
 
@@ -125,7 +124,9 @@ class RSVPView extends PureComponent {
                         opacity: 0,
                       }}
                       onLoad={() => {
-                        this.iframe.style.opacity = 1;
+                          if (this.iframe) {
+                              this.iframe.style.opacity = '1';
+                          }
                       }}
                       src={`http://jess-joe-wedding.app.rsvpify.com/?embed=1&js=1`}
                       frameBorder="0"
