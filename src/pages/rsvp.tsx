@@ -72,7 +72,7 @@ class RSVPView extends PureComponent {
   };
 
   render() {
-
+      const sitePrefix = (process.env.IS_DEV) ? 'http' : 'https';
     return (
       <IndexLayout>
 
@@ -110,6 +110,7 @@ class RSVPView extends PureComponent {
                       <Img fluid={data.file.childImageSharp.fluid}/>
 
                       {/*<label>Jess & Joe</label>*/}
+                        {/*{`${process.env.IS_DEV}`}*/}
 
                     </div>
                     {/*<Img fixed={data.file.childImageSharp.fixed}/>*/}
@@ -128,7 +129,7 @@ class RSVPView extends PureComponent {
                               this.iframe.style.opacity = '1';
                           }
                       }}
-                      src={`http://jess-joe-wedding.app.rsvpify.com/?embed=1&js=1`}
+                      src={`${sitePrefix}://jess-joe-wedding.app.rsvpify.com/?embed=1&js=1`}
                       frameBorder="0"
                       scrolling="no">
 

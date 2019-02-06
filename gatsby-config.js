@@ -1,10 +1,17 @@
 const path = require('path');
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const webpackUtils = require('./WebpackUtil');
+
 module.exports = {
   siteMetadata: {
     title: 'Joe & Jess Tie the Knot',
     description: `The official home for everything related to Joe & Jess' wedding` ,
     siteUrl: 'https://jj-wedding.netlify.com/', // full path to blog - no ending slash
+    ...webpackUtils.buildInfo
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',

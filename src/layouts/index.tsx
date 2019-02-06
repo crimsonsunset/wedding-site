@@ -1,8 +1,11 @@
-import { injectGlobal } from 'emotion';
-import { darken, lighten } from 'polished';
+import {injectGlobal} from 'emotion';
+import {darken, lighten} from 'polished';
 import * as React from 'react';
 
-import { colors } from '../styles/colors';
+import {colors} from '../styles/colors';
+import {graphql, StaticQuery} from "gatsby";
+import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
+import {words, forEach, map} from 'lodash';
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -478,11 +481,62 @@ body {
 `;
 
 interface IndexProps {
-  className?: string;
+    className?: string;
 }
 
+// todo: move this to helpers
+function printBuildInfo(buildInfo:any) {
+
+    forEach(buildInfo, (e,i) => {
+        buildInfo[i] = e.replace(/\"/g, "")
+    });
+
+    const { name, version, environment, date} = buildInfo;
+    const env = (process.env.IS_DEV) ? 'dev' : 'prod';
+    let red = `${words(name).join(' ')} | v${version} | ${environment}`;
+    let blue = 'Built at: ' + date;
+    let green = 'Backend ENV is: ' + env;
+
+    // stamp build
+    console.log('%c' + red, 'color:red;');
+    console.log('%c' + blue, 'color:blue;');
+    console.log('%c' + green, 'color:green;');
+}
+
+
 const IndexLayout: React.SFC<IndexProps> = props => {
-  return <div className={props.className}>{props.children}</div>;
+    return (
+        <StaticQuery
+            query={INDEX_LAYOUT_QUERY}
+            render={({site}) => {
+                printBuildInfo(site.siteMetadata);
+                return (
+                    <div
+                        id="wedding-site"
+                        className={props.className}
+                    >
+                        {props.children}
+                    </div>
+                );
+            }}
+        />);
 };
 
 export default IndexLayout;
+
+
+const INDEX_LAYOUT_QUERY = graphql`
+    query indexLayoutQuery {
+
+        site {
+            siteMetadata {
+                version
+                date
+                name
+                environment
+            }
+        }
+        
+
+    }`;
+

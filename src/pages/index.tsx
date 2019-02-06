@@ -87,6 +87,7 @@ export interface IndexProps {
 const IndexPage: React.SFC<IndexProps> = props => {
   const width = props.data.header.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
   const height = String(Number(width) / props.data.header.childImageSharp.fluid.aspectRatio);
+
   return (
     <IndexLayout className={`${HomePosts}`}>
       <Helmet>
@@ -175,6 +176,14 @@ export const pageQuery = graphql`
         fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid
         }
+      }
+    }
+    site {
+      siteMetadata {
+        version
+        date
+        name
+        environment
       }
     }
     allMarkdownRemark(limit: 1000, sort: { fields: [frontmatter___date], order: DESC }) {
