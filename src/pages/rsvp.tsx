@@ -1,64 +1,37 @@
 import IndexLayout from '../layouts';
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import Helmet from 'react-helmet';
-import { styles } from '../styles/rsvp.style';
-import { graphql, StaticQuery } from 'gatsby';
+import {styles} from '../styles/rsvp.style';
+import {graphql, StaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
+import styled from 'react-emotion';
 // import { SiteHeader, outer, inner, SiteMain } from '../styles/shared';
 // import { bindAll } from 'lodash';
 // import Footer from '../components/Footer';
-// import { PostFullHeader, PostFullTitle } from '../templates/post';
 // const iFrameResize = require('iframe-resizer').iframeResizer;
 
-
-// export const RSVP_QUERY = graphql`
-//     query rsvpQuery {
-//         site {
-//             siteMetadata {
-//                 title
-//                 description
-//             }
-//         }
-//
-//         allFile(filter: { absolutePath: { regex: "/us/" } }) {
-//             edges{
-//                 node{
-//                     childImageSharp{
-//                         fluid(maxWidth: 3720) {
-//                             ...GatsbyImageSharpFluid_tracedSVG
-//                         }
-//                     }
-//                 }
-//             }
-//
-//
-//
-//         }}
-//
-// `;
-
-
 const RSVP_QUERY = graphql`
-    query rsvpQuery {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+  query rsvpQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+    file(relativePath: { regex: "/mount/" }) {
+      childImageSharp {
+        fluid (maxWidth: 5000){
+          ...GatsbyImageSharpFluid_tracedSVG
+          presentationWidth
         }
-        file(relativePath: { regex: "/mount/" }) {
-            childImageSharp {
-                fluid (maxWidth: 3720){
-                    ...GatsbyImageSharpFluid_tracedSVG
-                }
 
-                #                fixed(width: 125, height: 125) {
-                #                    ...GatsbyImageSharpFixed
-                #                }
+        #                fixed(width: 125, height: 125) {
+        #                    ...GatsbyImageSharpFixed
+        #                }
 
-            }
-        }
-    }`;
+      }
+    }
+  }`;
 
 class RSVPView extends PureComponent {
 
@@ -66,19 +39,33 @@ class RSVPView extends PureComponent {
 
   constructor(props: any) {
     super(props);
-    // bindAll(this, [
-    //   'getPartyMembers',
-    // ]);
   };
 
   render() {
-      const sitePrefix = (process.env.IS_DEV) ? 'http' : 'https';
+    const sitePrefix = (process.env.IS_DEV) ? 'http' : 'https';
     return (
       <IndexLayout>
 
         <StaticQuery
           query={RSVP_QUERY}
           render={(data) => {
+            const fluidImg = data.file.childImageSharp.fluid;
+            const imgLocation = data.file.childImageSharp.fluid.src;
+
+            const BgImage = styled(Img)`
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+
+     background-position: center center;
+  background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 40vh;
+        height: 100vh;
+        // background: url(${imgLocation}) no-repeat center center fixed;
+`;
             return (
               <>
 
@@ -89,7 +76,7 @@ class RSVPView extends PureComponent {
                       name: 'description',
                       content: data.site.siteMetadata.description,
                     },
-                    { name: 'keywords', content: 'rsvp, wedding, jj-wedding' },
+                    {name: 'keywords', content: 'rsvp, wedding, jj-wedding'},
                   ]}
                 >
                   <html lang="en"/>
@@ -98,23 +85,15 @@ class RSVPView extends PureComponent {
 
                 <main
                   id="rsvp"
+                  className={`${styles}`}
                 >
-                  <section className={`rsvp-view ${styles}`}>
+                  <section className={`rsvp-view`}>
 
                     {/*<PostFullHeader>*/}
                     {/*<PostFullTitle>RSVP</PostFullTitle>*/}
                     {/*</PostFullHeader>*/}
 
-
-                    <div className="image-wrapper">
-                      <Img fluid={data.file.childImageSharp.fluid}/>
-
-                      {/*<label>Jess & Joe</label>*/}
-                        {/*{`${process.env.IS_DEV}`}*/}
-
-                    </div>
-                    {/*<Img fixed={data.file.childImageSharp.fixed}/>*/}
-
+                    <BgImage fluid={fluidImg}/>
 
                     <iframe
                       id="RSVPifyIFrame"
@@ -125,13 +104,14 @@ class RSVPView extends PureComponent {
                         opacity: 0,
                       }}
                       onLoad={() => {
-                          if (this.iframe) {
-                              this.iframe.style.opacity = '1';
-                          }
+                        if (this.iframe) {
+                          this.iframe.style.opacity = '1';
+                        }
                       }}
                       src={`${sitePrefix}://jess-joe-wedding.app.rsvpify.com/?embed=1&js=1`}
                       frameBorder="0"
-                      scrolling="no">
+                      scrolling="no"
+                    >
 
                     </iframe>
 
@@ -161,3 +141,17 @@ class RSVPView extends PureComponent {
 };
 
 export default RSVPView;
+
+
+// const ImageWrapper = ({tag, children, ...props}) => {
+//
+//   const Container = styled(tag)`
+//         background-color: orange;
+//         border:5px solid blue;
+//         height: 100vh;
+//         background: url(${imgLocation}) no-repeat center center fixed;
+//   background-size: cover;
+//
+// `;
+//   return <Container {...props}>{children}</Container>;
+// };
