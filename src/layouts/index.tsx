@@ -1,15 +1,50 @@
-import {injectGlobal} from 'emotion';
-import {darken, lighten} from 'polished';
+import { injectGlobal } from 'emotion';
+import { darken, lighten } from 'polished';
 import * as React from 'react';
 
-import {colors} from '../styles/colors';
-import {graphql, StaticQuery} from "gatsby";
+import { colors } from '../styles/colors';
+import { graphql, StaticQuery } from 'gatsby';
 // import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
-import {words, forEach, map} from 'lodash';
-import 'typeface-sunshiney'
-import 'typeface-montserrat'
-import 'typeface-raleway'
-
+import { words, forEach, map } from 'lodash';
+import 'typeface-sunshiney';
+import 'typeface-montserrat';
+import 'typeface-raleway';
+import 'typeface-allura';
+import 'typeface-caveat-brush';
+import 'typeface-fredericka-the-great';
+import 'typeface-handlee';
+import 'typeface-just-another-hand';
+import 'typeface-kalam';
+import 'typeface-love-ya-like-a-sister';
+import 'typeface-miltonian';
+import 'typeface-miniver';
+import 'typeface-over-the-rainbow';
+import 'typeface-pacifico';
+import 'typeface-qwigley';
+import 'typeface-rancho';
+import 'typeface-ribeye-marrow';
+import 'typeface-shadows-into-light-two';
+import 'typeface-sunshiney';
+import 'typeface-waiting-for-the-sunrise';
+import 'typeface-lato';
+import 'typeface-arimo';
+import 'typeface-oxygen';
+import 'typeface-hind';
+import 'typeface-cabin';
+import 'typeface-libre-franklin';
+import 'typeface-hind-madurai';
+import 'typeface-catamaran';
+import 'typeface-pontano-sans';
+import 'typeface-gudea';
+import 'typeface-molengo';
+import 'typeface-basic';
+import 'typeface-puritan';
+import 'typeface-koho';
+import 'typeface-capriola';
+import 'typeface-ibm-plex-sans-condensed';
+import 'typeface-ntr';
+import 'typeface-harmattan';
+import 'typeface-imprima';
 
 
 // tslint:disable-next-line:no-unused-expression
@@ -97,10 +132,24 @@ video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
-  font-family: 'montserrat';
-  //font-family: 'Sunshiney';
-  //font-family: 'Sunshiney';
-  //font-family: 'Sunshiney';
+  //font-family: 'Allura', cursive;
+  //font-family: 'Caveat Brush', cursive;
+  //font-family: 'Fredericka the Great', cursive;
+  //font-family: 'Handlee', cursive; //
+  //font-family: 'Just Another Hand', cursive;
+  //font-family: 'Kalam', cursive;
+  //font-family: 'Love Ya Like A Sister', cursive;
+  //font-family: 'Miltonian', cursive;
+  //font-family: 'Miniver', cursive;
+  //font-family: 'Over the Rainbow', cursive;
+  //font-family: 'Pacifico', cursive;
+  //font-family: 'Qwigley', cursive;
+  font-family: 'Rancho', cursive; //
+  //font-family: 'Ribeye Marrow', cursive;
+  //font-family: 'Shadows Into Light Two', cursive; //
+  //font-family: 'Sunshiney', cursive;
+  //font-family: 'Waiting for the Sunrise', cursive;
+ 
 }
 body {
   line-height: 1;
@@ -490,62 +539,62 @@ body {
 `;
 
 interface IndexProps {
-    className?: string;
+  className?: string;
 }
 
 // todo: move this to helpers
-function printBuildInfo(buildInfo:any) {
+function printBuildInfo(buildInfo: any) {
 
-    forEach(buildInfo, (e,i) => {
-        buildInfo[i] = e.replace(/\"/g, "")
-    });
+  forEach(buildInfo, (e, i) => {
+    buildInfo[i] = e.replace(/\"/g, '');
+  });
 
-    const { name, version, environment, date} = buildInfo;
-    const env = (process.env.IS_DEV) ? 'dev' : 'prod';
-    let red = `${words(name).join(' ')} | v${version} | ${environment}`;
-    let blue = 'Built at: ' + date;
-    let green = 'Backend ENV is: ' + env;
+  const { name, version, environment, date } = buildInfo;
+  const env = (process.env.IS_DEV) ? 'dev' : 'prod';
+  let red = `${words(name).join(' ')} | v${version} | ${environment}`;
+  let blue = 'Built at: ' + date;
+  let green = 'Backend ENV is: ' + env;
 
-    // stamp build
-    console.log('%c' + red, 'color:red;');
-    console.log('%c' + blue, 'color:blue;');
-    console.log('%c' + green, 'color:green;');
+  // stamp build
+  console.log('%c' + red, 'color:red;');
+  console.log('%c' + blue, 'color:blue;');
+  console.log('%c' + green, 'color:green;');
 }
 
 
 const IndexLayout: React.SFC<IndexProps> = props => {
-    return (
-        <StaticQuery
-            query={INDEX_LAYOUT_QUERY}
-            render={({site}) => {
-                printBuildInfo(site.siteMetadata);
-                return (
-                    <div
-                        id="wedding-site"
-                        className={props.className}
-                    >
-                        {props.children}
-                    </div>
-                );
-            }}
-        />);
+  return (
+    <StaticQuery
+      query={INDEX_LAYOUT_QUERY}
+      render={({ site }) => {
+        printBuildInfo(site.siteMetadata);
+        return (
+          <div
+            id="wedding-site"
+            className={props.className}
+          >
+            {props.children}
+          </div>
+        );
+      }}
+    />);
 };
 
 export default IndexLayout;
 
 
 const INDEX_LAYOUT_QUERY = graphql`
-    query indexLayoutQuery {
+  query indexLayoutQuery {
 
-        site {
-            siteMetadata {
-                version
-                date
-                name
-                environment
-            }
-        }
-        
+    site {
+      siteMetadata {
+        version
+        date
+        name
+        environment
+      }
+    }
 
-    }`;
+
+  }`;
 
