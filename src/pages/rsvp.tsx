@@ -1,8 +1,8 @@
 import IndexLayout from '../layouts';
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import Helmet from 'react-helmet';
-import {styles} from '../styles/rsvp.style';
-import {graphql, StaticQuery} from 'gatsby';
+import { styles } from '../styles/rsvp.style';
+import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'react-emotion';
 // import { SiteHeader, outer, inner, SiteMain } from '../styles/shared';
@@ -18,7 +18,7 @@ const RSVP_QUERY = graphql`
         description
       }
     }
-    file(relativePath: { regex: "/mount/" }) {
+    file(relativePath: { regex: "/keystone/" }) {
       childImageSharp {
         fluid (maxWidth: 5000){
           ...GatsbyImageSharpFluid_tracedSVG
@@ -52,7 +52,10 @@ class RSVPView extends PureComponent {
             const fluidImg = data.file.childImageSharp.fluid;
             const imgLocation = data.file.childImageSharp.fluid.src;
 
+            // language=CSS
+
             const BgImage = styled(Img)`
+
     position: absolute;
 
     left: 0;
@@ -76,7 +79,7 @@ class RSVPView extends PureComponent {
                       name: 'description',
                       content: data.site.siteMetadata.description,
                     },
-                    {name: 'keywords', content: 'rsvp, wedding, jj-wedding'},
+                    { name: 'keywords', content: 'rsvp, wedding, jj-wedding' },
                   ]}
                 >
                   <html lang="en"/>

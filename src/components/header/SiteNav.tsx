@@ -104,17 +104,52 @@ class SiteNav extends React.Component<SiteNavProps, SiteNaveState> {
           {!isHome && <SiteNavLogo />}
           <ul className={`${NavStyles}`} role="menu">
             {/* TODO: mark current nav item - add class nav-current */}
+
             <li role="menuitem">
-              <Link to="/">Home</Link>
+              <Link to="/">Our Wedding</Link>
             </li>
             <li role="menuitem">
-              <Link to="/about">About</Link>
+              <Link to="/about">Events</Link>
             </li>
             <li role="menuitem">
-              <Link to="/tags/getting-started/">Getting Started</Link>
+              <Link to="/about">Travel</Link>
             </li>
+            <li role="menuitem">
+              <Link to="/about">Accommodations</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/about">While You're Here</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/about">Nuggets</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/about">RSVP</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/about">Registry</Link>
+            </li>
+
           </ul>
         </SiteNavLeft>
+
+
+
+
+
+        {/*<li role="menuitem">*/}
+          {/*<Link to="/">Home</Link>*/}
+        {/*</li>*/}
+        {/*<li role="menuitem">*/}
+          {/*<Link to="/about">About</Link>*/}
+        {/*</li>*/}
+        {/*<li role="menuitem">*/}
+          {/*<Link to="/tags/getting-started/">Getting Started</Link>*/}
+        {/*</li>*/}
+
+
+
+
         {/*<SiteNavRight>*/}
           {/*<SocialLinks>*/}
             {/*<a*/}
