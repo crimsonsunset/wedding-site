@@ -8,8 +8,8 @@ const webpackUtils = require('./WebpackUtil');
 
 module.exports = {
   siteMetadata: {
-    title: 'Joe & Jess Tie the Knot',
-    description: `The official home for everything related to Joe & Jess' wedding` ,
+    title: `Jess and Joe's Wedding`,
+    description: `The official home for everything related to Jess & Joe's wedding` ,
     siteUrl: 'https://jj-wedding.netlify.com/', // full path to blog - no ending slash
     ...webpackUtils.buildInfo
   },

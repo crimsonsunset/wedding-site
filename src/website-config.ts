@@ -24,8 +24,8 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: 'Joe & Jess tie the knot',
-  description: '#blessed',
+  title: `Jess & Joe's Wedding`,
+  description: `#Two J's Always`,
   coverImage: 'img/us/scotts-highfive.jpg',
   logo: 'img/knot.png',
   siteUrl: 'https://jj-wedding.netlify.com/',

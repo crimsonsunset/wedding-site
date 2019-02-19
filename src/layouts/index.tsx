@@ -4,8 +4,13 @@ import * as React from 'react';
 
 import {colors} from '../styles/colors';
 import {graphql, StaticQuery} from "gatsby";
-import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
+// import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
 import {words, forEach, map} from 'lodash';
+import 'typeface-sunshiney'
+import 'typeface-montserrat'
+import 'typeface-raleway'
+
+
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -92,6 +97,10 @@ video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
+  font-family: 'montserrat';
+  //font-family: 'Sunshiney';
+  //font-family: 'Sunshiney';
+  //font-family: 'Sunshiney';
 }
 body {
   line-height: 1;
@@ -120,7 +129,7 @@ img {
 }
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  //font-family: sans-serif;
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -268,7 +277,7 @@ body {
   overflow-x: hidden;
   /* color: color(var(--midgrey) l(-25%)); */
   color: ${darken('0.25', colors.midgrey)};
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.5rem;
   line-height: 1.6em;
   font-weight: 400;
