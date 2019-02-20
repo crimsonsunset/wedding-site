@@ -27,7 +27,7 @@ const config: WebsiteConfig = {
   title: `Jess & Joe's Wedding`,
   description: `#Two J's Always`,
   coverImage: 'img/us/scotts-highfive.jpg',
-  logo: 'img/knot.png',
+  logo: 'img/favicon/favicon-big.png',
   siteUrl: 'https://jj-wedding.netlify.com/',
   facebook: '',
   twitter: '',
