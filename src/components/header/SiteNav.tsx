@@ -23,7 +23,7 @@ const SiteNavStyles = css`
   justify-content: space-between;
   align-items: flex-start;
   overflow-y: hidden;
-  height: 40px;
+  height: 80px;
   font-size: 1.2rem;
 `;
 
@@ -37,6 +37,10 @@ const SiteNavLeft = styled.div`
   padding-bottom: 80px;
   letter-spacing: 0.4px;
   white-space: nowrap;
+
+a{
+margin-right: 10px;
+}
 
   -ms-overflow-scrolling: touch;
 
@@ -65,7 +69,8 @@ const NavStyles = css`
     padding: 10px 12px;
     color: #fff;
     opacity: 0.8; 
-    font-size: 20px;
+    font-size: 30px;
+    letter-spacing: -1px;
     text-shadow: 1px 1px black;
   }
 

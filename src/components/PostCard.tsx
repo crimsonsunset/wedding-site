@@ -229,7 +229,7 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
         </Link>
         <PostCardMeta className="post-card-meta">
 
-          <ReadingTime>{post.timeToRead} min read</ReadingTime>
+          {/*<ReadingTime>{post.timeToRead} min read</ReadingTime>*/}
         </PostCardMeta>
       </PostCardContent>
     </article>

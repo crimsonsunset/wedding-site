@@ -9,7 +9,7 @@ const webpackUtils = require('./WebpackUtil');
 module.exports = {
   siteMetadata: {
     title: `Jess and Joe's Wedding`,
-    description: `The official home for everything related to Jess & Joe's wedding` ,
+    description: `The official home for everything related to Jess & Joe's wedding`,
     siteUrl: 'https://jj-wedding.netlify.com/', // full path to blog - no ending slash
     ...webpackUtils.buildInfo
   },
@@ -17,6 +17,23 @@ module.exports = {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": path.resolve(__dirname, 'src/components'),
+          "@config": path.resolve(__dirname, 'src/config'),
+          "@content": path.resolve(__dirname, 'src/content'),
+          "@img": path.resolve(__dirname, 'src/content/img'),
+          "@favicon": path.resolve(__dirname, 'src/content/img/favicon'),
+          "@layouts": path.resolve(__dirname, 'src/layouts'),
+          "@styles": path.resolve(__dirname, 'src/styles'),
+          "@util": path.resolve(__dirname, 'src/util'),
+        },
+        extensions: []
+      }
+    },
+
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',

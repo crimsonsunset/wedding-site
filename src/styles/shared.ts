@@ -1,7 +1,7 @@
-import { css } from 'emotion';
+import {css} from 'emotion';
 import styled from 'react-emotion';
-import { colors } from './colors';
-import { darken, lighten } from 'polished';
+import {colors} from './colors';
+import {darken, lighten} from 'polished';
 
 export const outer = css`
   position: relative;
@@ -29,7 +29,7 @@ export const SiteTitle = styled.h1`
   z-index: 10;
   margin: 0;
   padding: 0;
-  font-size: 3.8rem;
+  font-size: 8rem;
   font-weight: 700;
 `;
 
@@ -78,13 +78,26 @@ export const SocialLink = css`
 `;
 
 export const SiteHeader = css`
-  position: relative;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #fff;
-  /* background: color(var(--darkgrey) l(-5%)) no-repeat center center; */
-  background: ${darken('0.05', colors.darkgrey)} no-repeat center center;
-  background-size: cover;
+  
+      /* position: relative; */
+    position: sticky;
+    top: 0;
+    //padding-top: 12px;
+    //padding-bottom: 12px;
+    color: #fff;
+    background: #486f33 no-repeat center center;
+    background-size: cover;
+  
+  
+  
+  
+  // position: relative;
+  // padding-top: 12px;
+  // padding-bottom: 12px;
+  // color: #fff;
+  // /* background: color(var(--darkgrey) l(-5%)) no-repeat center center; */
+  // background: ${darken('0.05', colors.darkgrey)} no-repeat center center;
+  // background-size: cover;
 `;
 
 export const SiteHeaderContent = styled.div`

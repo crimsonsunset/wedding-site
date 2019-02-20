@@ -1,11 +1,11 @@
-import { injectGlobal } from 'emotion';
-import { darken, lighten } from 'polished';
+import {injectGlobal} from 'emotion';
+import {darken, lighten} from 'polished';
 import * as React from 'react';
 
-import { colors } from '../styles/colors';
-import { graphql, StaticQuery } from 'gatsby';
+import {colors} from '../styles/colors';
+import {graphql, StaticQuery} from 'gatsby';
 // import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
-import { words, forEach, map } from 'lodash';
+import {words, forEach, map} from 'lodash';
 import 'typeface-sunshiney';
 import 'typeface-montserrat';
 import 'typeface-raleway';
@@ -45,6 +45,7 @@ import 'typeface-ibm-plex-sans-condensed';
 import 'typeface-ntr';
 import 'typeface-harmattan';
 import 'typeface-imprima';
+import 'typeface-roboto';
 
 
 // tslint:disable-next-line:no-unused-expression
@@ -144,7 +145,7 @@ video {
   //font-family: 'Over the Rainbow', cursive;
   //font-family: 'Pacifico', cursive;
   //font-family: 'Qwigley', cursive;
-  font-family: 'Rancho', cursive; //
+  font-family: 'Roboto', sans-serif;
   //font-family: 'Ribeye Marrow', cursive;
   //font-family: 'Shadows Into Light Two', cursive; //
   //font-family: 'Sunshiney', cursive;
@@ -205,6 +206,7 @@ dfn {
   font-style: italic;
 }
 h1 {
+font-family: 'Rancho', cursive; //
   margin: 0.67em 0;
   font-size: 2em;
 }
@@ -477,6 +479,7 @@ h3,
 h4,
 h5,
 h6 {
+font-family: 'Rancho', cursive;
   margin-top: 0;
   line-height: 1.15;
   font-weight: 700;
@@ -549,7 +552,7 @@ function printBuildInfo(buildInfo: any) {
     buildInfo[i] = e.replace(/\"/g, '');
   });
 
-  const { name, version, environment, date } = buildInfo;
+  const {name, version, environment, date} = buildInfo;
   const env = (process.env.IS_DEV) ? 'dev' : 'prod';
   let red = `${words(name).join(' ')} | v${version} | ${environment}`;
   let blue = 'Built at: ' + date;
@@ -566,7 +569,7 @@ const IndexLayout: React.SFC<IndexProps> = props => {
   return (
     <StaticQuery
       query={INDEX_LAYOUT_QUERY}
-      render={({ site }) => {
+      render={({site}) => {
         printBuildInfo(site.siteMetadata);
         return (
           <div
