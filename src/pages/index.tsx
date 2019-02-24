@@ -139,8 +139,11 @@ const IndexPage: React.SFC<IndexProps> = props => {
         <main id="site-main" className={`${SiteMain} ${outer}`}>
           <div className={`${inner}`}>
             <div className={`${PostFeed} ${PostFeedRaise}`}>
-              {props.data.allMarkdownRemark.edges.map(post => {
+              {props.data.allMarkdownRemark.edges.map((post) => {
+
+                console.log('post:', post)
                 return <PostCard key={post.node.fields.slug} post={post.node} />;
+
               })}
             </div>
           </div>
@@ -169,7 +172,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    header: file(relativePath: { eq: "img/us/scotts-highfive.jpg" }) {
+    header: file(relativePath: { eq: "img/us/trees-keystone.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.

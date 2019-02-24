@@ -29,8 +29,15 @@ export const SiteTitle = styled.h1`
   z-index: 10;
   margin: 0;
   padding: 0;
-  font-size: 8rem;
+  font-size: ${'11rem'};
   font-weight: 700;
+  
+    text-shadow: 0 0 2px #fff, 
+    //-1px -1px 0 hsl(59,50%,19%), 
+    //-2px -2px 1px hsl(59,50%,19%) 
+    -1px -1px 0 rgb(67,87,17), 
+    -2px -2px 1px rgb(67,87,17) 
+  
 `;
 
 export const SiteDescription = styled.h2`

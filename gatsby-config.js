@@ -8,9 +8,9 @@ const webpackUtils = require('./WebpackUtil');
 
 module.exports = {
   siteMetadata: {
-    title: `Jess and Joe's Wedding`,
+    title: `Jess and Joe`,
     description: `The official home for everything related to Jess & Joe's wedding`,
-    siteUrl: 'https://jj-wedding.netlify.com/', // full path to blog - no ending slash
+    siteUrl: 'https://www.jessandjoe.co', // full path to blog - no ending slash
     ...webpackUtils.buildInfo
   },
   mapping: {
@@ -70,7 +70,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://jj-wedding.netlify.com/',
+        siteUrl: 'https://www.jessandjoe.co',
       },
     },
     'gatsby-plugin-emotion',

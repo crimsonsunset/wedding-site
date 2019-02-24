@@ -24,16 +24,16 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: `Jess & Joe's Wedding`,
+  title: `Jess & Joe`,
   description: `#Two J's Always`,
-  coverImage: 'img/us/scotts-highfive.jpg',
+  coverImage: 'img/us/trees-keystone.jpg',
   logo: 'img/favicon/favicon-big.png',
-  siteUrl: 'https://jj-wedding.netlify.com/',
+  siteUrl: 'https://www.jessandjoe.co',
   facebook: '',
   twitter: '',
   showSubscribe: true,
-  mailchimpAction: 'https://twitter.us19.list-manage.com/subscribe/post?u=a89b6987ac248c81b0b7f3a0f&amp;id=7d777b7d75',
-  mailchimpName: 'b_a89b6987ac248c81b0b7f3a0f_7d777b7d75',
+  // mailchimpAction: 'https://twitter.us19.list-manage.com/subscribe/post?u=a89b6987ac248c81b0b7f3a0f&amp;id=7d777b7d75',
+  // mailchimpName: 'b_a89b6987ac248c81b0b7f3a0f_7d777b7d75',
 };
 
 export default config;
