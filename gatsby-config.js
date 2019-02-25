@@ -28,7 +28,10 @@ module.exports = {
           "@favicon": path.resolve(__dirname, 'src/content/img/favicon'),
           "@layouts": path.resolve(__dirname, 'src/layouts'),
           "@styles": path.resolve(__dirname, 'src/styles'),
+          "@styles-components": path.resolve(__dirname, 'src/styles/components'),
+          "@styles-pages": path.resolve(__dirname, 'src/styles/pages'),
           "@util": path.resolve(__dirname, 'src/util'),
+          "@root": path.resolve(__dirname, 'src/'),
         },
         extensions: []
       }

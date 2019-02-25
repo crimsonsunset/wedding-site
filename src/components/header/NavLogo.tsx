@@ -1,12 +1,12 @@
 import { graphql, Link, StaticQuery } from 'gatsby';
 import * as React from 'react';
 import config from '../../website-config';
-import {styles} from './site-nav-logo.style';
+import {styles} from '@styles-components/nav/nav-logo.style';
 
 const svgLogo = require('@img/favicon/favicon.svg');
 
 
-interface SiteNavLogoProps {
+interface NavLogoProps {
   logo?: {
     childImageSharp: {
       fixed: any;
@@ -18,7 +18,7 @@ interface SiteNavLogoProps {
 var useTag = `<use xlink:href=${svgLogo} />`;
 
 // todo: replace png with svg logo and colorize
-const SiteNavLogo = () => (
+const NavLogo = () => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -32,7 +32,7 @@ const SiteNavLogo = () => (
       }
     `}
     // tslint:disable-next-line:react-this-binding-issue
-    render={(data: SiteNavLogoProps) => (
+    render={(data: NavLogoProps) => (
       <Link
         className={`${styles} site-nav-logo`}
         to="/"
@@ -77,4 +77,4 @@ const SiteNavLogo = () => (
   />
 );
 
-export default SiteNavLogo;
+export default NavLogo;

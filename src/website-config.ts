@@ -25,7 +25,7 @@ export interface WebsiteConfig {
 
 const config: WebsiteConfig = {
   title: `Jess & Joe`,
-  description: `#Two J's Always`,
+  description: `#twoJSalways`,
   coverImage: 'img/us/trees-keystone.jpg',
   logo: 'img/favicon/favicon-big.png',
   siteUrl: 'https://www.jessandjoe.co',

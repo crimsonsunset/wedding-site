@@ -1,16 +1,12 @@
-import {css} from 'emotion';
+import { css } from 'emotion';
 import styled from 'react-emotion';
-import {colors} from './colors';
-import {darken, lighten} from 'polished';
+import { darken, lighten } from 'polished';
+import { colors, fonts, shadows, animations } from './variables';
+
 
 export const outer = css`
-  position: relative;
-  padding: 0 4vw;
-  
-  iframe{
-  border:5px solid red;
-  }
-  
+  //position: relative;
+  //padding: 0 4vw;
 `;
 
 // Centered content container blocks
@@ -26,28 +22,36 @@ export const SiteMain = css`
 `;
 
 export const SiteTitle = styled.h1`
+  ${shadows.text}
+  
   z-index: 10;
   margin: 0;
   padding: 0;
   font-size: ${'11rem'};
   font-weight: 700;
-  
-    text-shadow: 0 0 2px #fff, 
-    //-1px -1px 0 hsl(59,50%,19%), 
-    //-2px -2px 1px hsl(59,50%,19%) 
-    -1px -1px 0 rgb(67,87,17), 
-    -2px -2px 1px rgb(67,87,17) 
+  letter-spacing: 4px;
+  color:${colors.$white};
   
 `;
 
 export const SiteDescription = styled.h2`
+  ${shadows.text}
+  ${animations.scaleHover(1.3)};
+  
   z-index: 10;
   margin: 0;
   padding: 5px 0;
-  font-size: 2.2rem;
+  font-size: 4rem;
   font-weight: 300;
   letter-spacing: 0.5px;
-  opacity: 0.8;
+  
+  color:${colors.$white};
+  
+  a{
+  font-family: Rancho;
+  color:${colors.$white};
+  }
+  
 `;
 
 export const PostFeed = css`
@@ -85,26 +89,11 @@ export const SocialLink = css`
 `;
 
 export const SiteHeader = css`
-  
-      /* position: relative; */
     position: sticky;
     top: 0;
-    //padding-top: 12px;
-    //padding-bottom: 12px;
-    color: #fff;
-    background: #486f33 no-repeat center center;
+    color: ${colors.$black};
+    background: ${colors.$darkGreen} no-repeat center center;
     background-size: cover;
-  
-  
-  
-  
-  // position: relative;
-  // padding-top: 12px;
-  // padding-bottom: 12px;
-  // color: #fff;
-  // /* background: color(var(--darkgrey) l(-5%)) no-repeat center center; */
-  // background: ${darken('0.05', colors.darkgrey)} no-repeat center center;
-  // background-size: cover;
 `;
 
 export const SiteHeaderContent = styled.div`
@@ -116,6 +105,12 @@ export const SiteHeaderContent = styled.div`
   min-height: 200px;
   max-height: 450px;
   text-align: center;
+  
+  .content-container{
+    padding-bottom: 80px;
+  
+  }
+  
 `;
 
 export const SiteHeaderStyles = css`

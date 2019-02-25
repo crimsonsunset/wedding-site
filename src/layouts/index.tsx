@@ -145,11 +145,26 @@ video {
   //font-family: 'Over the Rainbow', cursive;
   //font-family: 'Pacifico', cursive;
   //font-family: 'Qwigley', cursive;
-  font-family: 'Roboto', sans-serif;
+  
   //font-family: 'Ribeye Marrow', cursive;
   //font-family: 'Shadows Into Light Two', cursive; //
   //font-family: 'Sunshiney', cursive;
   //font-family: 'Waiting for the Sunrise', cursive;
+  
+  
+  
+  
+  //font-family: 'Roboto', sans-serif;
+  //font-family: 'Montserrat', sans-serif;
+  font-family: 'Lato', sans-serif;
+  
+  
+  
+  
+  
+  
+  
+  
  
 }
 body {
@@ -206,7 +221,7 @@ dfn {
   font-style: italic;
 }
 h1 {
-font-family: 'Rancho', cursive; //
+font-family: 'Rancho', cursive; 
   margin: 0.67em 0;
   font-size: 2em;
 }
