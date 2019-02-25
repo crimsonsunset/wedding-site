@@ -120,7 +120,9 @@ const IndexPage: React.SFC<IndexProps> = props => {
         >
 
           <SiteHeaderContent>
-            <div className={'content-container'}>
+            <div
+              key={config.description}
+              className={'content-container'}>
               <SiteTitle>
                 {props.data.logo ? (
                   <img
@@ -133,6 +135,7 @@ const IndexPage: React.SFC<IndexProps> = props => {
               </SiteTitle>
               <SiteDescription>
                 <a
+                  className='instagram-link'
                   href={'https://www.instagram.com/explore/tags/twojsalways/'}
                   target='_blank'
                   >{config.description}</a>

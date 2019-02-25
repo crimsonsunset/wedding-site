@@ -6,7 +6,7 @@ import NavLogo from './NavLogo';
 import {navStyles} from '@styles-components/nav/nav.style';
 
 
-class SiteNav extends React.Component<SiteNavProps, SiteNaveState> {
+class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
 
   constructor(props: SiteNavProps) {
     super(props);
@@ -80,6 +80,6 @@ interface SiteNavProps {
   isHome?: boolean;
 }
 
-interface SiteNaveState {
+interface SiteNavState {
   isOpen: boolean;
 }

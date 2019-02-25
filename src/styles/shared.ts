@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import styled from 'react-emotion';
 import { darken, lighten } from 'polished';
-import { colors, fonts, shadows, animations } from './variables';
+import { colors, fonts, shadows, animations, primaryColors } from './variables';
 
 
 export const outer = css`
@@ -36,7 +36,8 @@ export const SiteTitle = styled.h1`
 
 export const SiteDescription = styled.h2`
   ${shadows.text}
-  ${animations.scaleHover(1.3)};
+  ${animations.scaleHover(1.3, '.instagram-link')};
+ 
   
   z-index: 10;
   margin: 0;
@@ -44,6 +45,11 @@ export const SiteDescription = styled.h2`
   font-size: 4rem;
   font-weight: 300;
   letter-spacing: 0.5px;
+  width: 100%;
+  display: flex;
+ 
+  justify-content: center;
+    
   
   color:${colors.$white};
   
@@ -158,7 +164,7 @@ export const SiteHeaderStyles = css`
 export const AuthorProfileImage = css`
   display: block;
   /* background: color(var(--lightgrey) l(+10%)); */
-  background: ${lighten('0.1', colors.lightgrey)};
+  background: ${lighten('0.1', primaryColors.lightgrey)};
   border-radius: 100%;
   object-fit: cover;
   margin-right: 15px;

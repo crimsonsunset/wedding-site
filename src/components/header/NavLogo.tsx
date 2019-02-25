@@ -15,7 +15,7 @@ interface NavLogoProps {
 }
 
 
-var useTag = `<use xlink:href=${svgLogo} />`;
+const useTag = `<use xlink:href=${svgLogo} />`;
 
 // todo: replace png with svg logo and colorize
 const NavLogo = () => (
