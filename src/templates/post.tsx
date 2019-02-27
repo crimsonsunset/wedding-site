@@ -53,13 +53,21 @@ export const PostFullHeader = styled.header`
 
   @media (max-width: 500px) {
     padding: 14vw 3vw 10vw;
+    
+    
+    .back-arrow{
+    
+    margin-top: -4vh;
+    a {
+          font-size: 18px !important;
+    }
+  }
+    
   }
   
   .back-arrow{
-    display: flex;
-    
+    display: flex; 
     a {
-      
       font-size: 22px;
     }
   }

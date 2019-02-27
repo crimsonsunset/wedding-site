@@ -79,6 +79,10 @@ export const PostFullContent = styled.section`
     word-break: break-word;
     box-shadow: ${colors.blue} 0 -1px 0 inset;
   }
+  
+  .gatsby-resp-image-link{
+  box-shadow: none !important;
+  }
 
   a:hover {
     color: ${colors.blue};
@@ -364,7 +368,7 @@ export const PostFullContent = styled.section`
   }
 
   @media (max-width: 500px) {
-    padding: 0;
+        padding: 0px 6vw;
     :before {
       display: none;
     }
