@@ -1,7 +1,7 @@
 {
   "name": "jj-wedding",
-  "description": "The official home for everything related to Joe & Jess' wedding",
-  "version": "0.0.1",
+  "description": "The official home for everything related to Jess & Joe's wedding",
+  "version": "0.1.0",
   "author": "Joe Sangiorgio <jsangio1@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -21,6 +21,7 @@
     "emotion-server": "9.2.12",
     "gatsby": "2.0.77",
     "gatsby-image": "2.0.16",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-canonical-urls": "2.0.6",
     "gatsby-plugin-emotion": "2.0.5",
     "gatsby-plugin-feed": "^2.0.8",
@@ -54,6 +55,12 @@
     "react-emotion": "9.2.12",
     "react-helmet": "5.2.0",
     "rehype-react": "3.0.3",
+
+
+    "typeface-capriola": "^0.0.54",
+    "typeface-catamaran": "^0.0.54",
+    "typeface-rancho": "^0.0.54",
+
     "typescript": "3.1.3"
   },
   "devDependencies": {

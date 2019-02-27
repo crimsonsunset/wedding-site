@@ -3,9 +3,13 @@ import {darken, lighten} from 'polished';
 import * as React from 'react';
 
 import {colors} from '../styles/colors';
-import {graphql, StaticQuery} from "gatsby";
-import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
+import {graphql, StaticQuery} from 'gatsby';
+// import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
 import {words, forEach, map} from 'lodash';
+
+import 'typeface-rancho';
+import 'typeface-catamaran';
+import 'typeface-capriola';
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -92,6 +96,8 @@ video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
+  font-family: 'Catamaran', sans-serif; 
+
 }
 body {
   line-height: 1;
@@ -120,7 +126,7 @@ img {
 }
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  //font-family: sans-serif;
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -147,6 +153,7 @@ dfn {
   font-style: italic;
 }
 h1 {
+font-family: 'Rancho', cursive; 
   margin: 0.67em 0;
   font-size: 2em;
 }
@@ -268,7 +275,7 @@ body {
   overflow-x: hidden;
   /* color: color(var(--midgrey) l(-25%)); */
   color: ${darken('0.25', colors.midgrey)};
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.5rem;
   line-height: 1.6em;
   font-weight: 400;
@@ -419,6 +426,8 @@ h3,
 h4,
 h5,
 h6 {
+
+  font-family: 'Rancho', cursive;
   margin-top: 0;
   line-height: 1.15;
   font-weight: 700;
@@ -438,7 +447,7 @@ h1 {
 
 h2 {
   margin: 1.5em 0 0.5em 0;
-  font-size: 2rem;
+  font-size: 2.8rem;
 }
 @media (max-width: 500px) {
   h2 {
@@ -481,62 +490,62 @@ body {
 `;
 
 interface IndexProps {
-    className?: string;
+  className?: string;
 }
 
 // todo: move this to helpers
-function printBuildInfo(buildInfo:any) {
+function printBuildInfo(buildInfo: any) {
 
-    forEach(buildInfo, (e,i) => {
-        buildInfo[i] = e.replace(/\"/g, "")
-    });
+  forEach(buildInfo, (e, i) => {
+    buildInfo[i] = e.replace(/\"/g, '');
+  });
 
-    const { name, version, environment, date} = buildInfo;
-    const env = (process.env.IS_DEV) ? 'dev' : 'prod';
-    let red = `${words(name).join(' ')} | v${version} | ${environment}`;
-    let blue = 'Built at: ' + date;
-    let green = 'Backend ENV is: ' + env;
+  const {name, version, environment, date} = buildInfo;
+  const env = (process.env.IS_DEV) ? 'dev' : 'prod';
+  let red = `${words(name).join(' ')} | v${version} | ${environment}`;
+  let blue = 'Built at: ' + date;
+  let green = 'Backend ENV is: ' + env;
 
-    // stamp build
-    console.log('%c' + red, 'color:red;');
-    console.log('%c' + blue, 'color:blue;');
-    console.log('%c' + green, 'color:green;');
+  // stamp build
+  console.log('%c' + red, 'color:red;');
+  console.log('%c' + blue, 'color:blue;');
+  console.log('%c' + green, 'color:green;');
 }
 
 
 const IndexLayout: React.SFC<IndexProps> = props => {
-    return (
-        <StaticQuery
-            query={INDEX_LAYOUT_QUERY}
-            render={({site}) => {
-                printBuildInfo(site.siteMetadata);
-                return (
-                    <div
-                        id="wedding-site"
-                        className={props.className}
-                    >
-                        {props.children}
-                    </div>
-                );
-            }}
-        />);
+  return (
+    <StaticQuery
+      query={INDEX_LAYOUT_QUERY}
+      render={({site}) => {
+        printBuildInfo(site.siteMetadata);
+        return (
+          <div
+            id="wedding-site"
+            className={props.className}
+          >
+            {props.children}
+          </div>
+        );
+      }}
+    />);
 };
 
 export default IndexLayout;
 
 
 const INDEX_LAYOUT_QUERY = graphql`
-    query indexLayoutQuery {
+  query indexLayoutQuery {
 
-        site {
-            siteMetadata {
-                version
-                date
-                name
-                environment
-            }
-        }
-        
+    site {
+      siteMetadata {
+        version
+        date
+        name
+        environment
+      }
+    }
 
-    }`;
+
+  }`;
 

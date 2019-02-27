@@ -8,15 +8,35 @@ const webpackUtils = require('./WebpackUtil');
 
 module.exports = {
   siteMetadata: {
-    title: 'Joe & Jess Tie the Knot',
-    description: `The official home for everything related to Joe & Jess' wedding` ,
-    siteUrl: 'https://jj-wedding.netlify.com/', // full path to blog - no ending slash
+    title: `Jess and Joe`,
+    description: `The official home for everything related to Jess & Joe's wedding`,
+    siteUrl: 'https://www.jessandjoe.co', // full path to blog - no ending slash
     ...webpackUtils.buildInfo
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": path.resolve(__dirname, 'src/components'),
+          "@config": path.resolve(__dirname, 'src/config'),
+          "@content": path.resolve(__dirname, 'src/content'),
+          "@img": path.resolve(__dirname, 'src/content/img'),
+          "@favicon": path.resolve(__dirname, 'src/content/img/favicon'),
+          "@layouts": path.resolve(__dirname, 'src/layouts'),
+          "@styles": path.resolve(__dirname, 'src/styles'),
+          "@styles-components": path.resolve(__dirname, 'src/styles/components'),
+          "@styles-pages": path.resolve(__dirname, 'src/styles/pages'),
+          "@util": path.resolve(__dirname, 'src/util'),
+          "@root": path.resolve(__dirname, 'src/'),
+        },
+        extensions: []
+      }
+    },
+
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
@@ -53,7 +73,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://jj-wedding.netlify.com/',
+        siteUrl: 'https://www.jessandjoe.co',
       },
     },
     'gatsby-plugin-emotion',
@@ -79,7 +99,7 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#0000ff',
         display: 'minimal-ui',
-        icon: 'src/content/img/knot.png', // This path is relative to the root of the site.
+        icon: 'src/content/img/favicon/favicon-big.png', // This path is relative to the root of the site.
       },
     },
     // 'gatsby-plugin-offline',

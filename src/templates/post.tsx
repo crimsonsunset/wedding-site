@@ -54,6 +54,16 @@ export const PostFullHeader = styled.header`
   @media (max-width: 500px) {
     padding: 14vw 3vw 10vw;
   }
+  
+  .back-arrow{
+    display: flex;
+    
+    a {
+      
+      font-size: 22px;
+    }
+  }
+  
 `;
 
 const PostFullMeta = styled.section`
@@ -267,6 +277,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = props => {
             <article className={`${PostFull} ${!post.frontmatter.image ? NoImage : ''}`}>
               <PostFullHeader>
 
+                <div className={'back-arrow'}>
+                  <Link to="/"> ⬅ Back</Link>
+                </div>
+
                 {/*<PostFullMeta>*/}
                   {/*<PostFullMetaDate dateTime={post.frontmatter.date}>*/}
                     {/*{post.frontmatter.userDate}*/}
@@ -331,7 +345,7 @@ export default PageTemplate;
 
 export const query = graphql`
   query($slug: String, $primaryTag: String) {
-    logo: file(relativePath: { eq: "img/knot.png" }) {
+    logo: file(relativePath: { eq: "img/favicon/favicon-big.png" }) {
       childImageSharp {
         fixed {
           ...GatsbyImageSharpFixed
@@ -371,7 +385,7 @@ export const query = graphql`
       }
     }
     relatedPosts: allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: [$primaryTag] }, draft: { ne: true } } }
+      filter: { frontmatter: { tags: { in: [$primaryTag] }} }
       limit: 3
     ) {
       totalCount

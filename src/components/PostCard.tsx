@@ -7,6 +7,7 @@ import * as React from 'react';
 import styled, { css } from 'react-emotion';
 import { colors } from '../styles/colors';
 import { PageContext } from '../templates/post';
+import { animations } from '../styles/variables';
 
 const PostCardStyles = css`
   flex: 1 1 300px;
@@ -21,11 +22,8 @@ const PostCardStyles = css`
   box-shadow: rgba(39, 44, 49, 0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
   transition: all 0.5s ease;
 
-  :hover {
-    box-shadow: rgba(39, 44, 49, 0.07) 8px 28px 50px, rgba(39, 44, 49, 0.04) 1px 6px 12px;
-    transition: all 0.4s ease;
-    transform: translate3D(0, -1px, 0) scale(1.02);
-  }
+  ${animations.scaleHover(1.04)};
+  
 `;
 
 const PostCardImageLink = css`
@@ -77,7 +75,8 @@ const PostCardTitle = styled.h2`
 `;
 
 const PostCardExcerpt = styled.section`
-  font-family: Georgia, serif;
+    font-size: 1.7rem;
+    line-height: 1.55em;
 `;
 
 const PostCardMeta = styled.footer`
@@ -219,8 +218,10 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
       )}
       <PostCardContent className="post-card-content">
         <Link className={`${PostCardContentLink} post-card-content-link`} to={post.fields.slug}>
+
+          {/*todo: put back for tags above post cards*/}
           <header className="post-card-header">
-            {post.frontmatter.tags && <PostCardTags>{post.frontmatter.tags[0]}</PostCardTags>}
+            {/*{post.frontmatter.tags && <PostCardTags>{post.frontmatter.tags[0]}</PostCardTags>}*/}
             <PostCardTitle>{post.frontmatter.title}</PostCardTitle>
           </header>
           <PostCardExcerpt>
@@ -229,7 +230,7 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
         </Link>
         <PostCardMeta className="post-card-meta">
 
-          <ReadingTime>{post.timeToRead} min read</ReadingTime>
+          {/*<ReadingTime>{post.timeToRead} min read</ReadingTime>*/}
         </PostCardMeta>
       </PostCardContent>
     </article>

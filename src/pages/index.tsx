@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 import { css } from 'react-emotion';
 import Helmet from 'react-helmet';
@@ -46,7 +46,7 @@ const HomePosts = css`
     }
 
     .post-card:nth-child(6n + 1):not(.no-image) h2 {
-      font-size: 2.6rem;
+      font-size: 3.2rem;
     }
 
     .post-card:nth-child(6n + 1):not(.no-image) p {
@@ -92,24 +92,24 @@ const IndexPage: React.SFC<IndexProps> = props => {
     <IndexLayout className={`${HomePosts}`}>
       <Helmet>
         <title>{config.title}</title>
-        <meta property="og:site_name" content={config.title} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={config.title} />
-        <meta property="og:description" content={config.description} />
-        <meta property="og:url" content={config.siteUrl} />
-        <meta property="og:image" content={props.data.header.childImageSharp.fluid.src} />
-        <meta property="article:publisher" content={config.facebook} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={config.title} />
-        <meta name="twitter:description" content={config.description} />
-        <meta name="twitter:url" content={config.siteUrl} />
+        <meta property="og:site_name" content={config.title}/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content={config.title}/>
+        <meta property="og:description" content={config.description}/>
+        <meta property="og:url" content={config.siteUrl}/>
+        <meta property="og:image" content={props.data.header.childImageSharp.fluid.src}/>
+        <meta property="article:publisher" content={config.facebook}/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content={config.title}/>
+        <meta name="twitter:description" content={config.description}/>
+        <meta name="twitter:url" content={config.siteUrl}/>
         <meta
           name="twitter:image"
           content={props.data.header.childImageSharp.fluid.src}
         />
-        <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[0]}`} />
-        <meta property="og:image:width" content={width} />
-        <meta property="og:image:height" content={height} />
+        <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[0]}`}/>
+        <meta property="og:image:width" content={width}/>
+        <meta property="og:image:height" content={height}/>
       </Helmet>
       <Wrapper>
         <header
@@ -118,12 +118,14 @@ const IndexPage: React.SFC<IndexProps> = props => {
             backgroundImage: `url('${props.data.header.childImageSharp.fluid.src}')`,
           }}
         >
-          <div className={`${inner}`}>
-            <SiteHeaderContent>
+
+          <SiteHeaderContent>
+            <div
+              key={config.description}
+              className={'content-container'}>
               <SiteTitle>
                 {props.data.logo ? (
                   <img
-                    style={{ maxHeight: '45px' }}
                     src={props.data.logo.childImageSharp.fixed.src}
                     alt={config.title}
                   />
@@ -131,23 +133,37 @@ const IndexPage: React.SFC<IndexProps> = props => {
                   config.title
                 )}
               </SiteTitle>
-              <SiteDescription>{config.description}</SiteDescription>
-            </SiteHeaderContent>
-            <SiteNav isHome={true} />
-          </div>
+              <SiteDescription>
+                <a
+                  className='instagram-link'
+                  href={'https://www.instagram.com/explore/tags/twojsalways/'}
+                  target='_blank'
+                  >{config.description}</a>
+
+                {/*todo: hover styles*/}
+                {/*{config.description}*/}
+
+              </SiteDescription>
+            </div>
+          </SiteHeaderContent>
+          <SiteNav isHome={true}/>
+
         </header>
         <main id="site-main" className={`${SiteMain} ${outer}`}>
           <div className={`${inner}`}>
             <div className={`${PostFeed} ${PostFeedRaise}`}>
-              {props.data.allMarkdownRemark.edges.map(post => {
-                return <PostCard key={post.node.fields.slug} post={post.node} />;
+              {props.data.allMarkdownRemark.edges.map((post) => {
+
+                console.log('post:', post);
+                return <PostCard key={post.node.fields.slug} post={post.node}/>;
+
               })}
             </div>
           </div>
         </main>
         {props.children}
 
-        <Footer />
+        <Footer/>
       </Wrapper>
     </IndexLayout>
   );
@@ -158,9 +174,9 @@ export default IndexPage;
 export const pageQuery = graphql`
   query {
 
-#      todo: fix this logo query 
-#  logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
-    logo: file(relativePath: { eq: "" }) { 
+    #      todo: fix this logo query 
+    #  logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+    logo: file(relativePath: { eq: "" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
@@ -169,11 +185,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    header: file(relativePath: { eq: "img/us/scotts-highfive.jpg" }) {
+    header: file(relativePath: { eq: "img/us/trees-keystone.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fluid(maxWidth: 2000) {
+        fluid(maxWidth: 3500) {
           ...GatsbyImageSharpFluid
         }
       }

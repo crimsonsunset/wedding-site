@@ -9,10 +9,9 @@ import config from '../website-config';
 
 const SiteFooter = css`
   position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
   color: #fff;
   background: ${setLightness('0.0015', colors.darkgrey)};
+  padding: 20px 4vw;
 `;
 
 const SiteFooterContent = css`
@@ -21,7 +20,7 @@ const SiteFooterContent = css`
   justify-content: space-between;
   align-items: center;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.3rem;
+  font-size: 2rem;
   a {
     color: rgba(255, 255, 255, 0.7);
   }
@@ -79,7 +78,7 @@ const Footer: React.SFC = () => {
             {/*</a>*/}
           {/*)}*/}
 
-          <Link to="/contact-us">Contact Us</Link>
+          {/*<Link to="/contact-us">Contact Us</Link>*/}
 
           <a href="https://gatsbyjs.org" target="_blank" rel="noopener noreferrer">
             Made with ❤️ & GatsbyJS

@@ -2,7 +2,7 @@ import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 import styled, { css } from 'react-emotion';
 
-import SiteNavLogo from '../components/header/SiteNavLogo';
+import NavLogo from '../components/header/NavLogo';
 import PostCard from '../components/PostCard';
 import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
@@ -66,7 +66,7 @@ const NotFoundPage: React.SFC<NotFoundTemplateProps> = props => {
         <header className={`${SiteHeader} ${outer}`}>
           <div className="inner">
             <SiteNavCenter>
-              <SiteNavLogo />
+              <NavLogo />
             </SiteNavCenter>
           </div>
         </header>
