@@ -32,11 +32,13 @@ export const navStyles = css`
     a {
       color: white;
       text-transform: capitalize;
+      font-family: 'capriola';
     }
     
   }
   
   li{
+    
     margin: 0.5em 0;
     padding: 0;
     line-height: 1.6em;

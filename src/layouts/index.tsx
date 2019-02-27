@@ -151,12 +151,33 @@ video {
   //font-family: 'Sunshiney', cursive;
   //font-family: 'Waiting for the Sunrise', cursive;
   
-  
+  //font-family: 'capriola';
   
   
   //font-family: 'Roboto', sans-serif;
   //font-family: 'Montserrat', sans-serif;
-  font-family: 'Lato', sans-serif;
+  //font-family: 'Lato', sans-serif;
+//font-family: 'arimo';
+//font-family: 'oxygen'; //
+font-family: 'hind'; // 
+//font-family: 'cabin';
+//font-family: 'hind-madurai';
+font-family: 'catamaran'; //
+//font-family: 'pontano-sans';
+//font-family: 'gudea';
+//font-family: 'molengo';
+//font-family: 'basic';
+//font-family: 'puritan';
+//font-family: 'koho';
+//font-family: 'capriola';
+//font-family: 'ibm-plex-sans-condensed';
+//font-family: 'ntr';
+//font-family: 'harmattan'; //
+//font-family: 'imprima'; //
+//font-family: 'roboto';
+  
+  
+  
   
   
   
