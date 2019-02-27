@@ -93,3 +93,173 @@ export const mediaQueries = breakpoints.map(
 
 // greet`Woah, ${name} is ${age}?`;
 // "Woah, Brandon is 26?"
+
+
+
+
+// @import url('https://fonts.googleapis.com/css?family=Rancho');
+// @import url('https://fonts.googleapis.com/css?family=Catamaran');
+//
+//
+// html{
+//   font-family: 'Catamaran', sans-serif;
+// }
+//
+// .footer_placeholder{
+//   display: none;
+// }
+//
+// .footer_logo, header{
+//   display: none;
+// }
+//
+//
+// .content_wrap{
+//   background-color: transparent;
+//   text-align: center;
+//
+//   margin-top: 2vh;
+//   /* margin-bottom: 18vh; */
+//   /* padding-bottom: 140px; */
+//   /* height: 100vh; */
+//
+//
+// }
+//
+// h2{
+//   font-family: 'Rancho', cursive;
+//   font-size: 55px;
+//   color: #435711;
+// }
+//
+// h3{
+//   font-family: 'Catamaran', sans-serif;
+//   font-size: 22px !important;
+//   color: #2F496E !important;
+// }
+//
+// label, input{
+//
+//   font-family: 'Catamaran', sans-serif !important;
+//   font-size: 16px !important;
+//   color: #2F496E !important;
+// }
+//
+// .form-group{
+//   margin-top: 25px;
+// }
+//
+// a{
+//   font-family: 'Catamaran', sans-serif;
+//   font-size: 20px !important;
+// }
+//
+// .guest_list_step1-next{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .step1{
+//   padding-bottom: 30px;
+// }
+//
+//
+// .step2{
+//   padding-bottom: 30px;
+// }
+//
+// .step2 p {
+//
+//   font-family: 'Catamaran', sans-serif !important;
+//   font-size: 18px !important;
+//   color: #2F496E !important;
+// }
+//
+// .step2 .btn-primary, .btn-default{
+//   font-family: 'Catamaran', sans-serif !important;
+//
+// }
+//
+// .step1_form{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .step1_form h2 {
+//   font-family: 'Rancho', cursive;
+//   font-size: 40px;
+//   color: #435711;
+// }
+//
+// .step1_form .no_padding_step3 {
+//   font-family: 'Catamaran', sans-serif !important;
+//   font-size: 19px;
+//   color: #2F496E;
+//   width: 100%;
+//
+// }
+//
+// .step1_form .text-left {
+//   font-size: 16px;
+//   color: #435711;
+//   text-align: center;
+// }
+//
+// .step1_form .btn-primary, .btn-default{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .step2-next{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .pull-right b{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .alert{
+//   font-family: 'Catamaran', sans-serif !important;
+//   font-size: 17px;
+//   padding: 2;
+//   width: 100%;
+// }
+//
+// .no_padding_step3{
+//   margin-top: 25px;
+// }
+//
+// .step3-next{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .step3_buttons_spacing b {
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .confirmation-page .confirmation-page-content{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+//
+// .confirmation-page-content .row .qr-code-container{
+//   display: none !important;
+// }
+//
+// .confirmation-page-content .row .col-md-9{
+//   width: 100% !important;
+//   right: 0% !important;
+// }
+//
+// .confirmation-page-description{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .confirmation-page-sidebar-wrapper a {
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+//
+// .confirmation-page-block-text p{
+//   font-family: 'Catamaran', sans-serif !important;
+// }
+
+
+
+

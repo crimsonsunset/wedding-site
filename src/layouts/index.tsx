@@ -6,47 +6,10 @@ import {colors} from '../styles/colors';
 import {graphql, StaticQuery} from 'gatsby';
 // import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
 import {words, forEach, map} from 'lodash';
-import 'typeface-sunshiney';
-import 'typeface-montserrat';
-import 'typeface-raleway';
-import 'typeface-allura';
-import 'typeface-caveat-brush';
-import 'typeface-fredericka-the-great';
-import 'typeface-handlee';
-import 'typeface-just-another-hand';
-import 'typeface-kalam';
-import 'typeface-love-ya-like-a-sister';
-import 'typeface-miltonian';
-import 'typeface-miniver';
-import 'typeface-over-the-rainbow';
-import 'typeface-pacifico';
-import 'typeface-qwigley';
-import 'typeface-rancho';
-import 'typeface-ribeye-marrow';
-import 'typeface-shadows-into-light-two';
-import 'typeface-sunshiney';
-import 'typeface-waiting-for-the-sunrise';
-import 'typeface-lato';
-import 'typeface-arimo';
-import 'typeface-oxygen';
-import 'typeface-hind';
-import 'typeface-cabin';
-import 'typeface-libre-franklin';
-import 'typeface-hind-madurai';
-import 'typeface-catamaran';
-import 'typeface-pontano-sans';
-import 'typeface-gudea';
-import 'typeface-molengo';
-import 'typeface-basic';
-import 'typeface-puritan';
-import 'typeface-koho';
-import 'typeface-capriola';
-import 'typeface-ibm-plex-sans-condensed';
-import 'typeface-ntr';
-import 'typeface-harmattan';
-import 'typeface-imprima';
-import 'typeface-roboto';
 
+import 'typeface-rancho';
+import 'typeface-catamaran';
+import 'typeface-capriola';
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -133,60 +96,8 @@ video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
-  //font-family: 'Allura', cursive;
-  //font-family: 'Caveat Brush', cursive;
-  //font-family: 'Fredericka the Great', cursive;
-  //font-family: 'Handlee', cursive; //
-  //font-family: 'Just Another Hand', cursive;
-  //font-family: 'Kalam', cursive;
-  //font-family: 'Love Ya Like A Sister', cursive;
-  //font-family: 'Miltonian', cursive;
-  //font-family: 'Miniver', cursive;
-  //font-family: 'Over the Rainbow', cursive;
-  //font-family: 'Pacifico', cursive;
-  //font-family: 'Qwigley', cursive;
-  
-  //font-family: 'Ribeye Marrow', cursive;
-  //font-family: 'Shadows Into Light Two', cursive; //
-  //font-family: 'Sunshiney', cursive;
-  //font-family: 'Waiting for the Sunrise', cursive;
-  
-  //font-family: 'capriola';
-  
-  
-  //font-family: 'Roboto', sans-serif;
-  //font-family: 'Montserrat', sans-serif;
-  //font-family: 'Lato', sans-serif;
-//font-family: 'arimo';
-//font-family: 'oxygen'; //
-font-family: 'hind'; // 
-//font-family: 'cabin';
-//font-family: 'hind-madurai';
-font-family: 'catamaran'; //
-//font-family: 'pontano-sans';
-//font-family: 'gudea';
-//font-family: 'molengo';
-//font-family: 'basic';
-//font-family: 'puritan';
-//font-family: 'koho';
-//font-family: 'capriola';
-//font-family: 'ibm-plex-sans-condensed';
-//font-family: 'ntr';
-//font-family: 'harmattan'; //
-//font-family: 'imprima'; //
-//font-family: 'roboto';
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
+  font-family: 'Catamaran', sans-serif; 
+
 }
 body {
   line-height: 1;
@@ -515,7 +426,8 @@ h3,
 h4,
 h5,
 h6 {
-font-family: 'Rancho', cursive;
+
+  font-family: 'Rancho', cursive;
   margin-top: 0;
   line-height: 1.15;
   font-weight: 700;
@@ -535,7 +447,7 @@ h1 {
 
 h2 {
   margin: 1.5em 0 0.5em 0;
-  font-size: 2rem;
+  font-size: 2.8rem;
 }
 @media (max-width: 500px) {
   h2 {

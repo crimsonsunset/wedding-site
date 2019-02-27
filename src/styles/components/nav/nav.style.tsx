@@ -24,6 +24,12 @@ export const navStyles = css`
     width: 100%;
     margin: 0;
     
+    
+    padding: 0;
+    max-width: 1040px;
+    margin: 0 auto;
+    justify-content: space-around;
+    
     //todo: for smaller nav?
     //border: 1px solid orange;
     //max-width: 760px;

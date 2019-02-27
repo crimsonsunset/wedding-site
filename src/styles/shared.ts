@@ -98,7 +98,7 @@ export const SiteHeader = css`
     position: sticky;
     top: 0;
     color: ${colors.$black};
-    background: ${colors.$darkGreen} no-repeat center center;
+    background: ${colors.$darkGreen} no-repeat 100% 65%;
     background-size: cover;
 `;
 

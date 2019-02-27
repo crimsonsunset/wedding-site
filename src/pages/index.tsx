@@ -46,7 +46,7 @@ const HomePosts = css`
     }
 
     .post-card:nth-child(6n + 1):not(.no-image) h2 {
-      font-size: 2.6rem;
+      font-size: 3.2rem;
     }
 
     .post-card:nth-child(6n + 1):not(.no-image) p {
@@ -189,7 +189,7 @@ export const pageQuery = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fluid(maxWidth: 2000) {
+        fluid(maxWidth: 3500) {
           ...GatsbyImageSharpFluid
         }
       }

@@ -75,7 +75,8 @@ const PostCardTitle = styled.h2`
 `;
 
 const PostCardExcerpt = styled.section`
-  //font-family: Georgia, serif;
+    font-size: 1.7rem;
+    line-height: 1.55em;
 `;
 
 const PostCardMeta = styled.footer`
@@ -217,8 +218,10 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
       )}
       <PostCardContent className="post-card-content">
         <Link className={`${PostCardContentLink} post-card-content-link`} to={post.fields.slug}>
+
+          {/*todo: put back for tags above post cards*/}
           <header className="post-card-header">
-            {post.frontmatter.tags && <PostCardTags>{post.frontmatter.tags[0]}</PostCardTags>}
+            {/*{post.frontmatter.tags && <PostCardTags>{post.frontmatter.tags[0]}</PostCardTags>}*/}
             <PostCardTitle>{post.frontmatter.title}</PostCardTitle>
           </header>
           <PostCardExcerpt>

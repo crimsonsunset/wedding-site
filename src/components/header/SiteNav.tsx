@@ -4,6 +4,7 @@ import * as React from 'react';
 import styled, { css } from 'react-emotion';
 import NavLogo from './NavLogo';
 import {navStyles} from '@styles-components/nav/nav.style';
+import { inner } from '../../styles/shared';
 
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
@@ -16,7 +17,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
   render() {
     const { isHome = false } = this.props;
     return (
-      <nav className={navStyles}>
+      <nav className={`${navStyles}`}>
         <>
           {!isHome && <NavLogo/>}
           <ul className={''} role="menu">
@@ -33,7 +34,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   </li>
                     {navIndex!== NAV_ITEMS.length-1 && <hr/>}
                   </>
-                )
+                );
               })
             }
 
@@ -48,31 +49,31 @@ export default SiteNav;
 
 
 const NAV_ITEMS = [
-  {
-    name: 'Wedding',
-    link: '/wedding'
-  },
+  // {
+  //   name: 'Wedding',
+  //   link: '/wedding'
+  // },
   {
     name: 'RSVP',
-    link: '/rsvp'
+    link: '/rsvp',
   },
   {
     name: 'Travel',
-    link: '/travel-and-lodging'
+    link: '/travel-and-lodging',
   },
-  {
-    name: 'Colorado',
-    link: '/colorado'
-  },
-  {
-    name: 'Nuggets',
-    link: '/nuggets'
-  },
-  {
-    name: 'Registry',
-    link: '/registry',
-    external: true
-  },
+  // {
+  //   name: 'Colorado',
+  //   link: '/colorado'
+  // },
+  // {
+  //   name: 'Nuggets',
+  //   link: '/nuggets'
+  // },
+  // {
+  //   name: 'Registry',
+  //   link: '/registry',
+  //   external: true
+  // },
 ];
 
 

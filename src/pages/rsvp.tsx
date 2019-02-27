@@ -62,10 +62,10 @@ class RSVPView extends PureComponent {
     top: 0;
     width: 100%;
 
-     background-position: center center;
-  background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 40vh;
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: cover;
+        min-height: 40vh;
         height: 100vh;
         // background: url(${imgLocation}) no-repeat center center fixed;
 `;
@@ -105,6 +105,8 @@ class RSVPView extends PureComponent {
                       }}
                       style={{
                         opacity: 0,
+                        height: 1800,
+                        // border: '11px solid red'
                       }}
                       onLoad={() => {
                         if (this.iframe) {
