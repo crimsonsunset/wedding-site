@@ -1,34 +1,36 @@
 const fonts = require('./possible-fonts');
-
-let firsts = [];
-let lasts = [];
-fonts.forEach((e, i) => {
-  if (e === '') {
-    return
-  }
-
-  const [first, last] = e.split(' ');
-  firsts.push(first);
-  lasts.push(last);
-});
-
-
 const fs = require('fs');
-fs.writeFile("firsts.txt", firsts, function(err) {
-  if(err) {
-    return console.log(err);
-  }
 
-  console.log("firsts saved");
-});
+function splitNames(names){
+  let firsts = [];
+  let lasts = [];
+  names.forEach((e, i) => {
+    if (e === '') {
+      return
+    }
+    const [first, last] = e.split(' ');
+    firsts.push(first);
+    lasts.push(last);
+  });
+  writeToFile(firsts, 'firsts.txt');
+  writeToFile(lasts, 'lasts.txt');
+}
 
-fs.writeFile("lasts.txt", lasts, function(err) {
-  if(err) {
-    return console.log(err);
-  }
+function writeToFile(data, fileName){
+  fs.writeFile(fileName, data, function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log(`${fileName} saved`);
+  });
+}
 
-  console.log("lasts saved");
-});
+function generateImportFontText(fonts){
+  let fontName = '';
+  fonts.forEach((e, i) => {
+    console.log(`import 'typeface-${e.replace(new RegExp(' ', 'g'), '-').toLowerCase()}'`)
+  });
+}
 
-// console.log(firsts)
-// console.log(lasts)
+generateImportFontText(fonts);
+// splitNames(names);

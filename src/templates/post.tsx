@@ -11,7 +11,7 @@ import SiteNav from '../components/header/SiteNav';
 import PostContent from '../components/PostContent';
 import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
-import { colors } from '../styles/colors';
+import { colors } from '@styles/variables';
 import { inner, outer, SiteHeader, SiteMain } from '../styles/shared';
 import config from '../website-config';
 
@@ -95,7 +95,8 @@ const PostFullMetaDate = styled.time`
 
 export const PostFullTitle = styled.h1`
   margin: 0;
-  color: ${setLightness('0.05', colors.darkgrey)};
+  font-size: 8rem;
+  color: ${colors.$blue};
   @media (max-width: 500px) {
     font-size: 2.9rem;
   }

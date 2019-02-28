@@ -105,7 +105,7 @@ class RSVPView extends PureComponent {
                       }}
                       style={{
                         opacity: 0,
-                        height: 1800,
+                        height: 2000,
                         // border: '11px solid red'
                       }}
                       onLoad={() => {

@@ -3,7 +3,7 @@ import * as React from 'react';
 import styled from 'react-emotion';
 import rehypeReact from 'rehype-react';
 
-import { colors } from '../styles/colors';
+import {colors, primaryColors} from '../styles/variables';
 
 export const PostFullContent = styled.section`
   position: relative;
@@ -68,6 +68,9 @@ export const PostFullContent = styled.section`
 
   li {
     word-break: break-word;
+    
+    
+    
   }
 
   li p {
@@ -77,7 +80,7 @@ export const PostFullContent = styled.section`
   a {
     color: #000;
     word-break: break-word;
-    box-shadow: ${colors.blue} 0 -1px 0 inset;
+    box-shadow: ${primaryColors.blue} 0 -1px 0 inset;
   }
   
   .gatsby-resp-image-link{
@@ -85,14 +88,14 @@ export const PostFullContent = styled.section`
   }
 
   a:hover {
-    color: ${colors.blue};
+    color: ${primaryColors.blue};
     text-decoration: none;
   }
 
   strong,
   em {
     /* color: color(var(--darkgrey) l(-5%)); */
-    color: ${darken('0.05', colors.darkgrey)};
+    color: ${darken('0.05', primaryColors.darkgrey)};
   }
 
   small {
@@ -158,7 +161,7 @@ export const PostFullContent = styled.section`
     font-size: 0.8em;
     line-height: 1em;
     font-weight: 400 !important;
-    background: ${colors.whitegrey};
+    background: ${primaryColors.whitegrey};
     border-radius: 3px;
   }
 
@@ -172,12 +175,12 @@ export const PostFullContent = styled.section`
     padding: 20px;
     max-width: 100%;
     /* border: color(var(--darkgrey) l(-10%)) 1px solid; */
-    border: ${darken('0.01', colors.darkgrey)} 1px solid;
-    color: ${colors.whitegrey};
+    border: ${darken('0.01', primaryColors.darkgrey)} 1px solid;
+    color: ${primaryColors.whitegrey};
     font-size: 1.4rem;
     line-height: 1.5em;
     /* background: color(var(--darkgrey) l(-3%)); */
-    background: ${darken('0.03', colors.darkgrey)};
+    background: ${darken('0.03', primaryColors.darkgrey)};
     border-radius: 5px;
   }
 
@@ -211,7 +214,7 @@ export const PostFullContent = styled.section`
     width: 1px;
     height: 30px;
     /* background: color(var(--lightgrey) l(+10%)); */
-    background: ${lighten('0.1', colors.lightgrey)};
+    background: ${lighten('0.1', primaryColors.lightgrey)};
     box-shadow: #fff 0 0 0 5px;
     transform: rotate(45deg);
   }
@@ -222,13 +225,14 @@ export const PostFullContent = styled.section`
   h4,
   h5,
   h6 {
-    color: ${setLightness('0.05', colors.darkgrey)};
+    color: ${setLightness('0.05', primaryColors.darkgrey)};
   }
 
   h1 {
     margin: 0.5em 0 0.2em 0;
-    font-size: 8rem;
+    font-size: 6rem;
     font-weight: 700;
+    color: ${colors.$navy}
   }
   @media (max-width: 500px) {
     h1 {
@@ -240,6 +244,7 @@ export const PostFullContent = styled.section`
     margin: 0.5em 0 0.2em 0;
     font-size: 4.2rem;
     font-weight: 700;
+    color: ${colors.$lightGreen}
   }
   @media (max-width: 500px) {
     h2 {
@@ -274,7 +279,7 @@ export const PostFullContent = styled.section`
     margin: 0.5em 0;
     padding: 1em 0 1.5em;
     border: 0;
-    color: ${colors.blue};
+    color: ${colors.$navy};
     font-size: 3.2rem;
     line-height: 1.35em;
     text-align: center;
@@ -350,21 +355,21 @@ export const PostFullContent = styled.section`
   }
 
   table th {
-    color: ${colors.darkgrey};
+    color: ${primaryColors.darkgrey};
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.2px;
     text-align: left;
     text-transform: uppercase;
     /* background-color: color(var(--whitegrey) l(+4%)); */
-    background-color: ${lighten('0.04', colors.whitegrey)};
+    background-color: ${lighten('0.04', primaryColors.whitegrey)};
   }
 
   table th,
   table td {
     padding: 6px 12px;
     /* border: color(var(--whitegrey) l(-1%) s(-5%)) 1px solid; */
-    border: ${setSaturation('0.05', darken('0.01', colors.whitegrey))} 1px solid;
+    border: ${setSaturation('0.05', darken('0.01', primaryColors.whitegrey))} 1px solid;
   }
 
   @media (max-width: 500px) {

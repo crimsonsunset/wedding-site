@@ -2,7 +2,7 @@ import {injectGlobal} from 'emotion';
 import {darken, lighten} from 'polished';
 import * as React from 'react';
 
-import {colors} from '../styles/colors';
+import {colors, primaryColors} from '../styles/variables';
 import {graphql, StaticQuery} from 'gatsby';
 // import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
 import {words, forEach, map} from 'lodash';
@@ -274,7 +274,7 @@ html {
 body {
   overflow-x: hidden;
   /* color: color(var(--midgrey) l(-25%)); */
-  color: ${darken('0.25', colors.midgrey)};
+  color: ${darken('0.25', primaryColors.midgrey)};
   //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.5rem;
   line-height: 1.6em;
@@ -292,7 +292,7 @@ body {
 ::selection {
   text-shadow: none;
   /* background: color(var(--blue) lightness(+30%)); */
-  background: ${lighten('0.3', colors.blue)};
+  background: ${lighten('0.3', primaryColors.blue)};
 }
 
 hr {
@@ -304,7 +304,7 @@ hr {
   height: 1px;
   border: 0;
   /* border-top: 1px solid color(var(--lightgrey) l(+10%)); */
-  border-top: 1px solid ${lighten('0.1', colors.lightgrey)};
+  border-top: 1px solid ${lighten('0.1', primaryColors.lightgrey)};
 }
 
 audio,
@@ -370,7 +370,7 @@ dt {
   float: left;
   margin: 0 20px 0 0;
   width: 120px;
-  color: ${colors.darkgrey};
+  color: ${primaryColors.darkgrey};
   font-weight: 500;
   text-align: right;
 }
@@ -383,7 +383,7 @@ dd {
 blockquote {
   margin: 1.5em 0;
   padding: 0 1.6em 0 1.6em;
-  border-left: ${colors.whitegrey} 0.5em solid;
+  border-left: ${primaryColors.whitegrey} 0.5em solid;
 }
 
 blockquote p {
@@ -412,7 +412,7 @@ blockquote cite a {
 
 a {
   /* color: color(var(--blue) l(-5%)); */
-  color: ${darken('0.05', colors.blue)};
+  color: ${darken('0.05', primaryColors.blue)};
   text-decoration: none;
 }
 
@@ -432,6 +432,7 @@ h6 {
   line-height: 1.15;
   font-weight: 700;
   text-rendering: optimizeLegibility;
+  color: ${colors.$navy};
 }
 
 h1 {
@@ -513,7 +514,7 @@ function printBuildInfo(buildInfo: any) {
 }
 
 
-const IndexLayout: React.SFC<IndexProps> = props => {
+const IndexLayout: React.SFC<IndexProps> = (props) => {
   return (
     <StaticQuery
       query={INDEX_LAYOUT_QUERY}

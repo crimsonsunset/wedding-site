@@ -9,7 +9,7 @@ tags:
   - Lodging
 ---
 
-This page will give you a brief overview of potential accommodations during your visit to Colorado. 
+This page will give you a brief overview of potential accommodations during your visit to Colorado. Check back soon to view our full site!
 
 
 ![Dillon Map](img/dillon-map.png)
@@ -32,9 +32,10 @@ The most accessible airborne destination is Denver International Airport. From D
 
 Over the next few weeks, we will be booking several blocks of rooms in nearby hotels. For smaller groups, or people looking to kick it Walden-style, this may be the best bet. Please <a href="https://add.eventable.com/events/5c76557ed1adf4001b72722c/5c76557fa18fd8006d57133e/" data-event="5c76557fa18fd8006d57133e" class="eventable-link" target="_blank" data-key="5c76557ed1adf4001b72722c" data-style="2">come back</a> to this website soon for more details.
 
-## Condos
+## Condos & Houses
 
 Summit County always has a multitude of amazing condos and houses available for weekend getaways. Parties with a larger roster might want to consider this type of housing as as an option. Here are some useful websites pre-configured by our dates and location:
+>If you choose to book with Summit County Rentals, get in touch with Jess/Joe for our discount code.
 
 - <a href="https://www.airbnb.com/s/Frisco--CO--United-States/homes?query=Frisco%2C%20CO%2C%20United%20States&checkin=2019-08-16&checkout=2019-08-18&adults=4&children=0&infants=0&guests=4&place_id=ChIJC2-wVJpeaocRH_fIhqBCLO4&refinement_paths%5B%5D=%2Fhomes&toddlers=0&allow_override%5B%5D=&s_tag=QUw1gZV1" target="_blank">AirBnB</a>
 - <a href="https://www.vrbo.com/results?adultsCount=4&petIncluded=false&q=Frisco%2C%20CO%2C%20USA&from-date=2019-08-16&to-date=2019-08-18" target="_blank">VRBO</a> 
