@@ -1,5 +1,18 @@
 {
   "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "diagnostics": true,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
+    "listEmittedFiles": true,
+    "listFiles": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"],
+
     "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",
@@ -10,7 +23,21 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "removeComments": false,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@config/*": ["src/config/*"],
+      "@content/*": ["src/content/*"],
+      "@img/*": ["src/content/img/*"],
+      "@favicon/*": ["src/content/img/favicon/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@styles/*": ["src/styles/*"],
+      "@styles-components/*": ["src/styles/components/*"],
+      "@styles-pages/*": ["src/styles/pages/*"],
+      "@util/*": ["src/util/*"],
+      "@root/*": ["src/*"]
+    },
     "preserveConstEnums": true
   },
-  "include": ["./src/**/*"]
+  "compileOnSave": true
 }

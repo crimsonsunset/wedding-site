@@ -1,12 +1,12 @@
-import IndexLayout from '../layouts';
-import SiteNav from '../components/header/SiteNav';
-import { SiteHeader, outer, inner, SiteMain } from '../styles/shared';
+import IndexLayout from '@layouts/index';
+import SiteNav from '@components/header/SiteNav';
+import { SiteHeader, outer, inner, SiteMain } from '@styles/shared';
 import React, { PureComponent } from 'react';
-import Footer from '../components/Footer';
+import Footer from '@components/Footer';
 import Helmet from 'react-helmet';
-import { styles } from '../styles/bridal-party.style';
+import { styles } from '@styles/bridal-party.style';
 import { bindAll } from 'lodash';
-import { PostFullHeader, PostFullTitle } from '../templates/post';
+import { PostFullHeader, PostFullTitle } from '@styles-components/post/post.style';
 import { graphql, StaticQuery } from 'gatsby';
 
 

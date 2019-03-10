@@ -1,5 +1,4 @@
 import { css } from 'emotion';
-import { sample, keys, sampleSize, values } from 'lodash';
 
 export const colors = {
   $darkGreen: '#1C3103',

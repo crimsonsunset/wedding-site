@@ -1,10 +1,9 @@
 // tslint:disable:no-http-string
 import { Link } from 'gatsby';
 import * as React from 'react';
-import styled, { css } from 'react-emotion';
 import NavLogo from './NavLogo';
-import {navStyles} from '@styles-components/nav/nav.style';
-import { inner } from '../../styles/shared';
+import { navStyles } from '@styles-components/nav/nav.style';
+import { inner } from '@styles/shared';
 
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
@@ -23,16 +22,16 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
           <ul className={''} role="menu">
             {/* TODO: mark current nav item - add class nav-current */}
             {
-              NAV_ITEMS.map((navItem,navIndex)=>{
+              NAV_ITEMS.map((navItem, navIndex) => {
                 const { name, link } = navItem;
                 return (
                   <>
-                  <li
-                    key={navIndex}
-                    role="menuitem">
-                    <Link to={link}>{name}</Link>
-                  </li>
-                    {navIndex!== NAV_ITEMS.length-1 && <hr/>}
+                    <li
+                      key={navIndex}
+                      role="menuitem">
+                      <Link to={link}>{name}</Link>
+                    </li>
+                    {navIndex !== NAV_ITEMS.length - 1 && <hr/>}
                   </>
                 );
               })
@@ -45,6 +44,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
     );
   }
 }
+
 export default SiteNav;
 
 
@@ -61,19 +61,19 @@ const NAV_ITEMS = [
     name: 'Travel',
     link: '/travel-and-lodging',
   },
-  // {
-  //   name: 'Colorado',
-  //   link: '/colorado'
-  // },
-  // {
-  //   name: 'Nuggets',
-  //   link: '/nuggets'
-  // },
-  // {
-  //   name: 'Registry',
-  //   link: '/registry',
-  //   external: true
-  // },
+  {
+    name: 'Colorado',
+    link: '/colorado',
+  },
+  {
+    name: 'Nuggets',
+    link: '/nuggets',
+  },
+  {
+    name: 'Registry',
+    link: '/registry',
+    external: true,
+  },
 ];
 
 

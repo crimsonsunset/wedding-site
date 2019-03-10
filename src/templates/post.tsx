@@ -1,230 +1,34 @@
-import { graphql, Link } from 'gatsby';
+// external
+import { graphql} from 'gatsby';
 import Img from 'gatsby-image';
-import * as _ from 'lodash';
-import { setLightness } from 'polished';
 import * as React from 'react';
-import styled, { css } from 'react-emotion';
 import { Helmet } from 'react-helmet';
 
-import Footer from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import PostContent from '../components/PostContent';
-import Wrapper from '../components/Wrapper';
-import IndexLayout from '../layouts';
-import { colors } from '@styles/variables';
-import { inner, outer, SiteHeader, SiteMain } from '../styles/shared';
+// components
+import Footer from '@components/Footer';
+import SiteNav from '@components/header/SiteNav';
+import PostContent from '@components/PostContent';
+import Wrapper from '@components/Wrapper';
+import IndexLayout from '@layouts/index';
+
+// services
+
+// utils/constants/models
 import config from '../website-config';
 
-// import AuthorCard from '../components/AuthorCard';
-// import PostCard from '../components/PostCard';
-// import PostFullFooter from '../components/PostFullFooter';
-// import PostFullFooterRight from '../components/PostFullFooterRight';
-// import ReadNextCard from '../components/ReadNextCard';
-// import Subscribe from '../components/subsribe/Subscribe';
+// styles
+import { inner, outer, SiteHeader, SiteMain } from '@styles/shared';
+import {
+  NoImage,
+  PostFull,
+  PostTemplate,
+  PostFullHeader,
+  PostFullTitle,
+  PostFullImage
+} from '@styles-components/post/post.style';
 
-const PostTemplate = css`
-  .site-main {
-    background: #fff;
-    padding-bottom: 4vw;
-  }
-`;
 
-export const PostFull = css`
-  position: relative;
-  z-index: 50;
-`;
-
-export const NoImage = css`
-  .post-full-content {
-    padding-top: 0;
-  }
-
-  .post-full-content:before,
-  .post-full-content:after {
-    display: none;
-  }
-`;
-
-export const PostFullHeader = styled.header`
-  margin: 0 auto;
-  padding: 6vw 3vw 3vw;
-  max-width: 1040px;
-  text-align: center;
-
-  @media (max-width: 500px) {
-    padding: 14vw 3vw 10vw;
-    
-    
-    .back-arrow{
-    
-    margin-top: -4vh;
-    a {
-          font-size: 18px !important;
-    }
-  }
-    
-  }
-  
-  .back-arrow{
-    display: flex; 
-    a {
-      font-size: 22px;
-    }
-  }
-  
-`;
-
-const PostFullMeta = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: ${colors.midgrey};
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  @media (max-width: 500px) {
-    font-size: 1.2rem;
-    line-height: 1.3em;
-  }
-`;
-
-const PostFullMetaDate = styled.time`
-  color: ${colors.blue};
-`;
-
-export const PostFullTitle = styled.h1`
-  margin: 0;
-  font-size: 8rem;
-  color: ${colors.$blue};
-  @media (max-width: 500px) {
-    font-size: 2.9rem;
-  }
-`;
-
-const PostFullImage = styled.figure`
-  margin: 0 -10vw -165px;
-  height: 800px;
-  background: ${colors.lightgrey} center center;
-  background-size: cover;
-  border-radius: 5px;
-
-  @media (max-width: 1170px) {
-    margin: 0 -4vw -100px;
-    height: 600px;
-    border-radius: 0;
-  }
-
-  @media (max-width: 800px) {
-    height: 400px;
-  }
-  @media (max-width: 500px) {
-    margin-bottom: 4vw;
-    height: 350px;
-  }
-`;
-
-const DateDivider = styled.span`
-  display: inline-block;
-  margin: 0 6px 1px;
-`;
-
-const ReadNextFeed = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -20px;
-  padding: 40px 0 0 0;
-`;
-
-interface PageTemplateProps {
-  pathContext: {
-    slug: string;
-  };
-  data: {
-    logo: {
-      childImageSharp: {
-        fixed: any;
-      };
-    };
-    markdownRemark: {
-      html: string;
-      htmlAst: any;
-      excerpt: string;
-      timeToRead: string;
-      frontmatter: {
-        title: string;
-        date: string;
-        userDate: string;
-        image: {
-          childImageSharp: {
-            fluid: any;
-          };
-        };
-        tags: string[];
-        author: {
-          id: string;
-          bio: string;
-          avatar: {
-            children: {
-              fixed: {
-                src: string;
-              };
-            }[];
-          };
-        };
-      };
-    };
-    relatedPosts: {
-      totalCount: number;
-      edges: {
-        node: {
-          timeToRead: number;
-          frontmatter: {
-            title: string;
-          };
-          fields: {
-            slug: string;
-          };
-        };
-      }[];
-    };
-  };
-  pageContext: {
-    prev: PageContext;
-    next: PageContext;
-  };
-}
-
-export interface PageContext {
-  excerpt: string;
-  timeToRead: number;
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    image: {
-      childImageSharp: {
-        fluid: any;
-      };
-    };
-    title: string;
-    date: string;
-    tags: string[];
-    author: {
-      id: string;
-      bio: string;
-      avatar: {
-        children: {
-          fixed: {
-            src: string;
-          };
-        }[];
-      };
-    };
-  };
-}
-
-const PageTemplate: React.SFC<PageTemplateProps> = props => {
+const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
   const post = props.data.markdownRemark;
   let width = '';
   let height = '';
@@ -286,9 +90,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = props => {
             <article className={`${PostFull} ${!post.frontmatter.image ? NoImage : ''}`}>
               <PostFullHeader>
 
-                <div className={'back-arrow'}>
-                  <Link to="/"> ⬅ Back</Link>
-                </div>
+                <SiteNav/>
 
                 {/*<PostFullMeta>*/}
                   {/*<PostFullMetaDate dateTime={post.frontmatter.date}>*/}
@@ -414,3 +216,93 @@ export const query = graphql`
     }
   }
 `;
+
+
+
+interface PageTemplateProps {
+  pathContext: {
+    slug: string;
+  };
+  data: {
+    logo: {
+      childImageSharp: {
+        fixed: any;
+      };
+    };
+    markdownRemark: {
+      html: string;
+      htmlAst: any;
+      excerpt: string;
+      timeToRead: string;
+      frontmatter: {
+        title: string;
+        date: string;
+        userDate: string;
+        image: {
+          childImageSharp: {
+            fluid: any;
+          };
+        };
+        tags: string[];
+        author: {
+          id: string;
+          bio: string;
+          avatar: {
+            children: {
+              fixed: {
+                src: string;
+              };
+            }[];
+          };
+        };
+      };
+    };
+    relatedPosts: {
+      totalCount: number;
+      edges: {
+        node: {
+          timeToRead: number;
+          frontmatter: {
+            title: string;
+          };
+          fields: {
+            slug: string;
+          };
+        };
+      }[];
+    };
+  };
+  pageContext: {
+    prev: PageContext;
+    next: PageContext;
+  };
+}
+
+export interface PageContext {
+  excerpt: string;
+  timeToRead: number;
+  fields: {
+    slug: string;
+  };
+  frontmatter: {
+    image: {
+      childImageSharp: {
+        fluid: any;
+      };
+    };
+    title: string;
+    date: string;
+    tags: string[];
+    author: {
+      id: string;
+      bio: string;
+      avatar: {
+        children: {
+          fixed: {
+            src: string;
+          };
+        }[];
+      };
+    };
+  };
+}

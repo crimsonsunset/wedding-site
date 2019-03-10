@@ -167,15 +167,15 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const { createRedirect } = actions;
-
-  // todo: remove for actual site [just here for rsvp time]
-  createRedirect({
-    fromPath: `/`,
-    isPermanent: true,
-    redirectInBrowser: true,
-    toPath: `/rsvp`,
-  });
+  // const { createRedirect } = actions;
+  //
+  // // todo: remove for actual site [just here for rsvp time]
+  // createRedirect({
+  //   fromPath: `/`,
+  //   isPermanent: true,
+  //   redirectInBrowser: true,
+  //   toPath: `/rsvp`,
+  // });
 
 
 };
