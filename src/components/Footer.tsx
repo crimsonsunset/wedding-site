@@ -4,6 +4,7 @@ import styled, { css } from 'react-emotion';
 import { outer, inner } from '@styles/shared';
 import config from '@root/website-config';
 import { colors, primaryColors } from '@styles/variables';
+import { getCurrentYear } from '@util/helpers';
 
 const SiteFooter = css`
   position: relative;
@@ -67,14 +68,14 @@ const Footer: React.SFC = () => {
     <footer className={`${outer} ${SiteFooter}`}>
       <div className={`${inner} ${SiteFooterContent}`}>
         <section className="copyright">
-          <Link to="/">{config.title}</Link> &copy; 2018
+          <Link to="/">{config.title}</Link> &copy; {getCurrentYear()}
         </section>
         <SiteFooterNav>
 
-          <Link to="/contact-us">Contact Us</Link>
+          {/*<Link to="/contact-us">Contact Us</Link>*/}
 
           <a href="https://gatsbyjs.org" target="_blank" rel="noopener noreferrer">
-            Made with ❤️ & GatsbyJS
+            Made with ❤️ & GatsbyJS in 🗽
           </a>
         </SiteFooterNav>
       </div>

@@ -25,9 +25,9 @@ const ContactUs: React.SFC = () => {
       </Helmet>
       <Wrapper className={`${PageTemplate}`}>
         <header className={`${SiteHeader} ${outer}`}>
-          <div className={`${inner}`}>
+
             <SiteNav />
-          </div>
+
         </header>
         <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
           <article className={`${PostFull} post page ${NoImage}`}>

@@ -23,13 +23,16 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
             {/* TODO: mark current nav item - add class nav-current */}
             {
               NAV_ITEMS.map((navItem, navIndex) => {
-                const { name, link } = navItem;
+                const { name, link, isExternal } = navItem;
+                const linkElem = (isExternal) ?
+                  (<a href={link} target="_blank">{name}</a>) :
+                  (<Link to={link}>{name}</Link>);
                 return (
                   <>
                     <li
                       key={navIndex}
                       role="menuitem">
-                      <Link to={link}>{name}</Link>
+                      {linkElem}
                     </li>
                     {navIndex !== NAV_ITEMS.length - 1 && <hr/>}
                   </>
@@ -55,7 +58,8 @@ const NAV_ITEMS = [
   // },
   {
     name: 'RSVP',
-    link: '/rsvp',
+    link: 'https://jess-joe-wedding.app.rsvpify.com/',
+    isExternal: 'true',
   },
   {
     name: 'Travel',
@@ -72,7 +76,8 @@ const NAV_ITEMS = [
   {
     name: 'Registry',
     link: '/registry',
-    external: true,
+    // ! todo: update when registry is ready
+    // isExternal: true,
   },
 ];
 

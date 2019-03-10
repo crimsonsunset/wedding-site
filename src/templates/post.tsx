@@ -96,7 +96,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
       <Wrapper className={`${PostTemplate}`}>
         <header className={`${SiteHeader} ${outer}`}>
 
-            <SiteNav/>
+          <SiteNav/>
 
         </header>
         <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
@@ -117,7 +117,6 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
                 </PostFullImage>
               )}
               <PostContent htmlAst={post.htmlAst}/>
-
 
 
             </article>
