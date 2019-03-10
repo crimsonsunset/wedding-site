@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import NavLogo from './NavLogo';
 import { navStyles } from '@styles-components/nav/nav.style';
-import { inner } from '@styles/shared';
 
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
@@ -15,8 +14,9 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
 
   render() {
     const { isHome = false } = this.props;
+    const homeStr = (isHome) ? 'home' : '';
     return (
-      <nav className={`${navStyles}`}>
+      <nav className={`${navStyles} ${homeStr}`}>
         <>
           {!isHome && <NavLogo/>}
           <ul className={''} role="menu">

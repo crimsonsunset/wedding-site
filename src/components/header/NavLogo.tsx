@@ -37,40 +37,7 @@ const NavLogo = () => (
         className={`${styles} site-nav-logo`}
         to="/"
       >
-        {/*{data.logo ? (*/}
-          {/*<img*/}
-            {/*src={data.logo.childImageSharp.fixed.src}*/}
-            {/*alt={config.title}*/}
-          {/*/>*/}
-        {/*) : (*/}
-          {/*config.title*/}
-        {/*)}*/}
-
-
-
-
-
-          {/*<svg*/}
-            {/*className="logo-svg"*/}
-            {/*dangerouslySetInnerHTML={{__html: useTag }} />*/}
-
-
-        {/*<svg className="logo-svg">*/}
-          {/*<use xlinkHref={`${svgLogo}`} />*/}
-        {/*</svg>*/}
-
-
-        <img
-          src={svgLogo}
-        />
-
-        {/*<object*/}
-          {/*type="image/svg+xml"*/}
-          {/*data={svgLogo}*/}
-          {/*className="logo"*/}
-        {/*>*/}
-          {/*Logozz*/}
-        {/*</object>*/}
+        <img src={svgLogo}/>
 
       </Link>
     )}

@@ -23,6 +23,7 @@ export const primaryColors = {
   whitegrey: '#e5eff5',
   pink: '#fa3a57',
   brown: '#a3821a',
+  white: '#ffffff',
 };
 
 

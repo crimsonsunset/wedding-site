@@ -3,7 +3,7 @@ import { colors, primaryColors } from '@styles/variables';
 
 export const PostTemplate = css`
   .site-main {
-    background: #fff;
+    background: ${primaryColors.white} !important;
     padding-bottom: 4vw;
   }
 `;
@@ -75,7 +75,7 @@ export const PostFullMetaDate = styled.time`
 export const PostFullTitle = styled.h1`
   margin: 0;
   font-size: 8rem;
-  color: ${primaryColors.blue};
+  color: ${colors.$navy};
   @media (max-width: 500px) {
     font-size: 2.9rem;
   }

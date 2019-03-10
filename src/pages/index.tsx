@@ -19,7 +19,7 @@ import {
   SiteHeaderContent,
   SiteMain,
   SiteTitle,
-} from '../styles/shared';
+} from '@styles/shared';
 import { PageContext } from '../templates/post';
 
 const HomePosts = css`
@@ -84,7 +84,7 @@ export interface IndexProps {
   };
 }
 
-const IndexPage: React.SFC<IndexProps> = props => {
+const IndexPage: React.SFC<IndexProps> = (props) => {
   const width = props.data.header.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
   const height = String(Number(width) / props.data.header.childImageSharp.fluid.aspectRatio);
 

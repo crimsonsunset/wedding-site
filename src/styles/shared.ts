@@ -95,11 +95,14 @@ export const SocialLink = css`
 `;
 
 export const SiteHeader = css`
-    position: sticky;
-    top: 0;
+    
+    //border:5px solid purple;
+    //position: sticky;
     color: ${colors.$black};
+    background: ${colors.$navy};
     background: ${colors.$darkGreen} no-repeat 100% 65%;
     background-size: cover;
+    margin-bottom: 30px;
 `;
 
 export const SiteHeaderContent = styled.div`
@@ -107,7 +110,7 @@ export const SiteHeaderContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10vw 4vw;
+  padding: 2vw 0vw;
   min-height: 200px;
   max-height: 450px;
   text-align: center;

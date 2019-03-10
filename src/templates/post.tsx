@@ -1,5 +1,5 @@
 // external
-import { graphql} from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
@@ -24,8 +24,61 @@ import {
   PostTemplate,
   PostFullHeader,
   PostFullTitle,
-  PostFullImage
+  PostFullImage,
 } from '@styles-components/post/post.style';
+
+
+const PostHelmet: React.SFC = ({ postData }: any) => {
+
+  const post = postData.data.markdownRemark;
+  let width = '';
+  let height = '';
+  if (post.frontmatter.image) {
+    width = post.frontmatter.image.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
+    height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio);
+  }
+
+  return (
+    <Helmet>
+      <title>{post.frontmatter.title}</title>
+
+      <meta property="og:site_name" content={config.title}/>
+      <meta property="og:type" content="article"/>
+      <meta property="og:title" content={post.frontmatter.title}/>
+      <meta property="og:description" content={post.excerpt}/>
+      <meta property="og:url" content={config.siteUrl + postData.pathContext.slug}/>
+      {post.frontmatter.image && (
+        <meta property="og:image" content={post.frontmatter.image.childImageSharp.fluid.src}/>
+      )}
+      <meta property="article:published_time" content={post.frontmatter.date}/>
+      {/* not sure if modified time possible */}
+      {/* <meta property="article:modified_time" content="2018-08-20T15:12:00.000Z" /> */}
+      {post.frontmatter.tags && (
+        <meta property="article:tag" content={post.frontmatter.tags[0]}/>
+      )}
+
+      <meta property="article:publisher" content={config.facebook}/>
+      <meta property="article:author" content={config.facebook}/>
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta name="twitter:title" content={post.frontmatter.title}/>
+      <meta name="twitter:description" content={post.excerpt}/>
+      <meta name="twitter:url" content={config.siteUrl + postData.pathContext.slug}/>
+      {post.frontmatter.image && (
+        <meta name="twitter:image" content={post.frontmatter.image.childImageSharp.fluid.src}/>
+      )}
+      {/*<meta name="twitter:label1" content="Written by" />*/}
+      {/*<meta name="twitter:data1" content={post.frontmatter.author} />*/}
+      <meta name="twitter:label2" content="Filed under"/>
+      {post.frontmatter.tags && <meta name="twitter:data2" content={post.frontmatter.tags[0]}/>}
+      <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[0]}`}/>
+      <meta
+        name="twitter:creator"
+        content={`@${config.twitter.split('https://twitter.com/')[0]}`}
+      />
+      {width && <meta property="og:image:width" content={width}/>}
+      {height && <meta property="og:image:height" content={height}/>}
+    </Helmet>);
+};
 
 
 const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
@@ -39,73 +92,18 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
 
   return (
     <IndexLayout className="post-template">
-      <Helmet>
-        <title>{post.frontmatter.title}</title>
-
-        <meta property="og:site_name" content={config.title} />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={post.frontmatter.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={config.siteUrl + props.pathContext.slug} />
-        {post.frontmatter.image && (
-          <meta property="og:image" content={post.frontmatter.image.childImageSharp.fluid.src} />
-        )}
-        <meta property="article:published_time" content={post.frontmatter.date} />
-        {/* not sure if modified time possible */}
-        {/* <meta property="article:modified_time" content="2018-08-20T15:12:00.000Z" /> */}
-        {post.frontmatter.tags && (
-          <meta property="article:tag" content={post.frontmatter.tags[0]} />
-        )}
-
-        <meta property="article:publisher" content={config.facebook} />
-        <meta property="article:author" content={config.facebook} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.frontmatter.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:url" content={config.siteUrl + props.pathContext.slug} />
-        {post.frontmatter.image && (
-          <meta name="twitter:image" content={post.frontmatter.image.childImageSharp.fluid.src} />
-        )}
-        {/*<meta name="twitter:label1" content="Written by" />*/}
-        {/*<meta name="twitter:data1" content={post.frontmatter.author} />*/}
-        <meta name="twitter:label2" content="Filed under" />
-        {post.frontmatter.tags && <meta name="twitter:data2" content={post.frontmatter.tags[0]} />}
-        <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[0]}`} />
-        <meta
-          name="twitter:creator"
-          content={`@${config.twitter.split('https://twitter.com/')[0]}`}
-        />
-        {width && <meta property="og:image:width" content={width} />}
-        {height && <meta property="og:image:height" content={height} />}
-      </Helmet>
+      <PostHelmet postData={props}/>
       <Wrapper className={`${PostTemplate}`}>
         <header className={`${SiteHeader} ${outer}`}>
-          <div className={`${inner}`}>
-            <SiteNav />
-          </div>
+
+            <SiteNav/>
+
         </header>
         <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
           <div className={`${inner}`}>
             {/* TODO: no-image css tag? */}
             <article className={`${PostFull} ${!post.frontmatter.image ? NoImage : ''}`}>
               <PostFullHeader>
-
-                <SiteNav/>
-
-                {/*<PostFullMeta>*/}
-                  {/*<PostFullMetaDate dateTime={post.frontmatter.date}>*/}
-                    {/*{post.frontmatter.userDate}*/}
-                  {/*</PostFullMetaDate>*/}
-                  {/*{post.frontmatter.tags &&*/}
-                    {/*post.frontmatter.tags.length > 0 && (*/}
-                      {/*<>*/}
-                        {/*<DateDivider>/</DateDivider>*/}
-                        {/*<Link to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}>*/}
-                          {/*{post.frontmatter.tags[0]}*/}
-                        {/*</Link>*/}
-                      {/*</>*/}
-                    {/*)}*/}
-                {/*</PostFullMeta>*/}
 
                 <PostFullTitle>{post.frontmatter.title}</PostFullTitle>
               </PostFullHeader>
@@ -118,15 +116,8 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
                   />
                 </PostFullImage>
               )}
-              <PostContent htmlAst={post.htmlAst} />
+              <PostContent htmlAst={post.htmlAst}/>
 
-              {/* The big email subscribe modal content */}
-              {/*{config.showSubscribe && <Subscribe title={config.title} />}*/}
-
-              {/*<PostFullFooter>*/}
-                {/*<AuthorCard author={post.frontmatter.author} />*/}
-                {/*<PostFullFooterRight authorId={post.frontmatter.author.id} />*/}
-              {/*</PostFullFooter>*/}
 
 
             </article>
@@ -135,18 +126,18 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
 
         {/* Links to Previous/Next posts */}
         {/*<aside className={`read-next ${outer}`}>*/}
-          {/*<div className={`${inner}`}>*/}
-            {/*<ReadNextFeed>*/}
-              {/*{props.data.relatedPosts && (*/}
-                {/*<ReadNextCard tags={post.frontmatter.tags} relatedPosts={props.data.relatedPosts} />*/}
-              {/*)}*/}
+        {/*<div className={`${inner}`}>*/}
+        {/*<ReadNextFeed>*/}
+        {/*{props.data.relatedPosts && (*/}
+        {/*<ReadNextCard tags={post.frontmatter.tags} relatedPosts={props.data.relatedPosts} />*/}
+        {/*)}*/}
 
-              {/*{props.pageContext.prev && <PostCard post={props.pageContext.prev} />}*/}
-              {/*{props.pageContext.next && <PostCard post={props.pageContext.next} />}*/}
-            {/*</ReadNextFeed>*/}
-          {/*</div>*/}
+        {/*{props.pageContext.prev && <PostCard post={props.pageContext.prev} />}*/}
+        {/*{props.pageContext.next && <PostCard post={props.pageContext.next} />}*/}
+        {/*</ReadNextFeed>*/}
+        {/*</div>*/}
         {/*</aside>*/}
-        <Footer />
+        <Footer/>
       </Wrapper>
     </IndexLayout>
   );
@@ -216,7 +207,6 @@ export const query = graphql`
     }
   }
 `;
-
 
 
 interface PageTemplateProps {

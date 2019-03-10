@@ -1,11 +1,35 @@
 import { css } from 'react-emotion';
+import { colors, mediaQueries } from '@styles/variables';
+
 export const navStyles = css`
-  //border:5px solid red;
-  margin-top: -30px;
+  
+  &.home{
+  
+  
+    margin-top: -30px;
+    display: flex;
+    position: initial;
+    bottom: 70px;
+    margin: 0 auto;
+    max-width: 1040px;
+    margin-bottom: 4vh;
+    background: initial;
+  
+  ul{
+      
+    background: rgba(21,23,26,0.28);
+    border-radius: 7px;
+  }
+  
+  }
+  
+  
+  position: fixed;
   display: flex;
-  position: absolute;
-  bottom: 70px;
+  z-index: 500;
   width: 100%;
+  background: ${colors.$navy};
+    
   
   ${mediaQueries[2]}{
     //border:5px solid red;
@@ -16,15 +40,17 @@ export const navStyles = css`
   display: none;
   }
   
+  img{
+    
+    transform: scale(0.7);
+    margin: 0.5rem;
+  }
+  
   ul{
-    background: rgba(21,23,26,0.28);
+    
     display: flex;
     list-style-type: none;
-    justify-content: space-between;
     width: 100%;
-    margin: 0;
-    
-    
     padding: 0;
     max-width: 1040px;
     margin: 0 auto;
@@ -44,13 +70,12 @@ export const navStyles = css`
   }
   
   li{
-    
+    margin-top: 15px;
     margin: 0.5em 0;
     padding: 0;
     line-height: 1.6em;
     font-size: 2.6rem;
     text-align: center;
-    //border: 1px solid red;
     width: 20%;
 }
   }
@@ -59,12 +84,10 @@ export const navStyles = css`
   
     border-top: 2px solid #F0AF01;
     transform: rotate(90deg);
-    width: 30px;
+    width: 45px;
     margin: 0;
     margin-top: 34px;
   }
   
   
 `;
-
-import { colors, mediaQueries } from '../../variables';
