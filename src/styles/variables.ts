@@ -24,6 +24,7 @@ export const primaryColors = {
   pink: '#fa3a57',
   brown: '#a3821a',
   white: '#ffffff',
+  black: '#000000',
 };
 
 

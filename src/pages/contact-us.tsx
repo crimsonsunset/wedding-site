@@ -11,9 +11,17 @@ import Helmet from 'react-helmet';
 
 const PageTemplate = css`
   .site-main {
-    background #fff;
+    background: #fff;
     padding-bottom: 4vw;
   }
+  
+  .calendar-container{
+  
+    margin: 0 auto;
+    display: flex;
+  
+  }
+  
 `;
 
 
@@ -60,7 +68,23 @@ const ContactUs: React.SFC = () => {
                   <a href="https://docs.ghost.org">developer documentation</a>.
                 </p>
               </div>
+
+              <div
+                className={'calendar-container'}
+              >
+                <iframe
+                  src="https://calendar.google.com/calendar/b/1/embed?title=J%20%26%20J%20Wedding%20Schedule&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=400&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=ujg8gtpcobb0tcmeh8qs5u4dp4%40group.calendar.google.com&amp;color=%23853104&amp;ctz=America%2FNew_York&dates=20190815%2F20190819"
+                  width="800"
+                  height="600"
+                  frameBorder="0" scrolling="no">
+
+                </iframe>
+
+              </div>
+
             </PostFullContent>
+
+
           </article>
         </main>
         <Footer />

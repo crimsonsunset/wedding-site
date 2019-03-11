@@ -52,32 +52,33 @@ export default SiteNav;
 
 
 const NAV_ITEMS = [
+
+  {
+    name: 'Wedding',
+    link: 'wedding',
+  },
+  {
+    name: 'Travel & Lodging',
+    link: '/travel-and-lodging',
+  },
+  {
+    name: 'Activities',
+    link: '/activities',
+  },
+  {
+    name: 'Photos',
+    link: '/story',
+  },
   // {
-  //   name: 'Wedding',
-  //   link: '/wedding'
+  //   name: 'Registry',
+  //   link: '/registry',
+  //   // ! todo: update when registry is ready
+  //   // isExternal: true,
   // },
   {
     name: 'RSVP',
     link: 'https://jess-joe-wedding.app.rsvpify.com/',
     isExternal: 'true',
-  },
-  {
-    name: 'Travel',
-    link: '/travel-and-lodging',
-  },
-  {
-    name: 'Colorado',
-    link: '/colorado',
-  },
-  {
-    name: 'Nuggets',
-    link: '/nuggets',
-  },
-  {
-    name: 'Registry',
-    link: '/registry',
-    // ! todo: update when registry is ready
-    // isExternal: true,
   },
 ];
 

@@ -72,17 +72,17 @@ export const navStyles = css`
   li{
     margin-top: 15px;
     margin: 0.5em 0;
-    padding: 0;
+    padding: 0px 6px;
     line-height: 1.6em;
     font-size: 2.6rem;
     text-align: center;
-    width: 20%;
+    //width: 20%;
 }
   }
   
   hr {
   
-    border-top: 2px solid #F0AF01;
+    border-top: 2px solid ${colors.$orange};
     transform: rotate(90deg);
     width: 45px;
     margin: 0;

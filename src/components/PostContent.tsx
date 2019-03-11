@@ -279,10 +279,12 @@ export const PostFullContent = styled.section`
     margin: 0.5em 0;
     padding: 1em 0 1.5em;
     border: 0;
-    color: ${colors.$navy};
+    color: ${primaryColors.black};
     font-size: 3.2rem;
     line-height: 1.35em;
     text-align: center;
+    font-family: 'Catamaran', sans-serif;
+   
   }
   @media (min-width: 1180px) {
     h5 {

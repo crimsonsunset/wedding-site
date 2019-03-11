@@ -1,4 +1,4 @@
-# [![Deploy to Netlify](./src/content/img/logo-small.png)](https://jessandjoe.co/)
+# [![J & J Wedding](./src/content/img/logo-small.png)](https://jessandjoe.co/)
 
 This is the source code for jessandjoe.co It utilizes:
 - [x] [GatsbyJS](https://www.gatsbyjs.org/) 
