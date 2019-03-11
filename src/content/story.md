@@ -1,44 +1,189 @@
 ---
 layout: post
-title: Travel and Lodging
-image: img/cheers.jpg
-author: Joe
-date: 2019-02-27T07:03:47.149Z
+title: A Full and Comprehensive Style Test
+image: img/testimg-cover.jpg
+author: Ghost
+date: 2018-09-30T07:03:47.149Z
 tags: 
-  - Travel
-  - Lodging
+  - Tests
 ---
 
-This page will give you a brief overview of potential accommodations during your visit to Colorado. Check back soon to view our full site!
-
-
-![Dillon Map](img/dillon-map.png)
-
-# Travel
-
-> Summit County, Colorado encompasses several Mountain towns, including Dillon and Frisco, where the majority of our activities will take place.
-
-## By Airplane
-
-The most accessible airborne destination is Denver International Airport. From DIA, it's <a href="https://www.google.com/maps/dir/Denver+International+Airport+(DEN),+8500+Pe%C3%B1a+Blvd,+Denver,+CO+80249/Dillon,+Colorado/data=!4m8!4m7!1m2!1m1!1s0x876c7f2a98ff44ff:0x49583bb435b59c6a!1m2!1m1!1s0x876a56970bb0e355:0xd821373c4991fa7f!3e0?ved=2ahUKEwiK6YTDv9vgAhUCUt8KHWpBBU0Q-A8wAHoECAUQCw" target="_blank">just under two hours</a> by car to the town of Dillon.
+Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
 
 ---
 
-# Lodging
+# Heading 1
 
-> There are a variety of housing options available during the summer months.
+## Heading 2
 
-## Hotels
+### Heading 3
 
-Over the next few weeks, we will be booking several blocks of rooms in nearby hotels. For smaller groups, or people looking to kick it Walden-style, this may be the best bet. Please <a href="https://add.eventable.com/events/5c76557ed1adf4001b72722c/5c76557fa18fd8006d57133e/" data-event="5c76557fa18fd8006d57133e" class="eventable-link" target="_blank" data-key="5c76557ed1adf4001b72722c" data-style="2">come back</a> to this website soon for more details.
+#### Heading 4
 
-## Condos & Houses
+##### Heading 5
 
-Summit County always has a multitude of amazing condos and houses available for weekend getaways. Parties with a larger roster might want to consider this type of housing as as an option. Here are some useful websites pre-configured by our dates and location:
->If you choose to book with Summit County Rentals, get in touch with Jess/Joe for our discount code.
+###### Heading 6
 
-- <a href="https://www.airbnb.com/s/Frisco--CO--United-States/homes?query=Frisco%2C%20CO%2C%20United%20States&checkin=2019-08-16&checkout=2019-08-18&adults=4&children=0&infants=0&guests=4&place_id=ChIJC2-wVJpeaocRH_fIhqBCLO4&refinement_paths%5B%5D=%2Fhomes&toddlers=0&allow_override%5B%5D=&s_tag=QUw1gZV1" target="_blank">AirBnB</a>
-- <a href="https://www.vrbo.com/results?adultsCount=4&petIncluded=false&q=Frisco%2C%20CO%2C%20USA&from-date=2019-08-16&to-date=2019-08-18" target="_blank">VRBO</a> 
-- <a href="https://summitrentals.com/vacation-rentals#fq=%7B!tag%3DRiotSolrWidget%2CRiotSolrFacetList-ss_nid%24field_location%24city%7Dss_nid%24field_location%24city%3AFrisco&fq=%7B!tag%3DRCRiotAvailFilter%2CRiotSolrWidget%2CRCRiotPrices%7Ditem_id%3A(285%20OR%20277%20OR%20181%20OR%20199%20OR%2082%20OR%20337%20OR%20267%20OR%20286%20OR%20282%20OR%20196%20OR%20227%20OR%20224%20OR%20325%20OR%20289%20OR%20272%20OR%20322%20OR%2073%20OR%20236%20OR%20153%20OR%20255%20OR%20234%20OR%20315%20OR%20305%20OR%20264%20OR%20246%20OR%20143%20OR%20291%20OR%20334%20OR%20252%20OR%20331%20OR%20306%20OR%20321%20OR%20183%20OR%20163%20OR%2091%20OR%20295%20OR%20220%20OR%20122%20OR%20299%20OR%2086%20OR%20128%20OR%20113%20OR%20205%20OR%20142%20OR%20106%20OR%20219%20OR%20193%20OR%20209%20OR%20168%20OR%20105%20OR%2054%20OR%20190%20OR%2031%20OR%2025%20OR%20184%20OR%20159%20OR%20200%20OR%20273%20OR%2036%20OR%20118%20OR%20103%20OR%2060%20OR%20125%20OR%205%20OR%20281%20OR%20124%20OR%20156%20OR%20223%20OR%20132%20OR%2057%20OR%20145%20OR%2087%20OR%20287%20OR%20249%20OR%20237%20OR%20248%20OR%20101%20OR%20129%20OR%20146%20OR%20260%20OR%20240%20OR%20216%20OR%20251%20OR%20138%20OR%2017%20OR%20104%20OR%20162%20OR%20274%20OR%2067%20OR%20211%20OR%2018%20OR%20256%20OR%20135%20OR%2056%20OR%20166%20OR%20121%20OR%2016%20OR%20191%20OR%20151%20OR%2069%20OR%2090%20OR%2035%20OR%2030%20OR%2027%20OR%20242%20OR%2058%20OR%20250%20OR%2094%20OR%2079%20OR%2080%20OR%20192%20OR%20112%20OR%20141%20OR%2071%20OR%20147%20OR%2052%20OR%20244%20OR%2050%20OR%206%20OR%2046%20OR%20323%20OR%2013%20OR%20283%20OR%207%20OR%20303%20OR%20317%20OR%20326%20OR%20314%20OR%20301%20OR%20310%20OR%20130%20OR%20298%20OR%20294%20OR%20206%20OR%20329%20OR%20336%20OR%20312%20OR%20231%20OR%20319%20OR%20333%20OR%20300%20OR%20304%20OR%20332%20OR%20316%20OR%20338%20OR%20102%20OR%2083%20OR%2076%20OR%20116%20OR%204%20OR%2063%20OR%20265%20OR%20330%20OR%208%20OR%2077%20OR%20238%20OR%2059%20OR%2028%20OR%201%20OR%20233%20OR%20189%20OR%2084%20OR%20288%20OR%20186%20OR%20296%20OR%2072%20OR%20266%20OR%20309%20OR%20279)&q=*%3A*&rcav=%7B%22rcav%22%3A%7B%22begin%22%3A%2208%2F15%2F2019%22%2C%22end%22%3A%2208%2F18%2F2019%22%2C%22adult%22%3A1%2C%22child%22%3A0%7D%7D" target="_blank">Summit County Rentals</a> 
- 
 ---
+
+Lorem ipsum dolor sit amet, [test link]() adipiscing elit. **This is strong.** Nullam dignissim convallis est. Quisque aliquam. _This is emphasized._ Donec faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup> = 125. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. <cite>The New York Times</cite> (That’s a citation). <span style="text-decoration:underline;">Underline</span>. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
+
+HTML and CSS are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type `COPY filename`. <del>Dinner’s at 5:00.</del> <span style="text-decoration:underline;">Let’s make that 7</span>. This <del>text</del> has been struck.
+
+---
+
+## Media
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+
+### Big Image
+
+![Test Image](img/testimg1.jpg)
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+### Small Image
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+
+![Small Test Image](img/testimg2.jpg)
+
+Labore et dolore.
+
+---
+
+## List Types
+
+### Definition List
+
+Definition List Title
+: This is a definition list division.
+
+Definition
+: An exact statement or description of the nature, scope, or meaning of something: _our definition of what constitutes poetry._
+
+### Ordered List
+
+1. List Item 1
+2. List Item 2
+   1. Nested list item A
+   2. Nested list item B
+3. List Item 3
+
+### Unordered List
+
+- List Item 1
+- List Item 2
+  - Nested list item A
+  - Nested list item B
+- List Item 3
+
+---
+
+## Table
+
+| Table Header 1 | Table Header 2 | Table Header 3 |
+| :------------: | :------------: | :------------: |
+| Division 1     | Division 2     | Division 3     |
+| Division 1     | Division 2     | Division 3     |
+| Division 1     | Division 2     | Division 3     |
+
+---
+
+## Preformatted Text
+
+Typographically, preformatted text is not the same thing as code. Sometimes, a faithful execution of the text requires preformatted text that may not have anything to do with code. Most browsers use Courier and that’s a good default — with one slight adjustment, Courier 10 Pitch over regular Courier for Linux users.
+
+### Code
+
+Code can be presented inline, like `<?php bloginfo('stylesheet_url'); ?>`, or using [jekyll's highlight
+filter](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) to
+highlight a block of code. Because we have more specific typographic needs for code, we’ll specify Consolas and Monaco ahead of the browser-defined monospace font.
+
+```css
+#container {
+    float: left;
+    margin: 0 -240px 0 0;
+    width: 100%;
+}
+```
+
+---
+
+## Blockquotes
+
+Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the citation.
+
+> Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you’d like to hear it I can sing it for you. — [HAL 9000](http://en.wikipedia.org/wiki/HAL_9000)
+
+And here’s a bit of trailing text.
+
+---
+
+## Text-level semantics
+
+HTML elements
+
+<p>The <a href="#">a element</a> example <br>
+The <abbr>abbr element</abbr> and <abbr title="Title text">abbr element with title</abbr> examples <br>
+The <b>b element</b> example <br>
+The <cite>cite element</cite> example <br>
+The <code>code element</code> example <br>
+The <del>del element</del> example <br>
+The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples <br>
+The <em>em element</em> example <br>
+The <i>i element</i> example <br>
+The <ins>ins element</ins> example <br>
+The <kbd>kbd element</kbd> example <br>
+The <mark>mark element</mark> example <br>
+The <q>q element <q>inside</q> a q element</q> example <br>
+The <s>s element</s> example <br>
+The <samp>samp element</samp> example <br>
+The <small>small element</small> example <br>
+The <span>span element</span> example <br>
+The <strong>strong element</strong> example <br>
+The <sub>sub element</sub> example <br>
+The <sup>sup element</sup> example <br>
+The <var>var element</var> example <br>
+The <u>u element</u> example</p>
+* * *
+
+## Embeds
+
+Sometimes all you want to do is embed a little love from another location and set your post alive.
+
+### Video
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Culpa qui officia deserunt mollit anim id est laborum.
+
+<iframe src="//player.vimeo.com/video/103224792" width="600" height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+### Slides
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<script async class="speakerdeck-embed" data-id="585245d01ee1013238737e42b879906f" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+Culpa qui officia deserunt mollit anim id est laborum.
+
+### Audio
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/52891122&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
+Culpa qui officia deserunt mollit anim id est laborum.
+
+### Code
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+
+<p data-height="268" data-theme-id="0" data-slug-hash="bcqhe" data-default-tab="result" data-user="rglazebrook" class='codepen'>See the Pen <a href='http://codepen.io/rglazebrook/pen/bcqhe/'>Simple Rotating Spinner</a> by Rob Glazebrook (<a href='http://codepen.io/rglazebrook'>@rglazebrook</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+Isn't it beautiful.
+
+*[HTML]: Hyper Text Markup Language
+*[CSS]: Cascading Style Sheets
