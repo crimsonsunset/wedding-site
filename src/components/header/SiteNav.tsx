@@ -17,7 +17,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
     const homeStr = (isHome) ? 'home' : '';
     return (
       <nav className={`${navStyles} ${homeStr}`}>
-        <>
+        <React.Fragment>
           {!isHome && <NavLogo/>}
           <ul className={''} role="menu">
             {/* TODO: mark current nav item - add class nav-current */}
@@ -28,20 +28,21 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   (<a href={link} target="_blank">{name}</a>) :
                   (<Link to={link}>{name}</Link>);
                 return (
-                  <>
+                  <React.Fragment
+                    key={navIndex}
+                  >
                     <li
-                      key={navIndex}
                       role="menuitem">
                       {linkElem}
                     </li>
                     {navIndex !== NAV_ITEMS.length - 1 && <hr/>}
-                  </>
+                  </React.Fragment>
                 );
               })
             }
 
           </ul>
-        </>
+        </React.Fragment>
 
       </nav>
     );

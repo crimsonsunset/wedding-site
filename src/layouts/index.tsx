@@ -514,7 +514,7 @@ function printBuildInfo(buildInfo: any) {
 }
 
 
-const IndexLayout: React.SFC<IndexProps> = (props) => {
+const IndexLayout = (props) => {
   return (
     <StaticQuery
       query={INDEX_LAYOUT_QUERY}

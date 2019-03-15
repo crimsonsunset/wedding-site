@@ -26,6 +26,8 @@ import {
   PostFullTitle,
   PostFullImage,
 } from '@styles-components/post/post.style';
+import { Transition } from 'react-spring/renderprops-universal';
+import { animated, useSpring } from 'react-spring';
 
 
 const PostHelmet: React.SFC = ({ postData }: any) => {
@@ -81,6 +83,51 @@ const PostHelmet: React.SFC = ({ postData }: any) => {
 };
 
 
+const JoeTest = () => {
+
+  const FuncComp = ({ style, data }) => <h1 style={style}>{data}</h1>;
+
+  return (
+    <Transition
+      from={{
+        marginLeft: '0px',
+        marginTop: '100px',
+        position: 'absolute',
+        opacity: 0,
+      }}
+      enter={{
+        marginTop: '0px',
+        marginLeft: '100px',
+        opacity: 1,
+      }}>
+      {(props) => <FuncComp style={props} data={'JOE TEST ONE'}/>}
+    </Transition>
+  );
+
+};
+
+// https://codesandbox.io/embed/88lmnl6w88
+function Demo() {
+  const [state, toggle] = React.useState(true);
+  const { x } = useSpring({ from: { x: 0 }, x: state ? 1 : 0, config: { duration: 1000 } });
+  return (
+    <div onClick={() => toggle(!state)}>
+      <animated.div
+        style={{
+          opacity: x.interpolate({ output: [0.3, 1] }),
+          transform: x
+            .interpolate({
+              range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+              output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
+            })
+            .interpolate(x => `scale(${x})`),
+        }}>
+        click
+      </animated.div>
+    </div>
+  );
+}
+
 const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
   const post = props.data.markdownRemark;
   let width = '';
@@ -90,6 +137,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
     height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio);
   }
 
+  const propz = useSpring({ opacity: true ? 1 : 0 });
   return (
     <IndexLayout className="post-template">
       <PostHelmet postData={props}/>
@@ -108,14 +156,19 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
                 <PostFullTitle>{post.frontmatter.title}</PostFullTitle>
               </PostFullHeader>
 
-              {post.frontmatter.image && (
-                <PostFullImage>
-                  <Img
-                    style={{ height: '100%' }}
-                    fluid={post.frontmatter.image.childImageSharp.fluid}
-                  />
-                </PostFullImage>
-              )}
+              {/*{post.frontmatter.image && (*/}
+                {/*<PostFullImage>*/}
+                  {/*<Img*/}
+                    {/*style={{ height: '100%' }}*/}
+                    {/*fluid={post.frontmatter.image.childImageSharp.fluid}*/}
+                  {/*/>*/}
+                {/*</PostFullImage>*/}
+              {/*)}*/}
+
+
+              <Demo/>
+
+
               <PostContent htmlAst={post.htmlAst}/>
 
 

@@ -3,7 +3,6 @@ import styled from 'react-emotion';
 import { darken, lighten } from 'polished';
 import { colors, fonts, shadows, animations, primaryColors } from './variables';
 
-
 export const outer = css`
   //position: relative;
   //padding: 0 4vw;

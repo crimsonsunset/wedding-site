@@ -40,10 +40,10 @@ import styled from 'react-emotion';
 // };
 
 
-
 import { useState, useEffect } from 'react';
 import { interpolate } from 'react-spring';
 import { Spring, Transition } from 'react-spring/renderprops';
+import { springConfigs } from '@styles/variables';
 // import { jsx, css } from "@emotion/core";
 const svgLogo = require('@img/favicon/favicon.svg');
 
@@ -75,91 +75,71 @@ const ContactUs = () => {
       <Wrapper className={`${PageTemplate}`}>
         <header className={`${SiteHeader} ${outer}`}>
 
-          {/*<SiteNav/>*/}
+          <SiteNav/>
 
         </header>
 
-
-        <main
-          style={props}
-          id="site-main" className={`site-main ${SiteMain} ${outer}`}>
-          <article className={`${PostFull} post page ${NoImage}`}>
-
-
-            <Spring
-              from={{
-                marginTop: '-100px',
-                opacity: 0 }}
-              to={{
-                marginTop: '0px',
-                opacity: 0.5 }}
-              config={{
-                tension: 30,
-                friction: 10,
-                duration: 700
-              }}
-            >
-              {(styles) => {
-                // style={props}
-                return (
+        <Spring {...springConfigs.fadeAndPan}>
+          {(styles) => {
+            return (
+              <main
+                style={styles}
+                id="site-main" className={`site-main ${SiteMain} ${outer}`}>
+                <article className={`${PostFull} post page ${NoImage}`}>
 
 
-                  <PostFullHeader
-                    style={styles}
-                  >
-                  <PostFullTitle>Contact Us</PostFullTitle>
-                </PostFullHeader>
-
-                )
-              }
-              }
-            </Spring>
+                  <PostFullHeader>
+                    <PostFullTitle>Contact Us</PostFullTitle>
+                  </PostFullHeader>
 
 
-            <PostFullContent className="post-full-content">
-              <div className="post-content">
-                <p>
-                  Ghost is professional publishing platform designed for modern journalism. This is a
-                  demo site of a basic Ghost install to give you a general sense of what a new Ghost
-                  site looks like when set up for the first time.
-                </p>
-                <blockquote>
-                  <p>
-                    If you'd like to set up a site like this for yourself, head over to{' '}
-                    <a href="https://ghost.org">Ghost.org</a> and start a free 14 day trial to give
-                    Ghost a try!
-                  </p>
-                </blockquote>
-                <p>
-                  If you're a developer: Ghost is a completely open source (MIT) Node.js application
-                  built on a JSON API with an Ember.js admin client. It works with MySQL and SQLite,
-                  and is publicly available <a href="https://github.com/TryGhost/ghost">on Github</a>.
-                </p>
-                <p>
-                  If you need help with using Ghost, you'll find a ton of useful articles on{' '}
-                  <a href="https://help.ghost.org">our knowledgebase</a>, as well as extensive{' '}
-                  <a href="https://docs.ghost.org">developer documentation</a>.
-                </p>
-              </div>
+                  <PostFullContent className="post-full-content">
+                    <div className="post-content">
+                      <p>
+                        Ghost is professional publishing platform designed for modern journalism. This is a
+                        demo site of a basic Ghost install to give you a general sense of what a new Ghost
+                        site looks like when set up for the first time.
+                      </p>
+                      <blockquote>
+                        <p>
+                          If you'd like to set up a site like this for yourself, head over to{' '}
+                          <a href="https://ghost.org">Ghost.org</a> and start a free 14 day trial to give
+                          Ghost a try!
+                        </p>
+                      </blockquote>
+                      <p>
+                        If you're a developer: Ghost is a completely open source (MIT) Node.js application
+                        built on a JSON API with an Ember.js admin client. It works with MySQL and SQLite,
+                        and is publicly available <a href="https://github.com/TryGhost/ghost">on Github</a>.
+                      </p>
+                      <p>
+                        If you need help with using Ghost, you'll find a ton of useful articles on{' '}
+                        <a href="https://help.ghost.org">our knowledgebase</a>, as well as extensive{' '}
+                        <a href="https://docs.ghost.org">developer documentation</a>.
+                      </p>
+                    </div>
 
-              {/*<div*/}
-                {/*className={'calendar-container'}*/}
-              {/*>*/}
-                {/*<iframe*/}
-                  {/*src="https://calendar.google.com/calendar/b/1/embed?title=J%20%26%20J%20Wedding%20Schedule&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=200&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=ujg8gtpcobb0tcmeh8qs5u4dp4%40group.calendar.google.com&amp;color=%23853104&amp;ctz=America%2FNew_York&dates=20190815%2F20190819"*/}
-                  {/*width="800"*/}
-                  {/*height="1200"*/}
-                  {/*frameBorder="0" scrolling="no">*/}
+                    {/*<div*/}
+                    {/*className={'calendar-container'}*/}
+                    {/*>*/}
+                    {/*<iframe*/}
+                    {/*src="https://calendar.google.com/calendar/b/1/embed?title=J%20%26%20J%20Wedding%20Schedule&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=200&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=ujg8gtpcobb0tcmeh8qs5u4dp4%40group.calendar.google.com&amp;color=%23853104&amp;ctz=America%2FNew_York&dates=20190815%2F20190819"*/}
+                    {/*width="800"*/}
+                    {/*height="1200"*/}
+                    {/*frameBorder="0" scrolling="no">*/}
 
-                {/*</iframe>*/}
+                    {/*</iframe>*/}
 
-              {/*</div>*/}
+                    {/*</div>*/}
 
-            </PostFullContent>
+                  </PostFullContent>
 
 
-          </article>
-        </main>
+                </article>
+              </main>
+            );
+          }}
+        </Spring>
 
 
         <Footer/>
@@ -196,8 +176,6 @@ const ContactUs = () => {
 // }
 
 export default ContactUs;
-
-
 
 
 // import IndexLayout from '@layouts/index';
