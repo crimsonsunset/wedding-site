@@ -1,5 +1,8 @@
 import styled, { css } from 'react-emotion';
 import { colors, primaryColors } from '@styles/variables';
+import { useSpring, animated } from 'react-spring';
+import * as React from 'react';
+import { Transition } from 'react-spring/renderprops-universal';
 
 export const PostTemplate = css`
   .site-main {
@@ -23,6 +26,7 @@ export const NoImage = css`
     display: none;
   }
 `;
+
 
 export const PostFullHeader = styled.header`
   margin: 0 auto;
@@ -50,8 +54,9 @@ export const PostFullHeader = styled.header`
       font-size: 22px;
     }
   }
-  
+    
 `;
+
 
 export const PostFullMeta = styled.section`
   display: flex;
@@ -114,3 +119,31 @@ export const ReadNextFeed = styled.div`
   margin: 0 -20px;
   padding: 40px 0 0 0;
 `;
+
+
+// const items = [1, 2, 3, 4];
+// export class Parent extends React.Component {
+//
+//   render() {
+//
+//     const FuncComp = (({ style, data }) => <h1 style={style}>{data}</h1>);
+//
+//     return (
+//       <Transition
+//         items={items} keys={(item) => item}
+//         from={{
+//           marginLeft: '0px',
+//           marginTop: '100px',
+//           position: 'absolute',
+//           opacity: 0
+//         }}
+//         enter={{
+//           marginTop: '0px',
+//           marginLeft: '100px',
+//           opacity: 1
+//         }}>
+//         {props => <FuncComp style={props} data={'JOE TEST ONE'} />}
+//       </Transition>
+//     )
+//   }
+// }

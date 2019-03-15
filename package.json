@@ -56,6 +56,8 @@
     "react-dom": "^16.8.4",
     "react-emotion": "9.2.12",
     "react-helmet": "5.2.0",
+    "react-spring": "^8.0.15",
+    "react-transition-group": "^2.6.0",
     "rehype-react": "^3.1.0",
     "typeface-capriola": "0.0.72",
     "typeface-catamaran": "0.0.72",
