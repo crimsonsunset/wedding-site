@@ -189,7 +189,7 @@ export const pageQuery = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fluid(maxWidth: 3500) {
+        fluid(maxWidth: 5000) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -202,7 +202,7 @@ export const pageQuery = graphql`
         environment
       }
     }
-    allMarkdownRemark(limit: 1000, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(limit: 1000, sort: { fields: [frontmatter___order], order: ASC }) {
       edges {
         node {
           timeToRead

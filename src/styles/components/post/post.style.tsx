@@ -1,5 +1,5 @@
 import styled, { css } from 'react-emotion';
-import { colors, primaryColors } from '@styles/variables';
+import { colors, primaryColors, mediaQueries } from '@styles/variables';
 import { useSpring, animated } from 'react-spring';
 import * as React from 'react';
 import { Transition } from 'react-spring/renderprops-universal';
@@ -8,6 +8,20 @@ export const PostTemplate = css`
   .site-main {
     background: ${primaryColors.white} !important;
     padding-bottom: 4vw;
+    //margin-top: 4vw;;
+    
+    ${mediaQueries[0]}{
+      margin-top: 200px !important;
+    }
+    ${mediaQueries[1]}{
+      margin-top: 150px !important;
+    }
+    ${mediaQueries[2]}{
+      margin-top: 120px !important;
+    }
+    ${mediaQueries[3]}{
+      margin-top: 70px;
+    }
   }
 `;
 
@@ -81,9 +95,9 @@ export const PostFullTitle = styled.h1`
   margin: 0;
   font-size: 8rem;
   color: ${colors.$navy};
-  @media (max-width: 500px) {
-    font-size: 2.9rem;
-  }
+  //@media (max-width: 500px) {
+  //  font-size: 2.9rem;
+  //}
 `;
 
 export const PostFullImage = styled.figure`

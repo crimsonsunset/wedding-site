@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Lodging
-image: img/cheers.jpg
+image: img/header-images/lodging.jpg
 author: Joe
 date: 2019-02-27T07:03:47.149Z
+order: 3
 tags: 
   - Lodging
 ---

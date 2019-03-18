@@ -1,15 +1,16 @@
 ---
 layout: post
 title: Our Wedding
-image: img/cheers.jpg
+image: img/header-images/wedding.jpg
 author: Joe
 date: 2019-02-27T07:03:47.149Z
+order: 1
 tags: 
   - Wedding
   - Details
 ---
 
-> All the details you could ever want about our special day! 
+>Welcome to our website! To all our family & friends: we're so grateful for your love & support and excited to include you in our special day! 
 
 
 # Schedule  

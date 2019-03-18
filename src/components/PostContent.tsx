@@ -78,7 +78,7 @@ export const PostFullContent = styled.section`
     margin-right: 10px;
     content: counter(item);
     background: ${colors.$orange};
-    border-radius: 45px;
+    border-radius: 6px;
     color: white;
     width: 1.2em;
     text-align: center;
@@ -106,6 +106,7 @@ export const PostFullContent = styled.section`
     color: #000;
     word-break: break-word;
     box-shadow: ${primaryColors.blue} 0 -1px 0 inset;
+    font-size: 2rem;
   }
   
   
@@ -291,11 +292,11 @@ export const PostFullContent = styled.section`
     font-family: 'Catamaran',sans-serif;
     color: ${colors.$navy}
   }
-  @media (max-width: 500px) {
-    h3 {
-      font-size: 2.2rem;
-    }
-  }
+  //@media (max-width: 500px) {
+  //  h3 {
+  //    font-size: 2.2rem;
+  //  }
+  //}
   
   h3 a {
  

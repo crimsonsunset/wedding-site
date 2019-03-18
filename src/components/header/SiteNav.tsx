@@ -72,7 +72,8 @@ const NAV_ITEMS = [
   },
   {
     name: 'Photos',
-    link: '/story',
+    link: 'https://elevatephotography.com/blog/jess-joe-keystone-winter-engagement-photos/',
+    isExternal: 'true',
   },
   // {
   //   name: 'Registry',

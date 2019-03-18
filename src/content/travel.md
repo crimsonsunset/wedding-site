@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Travel
-image: img/cheers.jpg
+image: img/header-images/travel.jpg
 author: Joe
 date: 2019-02-27T07:03:47.149Z
+order: 2
 tags: 
   - Travel
 ---

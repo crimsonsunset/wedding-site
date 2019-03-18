@@ -151,6 +151,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
   }
 
   const propz = useSpring({ opacity: true ? 1 : 0 });
+  // debugger;
   return (
     <IndexLayout className="post-template">
       <PostHelmet postData={props}/>
@@ -178,10 +179,6 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
                   />
                 </PostFullImage>
               )}
-
-
-
-
 
               <PostContent htmlAst={post.htmlAst}/>
 
