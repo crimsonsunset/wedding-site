@@ -1,4 +1,6 @@
 import { css } from 'emotion';
+import { Spring } from 'react-spring/renderprops-universal';
+import * as React from 'react';
 
 export const colors = {
   $darkGreen: '#1C3103',
@@ -71,6 +73,25 @@ export const animations = {
        
       }`;
   },
+
+};
+
+export const springConfigs = {
+  fadeAndPan: {
+    from: {
+      marginTop: '-100px',
+      opacity: 0,
+    },
+    to: {
+      marginTop: '0px',
+      opacity: 1,
+    },
+    config: {
+      // tension: 30,
+      // friction: 10,
+      // duration: 1100,
+    },
+  },
 };
 
 
@@ -78,7 +99,6 @@ const breakpoints = [500, 768, 899, 1170];
 export const mediaQueries = breakpoints.map(
   (bp) => `@media (max-width: ${bp}px)`,
 );
-
 
 
 // const [color1, color2] = sampleSize(values(colors), 2);
@@ -94,8 +114,6 @@ export const mediaQueries = breakpoints.map(
 
 // greet`Woah, ${name} is ${age}?`;
 // "Woah, Brandon is 26?"
-
-
 
 
 // @import url('https://fonts.googleapis.com/css?family=Rancho');

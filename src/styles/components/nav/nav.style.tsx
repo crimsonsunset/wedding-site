@@ -3,6 +3,23 @@ import { colors, mediaQueries } from '@styles/variables';
 
 export const navStyles = css`
   
+  position: fixed;
+  display: flex;
+  z-index: 500;
+  width: 100%;
+  background: ${colors.$navy};
+  flex-wrap: wrap;
+  justify-content: center;
+  
+    // ${mediaQueries[2]}{
+  //   //border:5px solid red;
+  //   bottom: 0;
+  // }
+  
+  ${mediaQueries[2]}{
+    justify-content: center;
+  }
+  
   &.home{
   
   
@@ -15,29 +32,15 @@ export const navStyles = css`
     margin-bottom: 4vh;
     background: initial;
   
-  ul{
+    ul{
+        
+      background: rgba(21,23,26,0.28);
+      border-radius: 7px;
       
-    background: rgba(21,23,26,0.28);
-    border-radius: 7px;
-  }
-  
-  }
-  
-  
-  position: fixed;
-  display: flex;
-  z-index: 500;
-  width: 100%;
-  background: ${colors.$navy};
-    
-  
-  ${mediaQueries[2]}{
-    //border:5px solid red;
-    bottom: 0;
-  }
-  
-  ${mediaQueries[2]}{
-  display: none;
+        ${mediaQueries[2]}{
+          flex-wrap: wrap;
+        } 
+    }
   }
   
   img{
@@ -55,6 +58,11 @@ export const navStyles = css`
     max-width: 1040px;
     margin: 0 auto;
     justify-content: space-around;
+    flex-wrap: wrap;
+    
+    ${mediaQueries[2]}{
+      justify-content: center;
+    }
     
     //todo: for smaller nav?
     //border: 1px solid orange;
@@ -82,11 +90,18 @@ export const navStyles = css`
   
   hr {
   
-    border-top: 2px solid ${colors.$orange};
+    border-top: 2px solid ${colors.$lightGreen};
     transform: rotate(90deg);
     width: 45px;
     margin: 0;
     margin-top: 34px;
+    
+    
+    ${mediaQueries[0]}{
+      width: 20px;
+      visibility: hidden;
+    }
+    
   }
   
   

@@ -10,7 +10,7 @@ export const PostFullContent = styled.section`
   margin: 0 auto;
   padding: 70px 100px 0;
   min-height: 230px;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   line-height: 1.6em;
   background: #fff;
 
@@ -66,22 +66,49 @@ export const PostFullContent = styled.section`
     min-width: 100%;
   }
 
+ ol {
+   list-style: none;
+   counter-reset: item;
+ }
+ li {
+   counter-increment: item;
+   margin-bottom: 5px;
+ }
+ ol li:before {
+    margin-right: 10px;
+    content: counter(item);
+    background: ${colors.$orange};
+    border-radius: 6px;
+    color: white;
+    width: 1.2em;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    margin-left: -40px;
+    margin-top: 10px;
+ }
+
+  ul{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
   li {
     word-break: break-word;
-    
-    
-    
   }
 
   li p {
     margin: 0;
+    margin-top: 0.7em;
   }
 
   a {
     color: #000;
     word-break: break-word;
     box-shadow: ${primaryColors.blue} 0 -1px 0 inset;
+    font-size: 2rem;
   }
+  
   
   .gatsby-resp-image-link{
   box-shadow: none !important;
@@ -154,6 +181,11 @@ export const PostFullContent = styled.section`
 
   blockquote p:last-child {
     margin-bottom: 0;
+  }
+
+
+  li  blockquote {
+    margin-top: 20px;
   }
 
   code {
@@ -241,8 +273,8 @@ export const PostFullContent = styled.section`
   }
 
   h2 {
-    margin: 0.5em 0 0.2em 0;
-    font-size: 4.2rem;
+    margin: 1em 0 0.2em 0;
+    font-size: 4.4rem;
     font-weight: 700;
     color: ${colors.$lightGreen}
   }
@@ -252,15 +284,24 @@ export const PostFullContent = styled.section`
     }
   }
 
-  h3 {
-    margin: 0.5em 0 0.2em 0;
-    font-size: 2.8rem;
+  h3, .other-hotels {
+    margin: 0.5em 0 0.5em 0;
     font-weight: 700;
+    font-size: 23px;
+   
+    font-family: 'Catamaran',sans-serif;
+    color: ${colors.$navy}
   }
-  @media (max-width: 500px) {
-    h3 {
-      font-size: 2.2rem;
-    }
+  //@media (max-width: 500px) {
+  //  h3 {
+  //    font-size: 2.2rem;
+  //  }
+  //}
+  
+  h3 a {
+ 
+    font-size: 23px;
+    color: ${colors.$navy}
   }
 
   h4 {
@@ -383,6 +424,18 @@ export const PostFullContent = styled.section`
       display: none;
     }
   }
+  
+  .event-info {
+    
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Catamaran',sans-serif;
+    font-size: 2.1rem;
+    font-weight:400;
+  
+  }
+  
 `;
 
 const renderAst = new rehypeReact({

@@ -1,10 +1,27 @@
 import styled, { css } from 'react-emotion';
-import { colors, primaryColors } from '@styles/variables';
+import { colors, primaryColors, mediaQueries } from '@styles/variables';
+import { useSpring, animated } from 'react-spring';
+import * as React from 'react';
+import { Transition } from 'react-spring/renderprops-universal';
 
 export const PostTemplate = css`
   .site-main {
     background: ${primaryColors.white} !important;
     padding-bottom: 4vw;
+    //margin-top: 4vw;;
+    
+    ${mediaQueries[0]}{
+      margin-top: 200px !important;
+    }
+    ${mediaQueries[1]}{
+      margin-top: 150px !important;
+    }
+    ${mediaQueries[2]}{
+      margin-top: 120px !important;
+    }
+    ${mediaQueries[3]}{
+      margin-top: 70px;
+    }
   }
 `;
 
@@ -23,6 +40,7 @@ export const NoImage = css`
     display: none;
   }
 `;
+
 
 export const PostFullHeader = styled.header`
   margin: 0 auto;
@@ -50,8 +68,9 @@ export const PostFullHeader = styled.header`
       font-size: 22px;
     }
   }
-  
+    
 `;
+
 
 export const PostFullMeta = styled.section`
   display: flex;
@@ -76,9 +95,9 @@ export const PostFullTitle = styled.h1`
   margin: 0;
   font-size: 8rem;
   color: ${colors.$navy};
-  @media (max-width: 500px) {
-    font-size: 2.9rem;
-  }
+  //@media (max-width: 500px) {
+  //  font-size: 2.9rem;
+  //}
 `;
 
 export const PostFullImage = styled.figure`
@@ -114,3 +133,31 @@ export const ReadNextFeed = styled.div`
   margin: 0 -20px;
   padding: 40px 0 0 0;
 `;
+
+
+// const items = [1, 2, 3, 4];
+// export class Parent extends React.Component {
+//
+//   render() {
+//
+//     const FuncComp = (({ style, data }) => <h1 style={style}>{data}</h1>);
+//
+//     return (
+//       <Transition
+//         items={items} keys={(item) => item}
+//         from={{
+//           marginLeft: '0px',
+//           marginTop: '100px',
+//           position: 'absolute',
+//           opacity: 0
+//         }}
+//         enter={{
+//           marginTop: '0px',
+//           marginLeft: '100px',
+//           opacity: 1
+//         }}>
+//         {props => <FuncComp style={props} data={'JOE TEST ONE'} />}
+//       </Transition>
+//     )
+//   }
+// }

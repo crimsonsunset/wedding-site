@@ -1,5 +1,4 @@
 const path = require('path');
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -92,12 +91,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'jj-tie-the-knot',
+        name: 'jess-and-joe-wedding',
         short_name: 'jj-wedding',
         start_url: '/',
-        // todo: update these colors
-        background_color: '#ffffff',
-        theme_color: '#0000ff',
+        background_color: '#2F496E',
+        theme_color: '#749957',
         display: 'minimal-ui',
         icon: 'src/content/img/favicon/favicon-big.png', // This path is relative to the root of the site.
       },

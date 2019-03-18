@@ -111,7 +111,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const next = index === posts.length - 1 ? null : posts[index + 1].node;
 
 
-    console.log('creating POST: ', slug)
+    console.log('creating POST: ', slug);
     createPage({
       path: slug,
       // This will automatically resolve the template to a corresponding
