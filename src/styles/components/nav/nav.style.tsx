@@ -82,7 +82,7 @@ export const navStyles = css`
   
   hr {
   
-    border-top: 2px solid ${colors.$orange};
+    border-top: 2px solid ${colors.$lightGreen};
     transform: rotate(90deg);
     width: 45px;
     margin: 0;

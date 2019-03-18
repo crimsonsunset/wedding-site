@@ -107,22 +107,35 @@ const JoeTest = () => {
 };
 
 // https://codesandbox.io/embed/88lmnl6w88
-function Demo() {
+function Demo(props: any) {
   const [state, toggle] = React.useState(true);
-  const { x } = useSpring({ from: { x: 0 }, x: state ? 1 : 0, config: { duration: 1000 } });
+  const { y } = useSpring({
+    from: {
+      y: 0,
+    },
+    y: state ? 1 : 0,
+    config: {
+      duration: 5000,
+    },
+  });
+
+
   return (
     <div onClick={() => toggle(!state)}>
       <animated.div
         style={{
-          opacity: x.interpolate({ output: [0.3, 1] }),
-          transform: x
+          transform: y
             .interpolate({
               range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
               output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
             })
-            .interpolate(x => `scale(${x})`),
+            .interpolate((y) => `scale(${y})`),
         }}>
-        click
+
+        <PostFullHeader>
+          <PostFullTitle>{props.title}</PostFullTitle>
+        </PostFullHeader>
+
       </animated.div>
     </div>
   );
@@ -147,26 +160,27 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
           <SiteNav/>
 
         </header>
+        (
         <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
           <div className={`${inner}`}>
+
             {/* TODO: no-image css tag? */}
             <article className={`${PostFull} ${!post.frontmatter.image ? NoImage : ''}`}>
-              <PostFullHeader>
-
-                <PostFullTitle>{post.frontmatter.title}</PostFullTitle>
-              </PostFullHeader>
-
-              {/*{post.frontmatter.image && (*/}
-                {/*<PostFullImage>*/}
-                  {/*<Img*/}
-                    {/*style={{ height: '100%' }}*/}
-                    {/*fluid={post.frontmatter.image.childImageSharp.fluid}*/}
-                  {/*/>*/}
-                {/*</PostFullImage>*/}
-              {/*)}*/}
 
 
-              <Demo/>
+              <Demo title={post.frontmatter.title}/>
+
+              {post.frontmatter.image && (
+                <PostFullImage>
+                  <Img
+                    style={{ height: '100%' }}
+                    fluid={post.frontmatter.image.childImageSharp.fluid}
+                  />
+                </PostFullImage>
+              )}
+
+
+
 
 
               <PostContent htmlAst={post.htmlAst}/>
@@ -176,24 +190,28 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
           </div>
         </main>
 
-        {/* Links to Previous/Next posts */}
-        {/*<aside className={`read-next ${outer}`}>*/}
-        {/*<div className={`${inner}`}>*/}
-        {/*<ReadNextFeed>*/}
-        {/*{props.data.relatedPosts && (*/}
-        {/*<ReadNextCard tags={post.frontmatter.tags} relatedPosts={props.data.relatedPosts} />*/}
-        {/*)}*/}
 
-        {/*{props.pageContext.prev && <PostCard post={props.pageContext.prev} />}*/}
-        {/*{props.pageContext.next && <PostCard post={props.pageContext.next} />}*/}
-        {/*</ReadNextFeed>*/}
-        {/*</div>*/}
-        {/*</aside>*/}
         <Footer/>
       </Wrapper>
     </IndexLayout>
   );
 };
+
+
+// todo: put these above footer for read next things
+// (<aside className={`read-next ${outer}`}>
+// <div className={`${inner}`}>
+// <ReadNextFeed>
+// {props.data.relatedPosts && (
+//     <ReadNextCard tags={post.frontmatter.tags} relatedPosts={props.data.relatedPosts} />
+//   )}
+//
+// {props.pageContext.prev && <PostCard post={props.pageContext.prev} />}
+// {props.pageContext.next && <PostCard post={props.pageContext.next} />}
+// </ReadNextFeed>
+// </div>
+// </aside>)
+
 
 export default PageTemplate;
 

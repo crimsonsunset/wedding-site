@@ -9,7 +9,6 @@ tags:
   - Things to do
 ---
 
-
 # Activities
 
 > During the summer months, Summit county is transformed into an adventurer’s paradise; offering a bevy of activities to enjoy. Notably, guests can choose from:

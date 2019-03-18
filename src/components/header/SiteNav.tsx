@@ -59,8 +59,12 @@ const NAV_ITEMS = [
     link: 'wedding',
   },
   {
-    name: 'Travel & Lodging',
-    link: '/travel-and-lodging',
+    name: 'Travel',
+    link: '/travel',
+  },
+  {
+    name: 'Lodging',
+    link: '/lodging',
   },
   {
     name: 'Activities',

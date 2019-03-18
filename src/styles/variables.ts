@@ -87,9 +87,9 @@ export const springConfigs = {
       opacity: 1,
     },
     config: {
-      tension: 30,
-      friction: 10,
-      duration: 1100,
+      // tension: 30,
+      // friction: 10,
+      // duration: 1100,
     },
   },
 };
