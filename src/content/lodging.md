@@ -61,21 +61,30 @@ tags:
 Summit County always has a multitude of amazing condos and houses available for weekend getaways. Parties with a larger roster might want to consider this type of housing as as an option.
 >Feel free to look through the websites below to see what would best suit your needs. Underneath every website link is information on how to book and receive discounted rates through each rental company. 
 
+#### Located in Dillon/Frisco
+
+### <a href="https://www.summitrentals.com" target="_blank">Summit Mountain Rentals</a>  
+ - Phone: <a href="tel:800-383-7382" target="_blank">800-383-7382</a> 
+ 
+> Call or use their website. Use code: `10comeagain` to receive 10% off.   
+
+### <a href="https://www.coloradormr.com/" target="_blank">Colorado Rocky Mountain Resorts</a>  
+ - Phone: <a href="tel:970-668-5151" target="_blank">970-668-5151</a> 
+ 
+> Call and use our names (Laub/Sangiorgio) to receive a discount upon booking.  
+
+### <a href="https://bighornrentals.com/frisco-lodging" target="_blank">Bighorn Rentals</a>  
+ - Phone: <a href="tel:1-800-826-7706" target="_blank">1-800-826-7706</a>
+
+> Call and use our names (Laub/Sangiorgio) to receive a discount upon booking.
+
+#### Located in Keystone
 
 ### <a href="https://scmountainretreats.com/" target="_blank">Summit County Mountain Retreats</a>  
  - Phone: <a href="tel:1-800-516-0041" target="_blank">1-800-516-0041</a> 
  
-> Call to book any property available on their website with our discount code, or use the code to book with a discount online.  
-
-### <a href="https://www.coloradormr.com/" target="_blank">Colorado Rocky Mountain Resorts</a>  
- - Phone: <a href="tel:1-800-635-3434" target="_blank">1-800-635-3434</a> 
- 
-> Call to receive a discount code that you can use over the phone or online when booking for multiple nights.   
-
-### <a href="https://bighornrentals.com/frisco-lodging" target="_blank">Bighorn Rentals</a>  
- - Phone: <a href="tel:1-800-826-7706" target="_blank">1-800-826-7706</a> 
- 
-> Call and use our last names to receive a discount upon booking.  
+> You can book through their website, by calling 800-383-7382, or by emailing coloradorentals@scmountainretreats.com. Use code: `LASA19` to receive 10% off.   
+   
 
 ### Other options can be found here:
 - <a href="https://www.airbnb.com/s/Frisco--CO--United-States/homes?query=Frisco%2C%20CO%2C%20United%20States&checkin=2019-08-16&checkout=2019-08-18&adults=4&children=0&infants=0&guests=4&place_id=ChIJC2-wVJpeaocRH_fIhqBCLO4&refinement_paths%5B%5D=%2Fhomes&toddlers=0&allow_override%5B%5D=&s_tag=QUw1gZV1" target="_blank">AirBnB</a> 

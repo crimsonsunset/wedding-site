@@ -305,9 +305,11 @@ export const PostFullContent = styled.section`
   }
 
   h4 {
-    margin: 0.5em 0 0.2em 0;
+    margin: 0.5em 0 0.8em 0;
     font-size: 2.8rem;
     font-weight: 700;
+    color: ${colors.$orange};
+    
   }
   @media (max-width: 500px) {
     h4 {
