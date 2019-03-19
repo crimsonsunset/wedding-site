@@ -1,18 +1,18 @@
 import { Link } from 'gatsby';
-import { setLightness } from 'polished';
 import * as React from 'react';
 import styled, { css } from 'react-emotion';
-
-import { colors } from '../styles/colors';
-import { outer, inner } from '../styles/shared';
-import config from '../website-config';
+import { outer, inner } from '@styles/shared';
+import config from '@root/website-config';
+import { colors, primaryColors } from '@styles/variables';
+import { getCurrentYear } from '@util/helpers';
 
 const SiteFooter = css`
   position: relative;
   color: #fff;
-  background: ${setLightness('0.0015', colors.darkgrey)};
+  background: ${colors.$navy};
   padding: 20px 4vw;
 `;
+
 
 const SiteFooterContent = css`
   display: flex;
@@ -68,20 +68,14 @@ const Footer: React.SFC = () => {
     <footer className={`${outer} ${SiteFooter}`}>
       <div className={`${inner} ${SiteFooterContent}`}>
         <section className="copyright">
-          <Link to="/">{config.title}</Link> &copy; 2018
+          <Link to="/">{config.title}</Link> &copy; {getCurrentYear()}
         </section>
         <SiteFooterNav>
-          {/*<Link to="/">Latest Posts</Link>*/}
-          {/*{config.facebook && (*/}
-            {/*<a href={config.facebook} target="_blank" rel="noopener noreferrer">*/}
-              {/*Facebook*/}
-            {/*</a>*/}
-          {/*)}*/}
 
           {/*<Link to="/contact-us">Contact Us</Link>*/}
 
           <a href="https://gatsbyjs.org" target="_blank" rel="noopener noreferrer">
-            Made with ❤️ & GatsbyJS
+            Made with ❤️ & GatsbyJS in 🗽
           </a>
         </SiteFooterNav>
       </div>

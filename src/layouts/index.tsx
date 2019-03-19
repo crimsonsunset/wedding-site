@@ -440,19 +440,20 @@ h1 {
   font-size: 5rem;
   font-weight: 700;
 }
-@media (max-width: 500px) {
-  h1 {
-      font-size: 2.2rem;
-  }
-}
+//@media (max-width: 500px) {
+//  h1 {
+//      font-size: 2.2rem;
+//  }
+//}
 
 h2 {
   margin: 1.5em 0 0.5em 0;
-  font-size: 2.8rem;
+  font-size: 3rem;
 }
 @media (max-width: 500px) {
   h2 {
-      font-size: 1.8rem;
+      //font-size: 3.5rem;
+      //text-align: center;
   }
 }
 
@@ -514,7 +515,7 @@ function printBuildInfo(buildInfo: any) {
 }
 
 
-const IndexLayout: React.SFC<IndexProps> = (props) => {
+const IndexLayout = (props) => {
   return (
     <StaticQuery
       query={INDEX_LAYOUT_QUERY}

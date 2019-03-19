@@ -1,8 +1,7 @@
 import { css } from 'emotion';
 import styled from 'react-emotion';
 import { darken, lighten } from 'polished';
-import { colors, fonts, shadows, animations, primaryColors } from './variables';
-
+import { colors, fonts, shadows, animations, primaryColors, mediaQueries } from './variables';
 
 export const outer = css`
   //position: relative;
@@ -31,6 +30,10 @@ export const SiteTitle = styled.h1`
   font-weight: 700;
   letter-spacing: 4px;
   color:${colors.$white};
+  
+  ${mediaQueries[0]}{
+    font-size: ${'8.5rem'};
+  }
   
 `;
 
@@ -95,11 +98,14 @@ export const SocialLink = css`
 `;
 
 export const SiteHeader = css`
-    position: sticky;
-    top: 0;
+    
+    //border:5px solid purple;
+    //position: sticky;
     color: ${colors.$black};
+    background: ${colors.$navy};
     background: ${colors.$darkGreen} no-repeat 100% 65%;
     background-size: cover;
+    margin-bottom: 30px;
 `;
 
 export const SiteHeaderContent = styled.div`
@@ -107,7 +113,7 @@ export const SiteHeaderContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10vw 4vw;
+  padding: 2vw 0vw;
   min-height: 200px;
   max-height: 450px;
   text-align: center;

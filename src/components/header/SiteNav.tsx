@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import NavLogo from './NavLogo';
 import { navStyles } from '@styles-components/nav/nav.style';
-import { inner } from '@styles/shared';
 
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
@@ -15,30 +14,35 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
 
   render() {
     const { isHome = false } = this.props;
+    const homeStr = (isHome) ? 'home' : '';
     return (
-      <nav className={`${navStyles}`}>
-        <>
+      <nav className={`${navStyles} ${homeStr}`}>
+        <React.Fragment>
           {!isHome && <NavLogo/>}
           <ul className={''} role="menu">
             {/* TODO: mark current nav item - add class nav-current */}
             {
               NAV_ITEMS.map((navItem, navIndex) => {
-                const { name, link } = navItem;
+                const { name, link, isExternal } = navItem;
+                const linkElem = (isExternal) ?
+                  (<a href={link} target="_blank">{name}</a>) :
+                  (<Link to={link}>{name}</Link>);
                 return (
-                  <>
+                  <React.Fragment
+                    key={navIndex}
+                  >
                     <li
-                      key={navIndex}
                       role="menuitem">
-                      <Link to={link}>{name}</Link>
+                      {linkElem}
                     </li>
                     {navIndex !== NAV_ITEMS.length - 1 && <hr/>}
-                  </>
+                  </React.Fragment>
                 );
               })
             }
 
           </ul>
-        </>
+        </React.Fragment>
 
       </nav>
     );
@@ -49,30 +53,38 @@ export default SiteNav;
 
 
 const NAV_ITEMS = [
-  // {
-  //   name: 'Wedding',
-  //   link: '/wedding'
-  // },
+
   {
-    name: 'RSVP',
-    link: '/rsvp',
+    name: 'Wedding',
+    link: 'wedding',
   },
   {
     name: 'Travel',
-    link: '/travel-and-lodging',
+    link: '/travel',
   },
   {
-    name: 'Colorado',
-    link: '/colorado',
+    name: 'Lodging',
+    link: '/lodging',
   },
   {
-    name: 'Nuggets',
-    link: '/nuggets',
+    name: 'Activities',
+    link: '/activities',
   },
   {
-    name: 'Registry',
-    link: '/registry',
-    external: true,
+    name: 'Photos',
+    link: 'https://elevatephotography.com/blog/jess-joe-keystone-winter-engagement-photos/',
+    isExternal: 'true',
+  },
+  // {
+  //   name: 'Registry',
+  //   link: '/registry',
+  //   // ! todo: update when registry is ready
+  //   // isExternal: true,
+  // },
+  {
+    name: 'RSVP',
+    link: 'https://jess-joe-wedding.app.rsvpify.com/',
+    isExternal: 'true',
   },
 ];
 
