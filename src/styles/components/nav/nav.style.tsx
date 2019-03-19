@@ -31,6 +31,11 @@ export const navStyles = css`
     max-width: 1040px;
     margin-bottom: 4vh;
     background: initial;
+    
+    ${mediaQueries[2]}{
+      margin-bottom: 0;
+    }
+    
   
     ul{
         
@@ -84,7 +89,11 @@ export const navStyles = css`
     line-height: 1.6em;
     font-size: 2.6rem;
     text-align: center;
-    //width: 20%;
+    
+    ${mediaQueries[2]}{
+      margin: 0.1em;
+    }
+    
 }
   }
   
@@ -100,6 +109,11 @@ export const navStyles = css`
     ${mediaQueries[0]}{
       width: 20px;
       visibility: hidden;
+    }
+    
+    ${mediaQueries[2]}{
+      margin-top: 20px;
+      width: 30px;
     }
     
   }

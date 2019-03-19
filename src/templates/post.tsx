@@ -168,8 +168,12 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
             {/* TODO: no-image css tag? */}
             <article className={`${PostFull} ${!post.frontmatter.image ? NoImage : ''}`}>
 
+              {/*todo: animate the title?*/}
+              {/*<Demo title={post.frontmatter.title}/>*/}
 
-              <Demo title={post.frontmatter.title}/>
+              <PostFullHeader>
+                <PostFullTitle>{post.frontmatter.title}</PostFullTitle>
+              </PostFullHeader>
 
               {post.frontmatter.image && (
                 <PostFullImage>

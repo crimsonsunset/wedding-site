@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import styled from 'react-emotion';
 import { darken, lighten } from 'polished';
-import { colors, fonts, shadows, animations, primaryColors } from './variables';
+import { colors, fonts, shadows, animations, primaryColors, mediaQueries } from './variables';
 
 export const outer = css`
   //position: relative;
@@ -30,6 +30,10 @@ export const SiteTitle = styled.h1`
   font-weight: 700;
   letter-spacing: 4px;
   color:${colors.$white};
+  
+  ${mediaQueries[0]}{
+    font-size: ${'8.5rem'};
+  }
   
 `;
 
