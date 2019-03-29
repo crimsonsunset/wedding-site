@@ -18,7 +18,10 @@ interface NavLogoProps {
 const useTag = `<use xlink:href=${svgLogo} />`;
 
 // todo: replace png with svg logo and colorize
-const NavLogo = () => (
+const NavLogo = () => {
+  const z = window.innerWidth
+  debugger;
+  return (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -42,6 +45,6 @@ const NavLogo = () => (
       </Link>
     )}
   />
-);
+)};
 
 export default NavLogo;

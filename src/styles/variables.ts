@@ -1,5 +1,6 @@
 import { css } from 'emotion';
 import { Spring } from 'react-spring/renderprops-universal';
+import { config } from 'react-spring';
 import * as React from 'react';
 
 export const colors = {
@@ -79,17 +80,21 @@ export const animations = {
 export const springConfigs = {
   fadeAndPan: {
     from: {
-      marginTop: '-100px',
+      marginTop: '-150px',
       opacity: 0,
+      // zIndex: -100000,
+      position: 'relative'
     },
     to: {
       marginTop: '0px',
       opacity: 1,
+      // zIndex: 100000,
+      position: 'sticky'
     },
     config: {
-      // tension: 30,
-      // friction: 10,
-      // duration: 1100,
+      // easing: 'cubic',
+      duration: 500,
+      // ...config.gentle
     },
   },
 };

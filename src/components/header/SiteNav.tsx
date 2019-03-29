@@ -3,6 +3,8 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import NavLogo from './NavLogo';
 import { navStyles } from '@styles-components/nav/nav.style';
+import { springConfigs } from '@styles/variables';
+import { Spring } from 'react-spring/renderprops';
 
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
@@ -18,36 +20,89 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
     return (
       <nav className={`${navStyles} ${homeStr}`}>
         <React.Fragment>
-          {!isHome && <NavLogo/>}
-          <ul className={''} role="menu">
-            {/* TODO: mark current nav item - add class nav-current */}
-            {
-              NAV_ITEMS.map((navItem, navIndex) => {
-                const { name, link, isExternal } = navItem;
-                const linkElem = (isExternal) ?
-                  (<a href={link} target="_blank">{name}</a>) :
-                  (<Link to={link}>{name}</Link>);
-                return (
-                  <React.Fragment
-                    key={navIndex}
-                  >
-                    <li
-                      role="menuitem">
-                      {linkElem}
-                    </li>
-                    {navIndex !== NAV_ITEMS.length - 1 && <hr/>}
-                  </React.Fragment>
-                );
-              })
-            }
-
-          </ul>
+          {!isHome &&
+          <div
+            className={'logo-container'}>
+            <NavLogo/>
+          </div>
+          }
+          <Spring {...springConfigs.fadeAndPan}>
+            {(styles) => {
+              return (
+                <ul
+                  style={styles}
+                  className={''} role="menu">
+                  {/* TODO: mark current nav item - add class nav-current */}
+                  {
+                    NAV_ITEMS.map((navItem, navIndex) => {
+                      const { name, link, isExternal } = navItem;
+                      const linkElem = (isExternal) ?
+                        (<a href={link} target="_blank">{name}</a>) :
+                        (<Link to={link}>{name}</Link>);
+                      return (
+                        <React.Fragment
+                          key={navIndex}
+                        >
+                          <li
+                            role="menuitem">
+                            {linkElem}
+                          </li>
+                          {navIndex !== NAV_ITEMS.length - 1 && <hr/>}
+                        </React.Fragment>
+                      );
+                    })
+                  }
+                </ul>
+              );
+            }}
+          </Spring>
         </React.Fragment>
 
       </nav>
     );
   }
 }
+
+
+// render() {
+//   const { isHome = false } = this.props;
+//   const homeStr = (isHome) ? 'home' : '';
+//   return (
+//     <nav className={`${navStyles} ${homeStr}`}>
+//       <React.Fragment>
+//         {!isHome && <NavLogo/>}
+//         <ul className={''} role="menu">
+//           {/* TODO: mark current nav item - add class nav-current */}
+//           {
+//             NAV_ITEMS.map((navItem, navIndex) => {
+//               const { name, link, isExternal } = navItem;
+//               const linkElem = (isExternal) ?
+//                 (<a href={link} target="_blank">{name}</a>) :
+//                 (<Link to={link}>{name}</Link>);
+//               return (
+//                 <React.Fragment
+//                   key={navIndex}
+//                 >
+//                   <li
+//                     role="menuitem">
+//                     {linkElem}
+//                   </li>
+//                   {navIndex !== NAV_ITEMS.length - 1 && <hr/>}
+//                 </React.Fragment>
+//               );
+//             })
+//           }
+//
+//         </ul>
+//       </React.Fragment>
+//
+//     </nav>
+//   );
+// }
+
+
+
+
 
 export default SiteNav;
 

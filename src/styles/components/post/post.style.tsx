@@ -10,18 +10,18 @@ export const PostTemplate = css`
     padding-bottom: 4vw;
     //margin-top: 4vw;;
     
-    ${mediaQueries[0]}{
-      margin-top: 200px !important;
-    }
-    ${mediaQueries[1]}{
-      margin-top: 150px !important;
-    }
-    ${mediaQueries[2]}{
-      margin-top: 120px !important;
-    }
-    ${mediaQueries[3]}{
-      margin-top: 70px;
-    }
+    // ${mediaQueries[0]}{
+    //   margin-top: 200px !important;
+    // }
+    // ${mediaQueries[1]}{
+    //   margin-top: 150px !important;
+    // }
+    // ${mediaQueries[2]}{
+    //   margin-top: 120px !important;
+    // }
+    // ${mediaQueries[3]}{
+    //   margin-top: 70px;
+    // }
   }
 `;
 

@@ -3,6 +3,7 @@ import { colors, mediaQueries } from '@styles/variables';
 
 export const navStyles = css`
   
+  //border:5px solid purple;
   position: fixed;
   display: flex;
   z-index: 500;
@@ -19,6 +20,35 @@ export const navStyles = css`
   ${mediaQueries[2]}{
     justify-content: center;
   }
+  
+  .logo-container{
+    width: initial;
+    //border:5px solid red;
+
+    ${mediaQueries[2]}{
+      //border:5px solid blue;
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      background: ${colors.$navy} ;
+    }
+    
+  }
+  
+  //.site-nav-logo {
+  //  margin-right: 0;
+  //  height: 100px;
+  //  background: white;
+  //  width: 100%;
+  //  
+  //  //a {
+  //    z-index: 1000;
+  //    border:5px solid red;
+  //  //}
+  //  
+  //}
   
   &.home{
   
@@ -37,8 +67,7 @@ export const navStyles = css`
     }
     
   
-    ul{
-        
+    ul{  
       background: rgba(21,23,26,0.28);
       border-radius: 7px;
       
@@ -47,6 +76,7 @@ export const navStyles = css`
         } 
     }
   }
+ 
   
   img{
     
@@ -66,7 +96,9 @@ export const navStyles = css`
     flex-wrap: wrap;
     
     ${mediaQueries[2]}{
+    //border:5px solid red;
       justify-content: center;
+      margin-top: -150px !important;
     }
     
     //todo: for smaller nav?
