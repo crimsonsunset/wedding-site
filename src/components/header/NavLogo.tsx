@@ -20,7 +20,7 @@ const useTag = `<use xlink:href=${svgLogo} />`;
 // todo: replace png with svg logo and colorize
 const NavLogo = () => {
   const z = window.innerWidth
-  debugger;
+  // debugger;
   return (
   <StaticQuery
     query={graphql`

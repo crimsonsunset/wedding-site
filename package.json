@@ -55,6 +55,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-emotion": "9.2.12",
+    "react-grid-gallery": "^0.5.4",
     "react-helmet": "5.2.0",
     "react-spring": "^8.0.15",
     "react-transition-group": "^2.6.0",
@@ -78,8 +79,5 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-xo": "^0.15.0"
-  },
-  "engines": {
-    "node": ">=8.0.0"
   }
 }
