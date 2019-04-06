@@ -70,8 +70,11 @@ Summit County always has a multitude of amazing condos and houses available for 
 
 ### <a href="https://www.coloradormr.com/" target="_blank">Colorado Rocky Mountain Resorts</a>  
  - Phone: <a href="tel:970-668-5151" target="_blank">970-668-5151</a> 
+
+>    1 Night -10% OFF- Subject to availability, must call to arrange <br/>
+>    2 Nights - 20% OFF  - `JJWED2` <br/>
+>    3+ Nights  - 25% OFF - `JJWED3` <br/>
  
-> Call and use our names (Laub/Sangiorgio) to receive a discount upon booking.  
 
 ### <a href="https://bighornrentals.com/frisco-lodging" target="_blank">Bighorn Rentals</a>  
  - Phone: <a href="tel:1-800-826-7706" target="_blank">1-800-826-7706</a>
