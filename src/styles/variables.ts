@@ -30,7 +30,6 @@ export const primaryColors = {
   black: '#000000',
 };
 
-
 export const fonts = {
   $headingFont: `'Rancho', cursive`,
   $bodyFont: `'Roboto', sans-serif`,
@@ -53,6 +52,9 @@ export const padding = {
   main: '0 4vw',
 };
 
+export const margin = {
+  headerImage: '0 -10vw -165px;',
+};
 
 export const animations = {
   scaleHover(scaleAmount: number, childSelector?: string) {

@@ -1,5 +1,5 @@
 import styled, { css } from 'react-emotion';
-import { colors, primaryColors, mediaQueries } from '@styles/variables';
+import { colors, primaryColors, mediaQueries, margin } from '@styles/variables';
 import { useSpring, animated } from 'react-spring';
 import * as React from 'react';
 import { Transition } from 'react-spring/renderprops-universal';
@@ -23,6 +23,12 @@ export const PostTemplate = css`
     //   margin-top: 70px;
     // }
   }
+`;
+
+export const BottomPaddingPost = css`
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6vh;
 `;
 
 export const PostFull = css`
@@ -101,7 +107,8 @@ export const PostFullTitle = styled.h1`
 `;
 
 export const PostFullImage = styled.figure`
-  margin: 0 -10vw -165px;
+  margin: ${margin.headerImage}
+  //margin: 0 -10vw -165px;
   height: 800px;
   background: ${primaryColors.lightgrey} center center;
   background-size: cover;
