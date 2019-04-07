@@ -23,6 +23,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "removeComments": false,
+    "noImplicitAny": false,
     "baseUrl": "./",
     "paths": {
       "@components/*": ["src/components/*"],

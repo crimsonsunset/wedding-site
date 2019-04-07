@@ -24,11 +24,6 @@ const RSVP_QUERY = graphql`
           ...GatsbyImageSharpFluid_tracedSVG
           presentationWidth
         }
-
-        #                fixed(width: 125, height: 125) {
-        #                    ...GatsbyImageSharpFixed
-        #                }
-
       }
     }
   }`;

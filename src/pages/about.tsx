@@ -1,29 +1,52 @@
+import Gallery from 'react-grid-gallery';
+import { graphql, StaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import React, { PureComponent } from 'react';
+import { bindAll } from 'lodash';
+
 import IndexLayout from '@layouts/index';
 import Wrapper from '@components/Wrapper';
 import SiteNav from '@components/header/SiteNav';
 import { SiteHeader, outer, inner, SiteMain } from '@styles/shared';
-import * as React from 'react';
-import { css } from 'react-emotion';
 import { PostFullHeader, PostFullTitle, NoImage, PostFull } from '@styles-components/post/post.style';
-import { PostFullContent } from '@components/PostContent';
 import Footer from '@components/Footer';
 import Helmet from 'react-helmet';
-import Gallery from 'react-grid-gallery';
-import { graphql } from 'gatsby';
+
+// const IMG_GALLERY_QUERY = graphql`
+//   query imgGalleryQuery {
+//     allFile(filter: { absolutePath: { regex: "/gallery/" } }) {
+//       edges{
+//         node{
+//           childImageSharp {
+//             fluid (maxWidth: 5000){
+//               ...GatsbyImageSharpFluid_tracedSVG
+//               presentationWidth
+//
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }`;
 
 const IMG_GALLERY_QUERY = graphql`
-  query rsvpQuery {
-    file(relativePath: { regex: "/gallery/" }) {
-      childImageSharp {
-        fluid (maxWidth: 5000){
-          ...GatsbyImageSharpFluid_tracedSVG
-          presentationWidth
+  query imgGalleryQuery {
+    allFile(filter: { absolutePath: { regex: "/gallery/" } }) {
+      edges{
+        node{
+          size
+          prettySize
+          childImageSharp {
+            fixed (width: 2000){
+              width
+              height
+              src
+              srcSet
+              originalName
+              ...GatsbyImageSharpFixed_tracedSVG
+            }
+          }
         }
-
-        #                fixed(width: 125, height: 125) {
-        #                    ...GatsbyImageSharpFixed
-        #                }
-
       }
     }
   }`;
@@ -49,34 +72,79 @@ const IMAGES =
     }];
 
 
+class About extends PureComponent {
 
-const About = () => {
-  return (
-    <IndexLayout>
-      <Helmet>
-        <title>About</title>
-      </Helmet>
-      <Wrapper >
-        <header className={`${SiteHeader} ${outer}`}>
+  constructor(props: any) {
+    super(props);
+    bindAll(this, [
+      'renderGallery',
+    ]);
+  };
 
-          <SiteNav/>
+  renderGallery(imgData:any){
+    const { edges } = imgData.allFile;
+    const images = edges.map((e, i) => {
 
-        </header>
-        <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
-          <article className={`${PostFull} post page ${NoImage}`}>
-            <PostFullHeader>
-              <PostFullTitle>sssss</PostFullTitle>
-            </PostFullHeader>
-            <Gallery
-              enableImageSelection={false}
-              images={IMAGES}/>,
+      e.node.childImageSharp.fluid;
+      console.log(e, i);
+      // const { src,tracedSVG } = e.node.childImageSharp.fluid;
+      const {
+        width: thumbnailWidth,
+        height: thumbnailHeight,
+        src,
+      } = e.node.childImageSharp.fixed;
 
-          </article>
-        </main>
-        <Footer/>
-      </Wrapper>
-    </IndexLayout>
-  );
+      return {
+        src,
+        thumbnail: src,
+        thumbnailWidth,
+        thumbnailHeight,
+      };
+
+      return {
+        // src,
+        // thumbnail: tracedSVG,
+        // thumbnailWidth: 320,
+        // thumbnailHeight: 174,
+      }
+    });
+      return (
+        <Gallery
+          enableImageSelection={false}
+          images={images}/>
+      );
+  }
+
+
+  render() {
+   return (
+      <IndexLayout>
+        <Helmet>
+          <title>About</title>
+        </Helmet>
+        <Wrapper>
+          <header className={`${SiteHeader} ${outer}`}>
+
+            <SiteNav/>
+
+          </header>
+          <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
+            <article className={`${PostFull} post page ${NoImage}`}>
+              <PostFullHeader>
+                <PostFullTitle>Story</PostFullTitle>
+              </PostFullHeader>
+
+              <StaticQuery
+                query={IMG_GALLERY_QUERY}
+                render={this.renderGallery}
+              />
+            </article>
+          </main>
+          <Footer/>
+        </Wrapper>
+      </IndexLayout>
+    );
+  }
 };
 
 export default About;
