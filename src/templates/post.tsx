@@ -42,7 +42,7 @@ const PostHelmet: React.SFC = ({ postData }: any) => {
 
   return (
     <Helmet>
-      <title>{post.frontmatter.title}</title>
+      <title>{`Jess & Joe | ${post.frontmatter.title}`}</title>
 
       <meta property="og:site_name" content={config.title}/>
       <meta property="og:type" content="article"/>
@@ -158,7 +158,9 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
       <Wrapper className={`${PostTemplate}`}>
         <header className={`${SiteHeader} ${outer}`}>
 
-          <SiteNav/>
+          <SiteNav
+            isHome={false}
+          />
 
         </header>
         (

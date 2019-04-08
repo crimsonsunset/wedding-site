@@ -489,6 +489,14 @@ h6 {
 body {
   background: #f4f8fb;
 }
+
+
+#lightboxBackdrop{
+  //border:5px solid blue;
+  //transition: scale 1s ease;
+  //    transform: translate(150%);
+}
+
 `;
 
 interface IndexProps {

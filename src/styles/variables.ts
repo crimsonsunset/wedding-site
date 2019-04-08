@@ -1,5 +1,6 @@
 import { css } from 'emotion';
 import { Spring } from 'react-spring/renderprops-universal';
+import { config } from 'react-spring';
 import * as React from 'react';
 
 export const colors = {
@@ -29,7 +30,6 @@ export const primaryColors = {
   black: '#000000',
 };
 
-
 export const fonts = {
   $headingFont: `'Rancho', cursive`,
   $bodyFont: `'Roboto', sans-serif`,
@@ -52,6 +52,9 @@ export const padding = {
   main: '0 4vw',
 };
 
+export const margin = {
+  headerImage: '0 -10vw -165px;',
+};
 
 export const animations = {
   scaleHover(scaleAmount: number, childSelector?: string) {
@@ -79,23 +82,27 @@ export const animations = {
 export const springConfigs = {
   fadeAndPan: {
     from: {
-      marginTop: '-100px',
+      marginTop: '-150px',
       opacity: 0,
+      // zIndex: -100000,
+      position: 'relative'
     },
     to: {
       marginTop: '0px',
       opacity: 1,
+      // zIndex: 100000,
+      position: 'sticky'
     },
     config: {
-      // tension: 30,
-      // friction: 10,
-      // duration: 1100,
+      // easing: 'cubic',
+      duration: 500,
+      // ...config.gentle
     },
   },
 };
 
 
-const breakpoints = [500, 768, 899, 1170];
+export const breakpoints = [500, 768, 899, 1170];
 export const mediaQueries = breakpoints.map(
   (bp) => `@media (max-width: ${bp}px)`,
 );

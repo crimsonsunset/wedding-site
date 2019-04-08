@@ -3,12 +3,13 @@ import * as React from 'react';
 import { css } from 'react-emotion';
 import Helmet from 'react-helmet';
 
-import Footer from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import PostCard from '../components/PostCard';
-import Wrapper from '../components/Wrapper';
-import IndexLayout from '../layouts';
-import config from '../website-config';
+import Footer from '@components/Footer';
+import SiteNav, { NAV_ITEMS } from '@components/header/SiteNav';
+import PostCard from '@components/PostCard';
+import Wrapper from '@components/Wrapper';
+import IndexLayout from '@layouts/index';
+import config from '@root/website-config';
+
 import {
   inner,
   outer,
@@ -146,15 +147,17 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
               </SiteDescription>
             </div>
           </SiteHeaderContent>
-          <SiteNav isHome={true}/>
+
+          <SiteNav
+            isHome={true}
+            items={NAV_ITEMS}
+          />
 
         </header>
         <main id="site-main" className={`${SiteMain} ${outer}`}>
           <div className={`${inner}`}>
             <div className={`${PostFeed} ${PostFeedRaise}`}>
               {props.data.allMarkdownRemark.edges.map((post) => {
-
-                console.log('post:', post);
                 return <PostCard key={post.node.fields.slug} post={post.node}/>;
 
               })}

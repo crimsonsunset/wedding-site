@@ -2,7 +2,7 @@ import { css } from 'react-emotion';
 import { colors, mediaQueries } from '@styles/variables';
 
 export const navStyles = css`
-  
+   
   position: fixed;
   display: flex;
   z-index: 500;
@@ -11,23 +11,33 @@ export const navStyles = css`
   flex-wrap: wrap;
   justify-content: center;
   
-    // ${mediaQueries[2]}{
-  //   //border:5px solid red;
-  //   bottom: 0;
-  // }
-  
   ${mediaQueries[2]}{
     justify-content: center;
   }
   
+  .logo-container{
+    width: initial;
+    cursor: pointer;
+    //border:5px solid red;
+
+    ${mediaQueries[2]}{
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      background: ${colors.$navy} ;
+    }
+    
+  }
+  
   &.home{
   
-  
-    margin-top: -30px;
     display: flex;
     position: initial;
-    bottom: 70px;
-    margin: 0 auto;
+    bottom: 70px; 
+    margin-top: -30px;
+    margin: 0 auto;  
     max-width: 1040px;
     margin-bottom: 4vh;
     background: initial;
@@ -37,19 +47,28 @@ export const navStyles = css`
     }
     
   
-    ul{
-        
+    ul{  
       background: rgba(21,23,26,0.28);
       border-radius: 7px;
+      flex-direction: initial !important;
       
         ${mediaQueries[2]}{
           flex-wrap: wrap;
         } 
     }
+    
+    
+    hr {    
+      ${mediaQueries[2]}{
+        margin-top: 20px;
+        width: 30px;
+      }
+    }
+    
   }
+ 
   
   img{
-    
     transform: scale(0.7);
     margin: 0.5rem;
   }
@@ -67,12 +86,9 @@ export const navStyles = css`
     
     ${mediaQueries[2]}{
       justify-content: center;
+      flex-direction: column;
     }
-    
-    //todo: for smaller nav?
-    //border: 1px solid orange;
-    //max-width: 760px;
-    //margin: 0 auto;
+   
     
     a {
       color: white;
@@ -112,11 +128,8 @@ export const navStyles = css`
     }
     
     ${mediaQueries[2]}{
-      margin-top: 20px;
-      width: 30px;
+      margin-top: 10px;
+      width: 0px;
     }
-    
-  }
   
-  
-`;
+  }`;
