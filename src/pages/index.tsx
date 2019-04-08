@@ -175,6 +175,7 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
               </SiteTitle>
               <SiteDescription>
                 <a
+                  rel="noreferrer"
                   className='instagram-link'
                   href={'https://www.instagram.com/explore/tags/twojsalways/'}
                   target='_blank'
