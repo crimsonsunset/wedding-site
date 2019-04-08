@@ -64,7 +64,8 @@ class About extends PureComponent {
     });
 
     const StyledGallery = styled.section`
-      width: 1300px;
+      width: 100%;
+      max-width: 1300px;
       margin: 0 auto; 
       
       img{

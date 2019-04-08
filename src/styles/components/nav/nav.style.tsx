@@ -1,9 +1,30 @@
 import { css } from 'react-emotion';
 import { colors, mediaQueries } from '@styles/variables';
 
-export const navStyles = css`
-  
-  //border:5px solid purple;
+export function createNavStyle(isHome) {
+
+
+  const navContentMQ = (isHome) ? '' :
+    `${mediaQueries[2]}{
+      justify-content: center;
+      flex-direction: column;
+    }`;
+
+  const navDividerMQ = (isHome) ?
+
+    `${mediaQueries[2]}{
+      margin-top: 20px;
+      width: 30px;
+    }`
+    :
+    `${mediaQueries[2]}{
+      margin-top: 10px;
+      width: 0px;
+    }`;
+
+
+  return css`
+   
   position: fixed;
   display: flex;
   z-index: 500;
@@ -12,21 +33,16 @@ export const navStyles = css`
   flex-wrap: wrap;
   justify-content: center;
   
-    // ${mediaQueries[2]}{
-  //   //border:5px solid red;
-  //   bottom: 0;
-  // }
-  
   ${mediaQueries[2]}{
     justify-content: center;
   }
   
   .logo-container{
     width: initial;
+    cursor: pointer;
     //border:5px solid red;
 
     ${mediaQueries[2]}{
-      //border:5px solid blue;
       z-index: 2;
       width: 100%;
       text-align: center;
@@ -36,19 +52,6 @@ export const navStyles = css`
     }
     
   }
-  
-  //.site-nav-logo {
-  //  margin-right: 0;
-  //  height: 100px;
-  //  background: white;
-  //  width: 100%;
-  //  
-  //  //a {
-  //    z-index: 1000;
-  //    border:5px solid red;
-  //  //}
-  //  
-  //}
   
   &.home{
   
@@ -79,7 +82,6 @@ export const navStyles = css`
  
   
   img{
-    
     transform: scale(0.7);
     margin: 0.5rem;
   }
@@ -95,16 +97,8 @@ export const navStyles = css`
     justify-content: space-around;
     flex-wrap: wrap;
     
-    ${mediaQueries[2]}{
-    //border:5px solid red;
-      justify-content: center;
-      margin-top: -150px !important;
-    }
-    
-    //todo: for smaller nav?
-    //border: 1px solid orange;
-    //max-width: 760px;
-    //margin: 0 auto;
+    ${navContentMQ}
+   
     
     a {
       color: white;
@@ -143,12 +137,7 @@ export const navStyles = css`
       visibility: hidden;
     }
     
-    ${mediaQueries[2]}{
-      margin-top: 20px;
-      width: 30px;
-    }
-    
-  }
+    ${navDividerMQ}
   
-  
-`;
+  }`;
+}

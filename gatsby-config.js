@@ -95,7 +95,7 @@ module.exports = {
         short_name: 'jj-wedding',
         start_url: '/',
         background_color: '#2F496E',
-        theme_color: '#749957',
+        theme_color: '#2F496E',
         display: 'minimal-ui',
         icon: 'src/content/img/favicon/favicon-big.png', // This path is relative to the root of the site.
       },

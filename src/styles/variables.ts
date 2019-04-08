@@ -102,7 +102,7 @@ export const springConfigs = {
 };
 
 
-const breakpoints = [500, 768, 899, 1170];
+export const breakpoints = [500, 768, 899, 1170];
 export const mediaQueries = breakpoints.map(
   (bp) => `@media (max-width: ${bp}px)`,
 );
