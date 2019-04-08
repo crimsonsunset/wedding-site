@@ -69,6 +69,13 @@ const Footer: React.SFC = () => {
       <div className={`${inner} ${SiteFooterContent}`}>
         <section className="copyright">
           <Link to="/">{config.title}</Link> &copy; {getCurrentYear()}
+          &nbsp;⎮&nbsp;
+          <a
+            rel="noreferrer"
+            className='instagram-link'
+            href={'https://www.instagram.com/explore/tags/twojsalways/'}
+            target='_blank'
+          >{'#twoJSalways'}</a>
         </section>
         <SiteFooterNav>
 
