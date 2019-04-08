@@ -100,7 +100,7 @@ module.exports = {
         icon: 'src/content/img/favicon/favicon-big.png', // This path is relative to the root of the site.
       },
     },
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
 
   ],
 };
