@@ -10,6 +10,7 @@ import { breakpoints } from '@styles/variables';
 // import { useSpring,animated } from 'react-spring';
 import { Spring, animated } from 'react-spring/renderprops';
 import { findIndex, cloneDeep } from 'lodash';
+import { getWindowVariable } from '@util/helpers';
 
 class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
@@ -20,9 +21,9 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
 
   render() {
-    const isHome = (window.location.pathname === '/');
+    const isHome = (getWindowVariable('location.pathname') === '/');
     const homeStr = (isHome) ? 'home' : '';
-    const isMobile = (window.innerWidth < breakpoints[2]);
+    const isMobile = (getWindowVariable('innerWidth') < breakpoints[2]);
     const { isOpen } = this.state;
     const mobileMargin = (isMobile && !isHome) ? -400 : 0;
 
@@ -102,7 +103,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 }
 
 interface SiteNavProps {
-  items: Array<NavItem>;
+  items?: Array<NavItem>;
 }
 
 // const z = (<Spring {...springConfigs.fadeAndPan}>

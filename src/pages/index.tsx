@@ -157,8 +157,6 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
           <div className={`${inner}`}>
             <div className={`${PostFeed} ${PostFeedRaise}`}>
               {props.data.allMarkdownRemark.edges.map((post) => {
-
-                console.log('post:', post);
                 return <PostCard key={post.node.fields.slug} post={post.node}/>;
 
               })}

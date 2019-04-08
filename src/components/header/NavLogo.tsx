@@ -4,9 +4,9 @@ import { styles } from '@styles-components/nav/nav-logo.style';
 import { breakpoints } from '@styles/variables';
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
+import { getWindowVariable } from '@util/helpers';
 
 const svgLogo = require('@img/favicon/favicon.svg');
-
 
 interface NavLogoProps {
   logo?: {
@@ -45,7 +45,7 @@ function Demo() {
 
 
 const NavLogo = () => {
-  const isMobile = (window.innerWidth < breakpoints[2]);
+  const isMobile = (getWindowVariable('innerWidth') < breakpoints[2]);
 
   const currLogo = (isMobile) ?
 
