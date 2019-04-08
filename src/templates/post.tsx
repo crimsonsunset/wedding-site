@@ -79,6 +79,20 @@ const PostHelmet: React.SFC = ({ postData }: any) => {
       />
       {width && <meta property="og:image:width" content={width}/>}
       {height && <meta property="og:image:height" content={height}/>}
+
+      {/*todo: clean up meta tags*/}
+
+      <meta name="title" content={post.frontmatter.title}/>
+      <meta name="Description" content={post.excerpt}/>
+      <meta name="description" content={post.excerpt}/>
+      <meta name="keywords"
+            content="wedding, jj-wedding, jess and joe, colorado, summit county, dillon, frisco, jess, joe, sangiorgio, laub"/>
+      <meta name="robots" content="index, follow"/>
+      <meta name="language" content="English"/>
+      <meta name="revisit-after" content="2 days"/>
+      <meta name="author" content="Joseph Sangiorgio"/>
+
+
     </Helmet>);
 };
 

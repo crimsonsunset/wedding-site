@@ -77,7 +77,9 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
                     currNavItems.map((navItem, navIndex) => {
                       const { name, link, isExternal } = navItem;
                       const linkElem = (isExternal) ?
-                        (<a href={link} target="_blank">{name}</a>) :
+                        (<a
+                          rel="noreferrer"
+                          href={link} target="_blank">{name}</a>) :
                         (<Link to={link}>{name}</Link>);
                       return (
                         <React.Fragment

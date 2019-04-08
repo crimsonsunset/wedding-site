@@ -25,7 +25,7 @@ export interface WebsiteConfig {
 
 const config: WebsiteConfig = {
   title: `Jess & Joe`,
-  description: `#twoJSalways`,
+  description: `Your online home for everything related to Jess and Joe's wedding in Summit County, Colorado` ,
   coverImage: 'img/us/trees-keystone.jpg',
   logo: 'img/favicon/favicon-big.png',
   siteUrl: 'https://www.jessandjoe.co',
