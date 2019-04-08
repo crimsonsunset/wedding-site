@@ -91,8 +91,28 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
 
   return (
     <IndexLayout className={`${HomePosts}`}>
-      <Helmet>
+
+      <Helmet
+        title={config.title}
+        meta={[
+          // {
+          //   name: 'description',
+          //   content: config.description,
+          // },
+          // {
+          //   name: 'Description',
+          //   content: config.description,
+          // },
+          {
+            name: 'keywords',
+            content: 'rsvp, wedding, jj-wedding, jess and joe, colorado, summit county, dillon, frisco, jess, joe, sangiorgio, laub',
+          },
+        ]}
+      >
+
+
         <title>{config.title}</title>
+        <meta name="robots" content="all"/>
         <meta property="og:site_name" content={config.title}/>
         <meta property="og:type" content="website"/>
         <meta property="og:title" content={config.title}/>
@@ -100,6 +120,8 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
         <meta property="og:url" content={config.siteUrl}/>
         <meta property="og:image" content={props.data.header.childImageSharp.fluid.src}/>
         <meta property="article:publisher" content={config.facebook}/>
+        <meta name="Description" content={config.description}/>
+        <meta name="description" content={config.description}/>
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:title" content={config.title}/>
         <meta name="twitter:description" content={config.description}/>
@@ -111,6 +133,23 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
         <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[0]}`}/>
         <meta property="og:image:width" content={width}/>
         <meta property="og:image:height" content={height}/>
+
+
+        {/*todo: clean up meta tags*/}
+
+        <meta name="title" content="Jess and Joe Wedding"/>
+        <meta name="description"
+              content="Your online home for everything related to Jess and Joe's wedding in Summit County, Colorado"/>
+        <meta name="keywords"
+              content="wedding, jj-wedding, jess and joe, colorado, summit county, dillon, frisco, jess, joe, sangiorgio, laub"/>
+        <meta name="robots" content="index, follow"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="language" content="English"/>
+        <meta name="revisit-after" content="2 days"/>
+        <meta name="author" content="Joseph Sangiorgio"/>
+
+
+        <html lang="en"/>
       </Helmet>
       <Wrapper>
         <header
@@ -139,7 +178,7 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
                   className='instagram-link'
                   href={'https://www.instagram.com/explore/tags/twojsalways/'}
                   target='_blank'
-                  >{config.description}</a>
+                >{'#twoJSalways'}</a>
 
                 {/*todo: hover styles*/}
                 {/*{config.description}*/}
@@ -177,9 +216,9 @@ export default IndexPage;
 export const pageQuery = graphql`
   query {
 
-    #      todo: fix this logo query 
-    #  logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
-    logo: file(relativePath: { eq: "" }) {
+    #      todo: fix this logo query
+    #  logo: file(relativePath: {eq: 'img/ghost-logo.png'}) {
+    logo: file(relativePath: {eq: ""}) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
@@ -188,7 +227,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    header: file(relativePath: { eq: "img/us/trees-keystone.jpg" }) {
+    header: file(relativePath: {eq: "img/us/trees-keystone.jpg"}) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
@@ -205,7 +244,7 @@ export const pageQuery = graphql`
         environment
       }
     }
-    allMarkdownRemark(limit: 1000, sort: { fields: [frontmatter___order], order: ASC }) {
+    allMarkdownRemark(limit: 1000, sort: {fields: [frontmatter___order], order: ASC}) {
       edges {
         node {
           timeToRead
