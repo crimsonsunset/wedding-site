@@ -158,7 +158,9 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
       <Wrapper className={`${PostTemplate}`}>
         <header className={`${SiteHeader} ${outer}`}>
 
-          <SiteNav/>
+          <SiteNav
+            isHome={false}
+          />
 
         </header>
         (

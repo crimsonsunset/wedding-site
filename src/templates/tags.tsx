@@ -85,7 +85,9 @@ const Tags: React.SFC<TagTemplateProps> = props => {
           }}
         >
           <div className={`${inner}`}>
-            <SiteNav />
+            <SiteNav
+              isHome={false}
+            />
             <SiteHeaderContent>
               <SiteTitle>{tag}</SiteTitle>
               <SiteDescription>

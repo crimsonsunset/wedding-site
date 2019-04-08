@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import { Component } from 'react';
 import NavLogo from './NavLogo';
-import { createNavStyle } from '@styles-components/nav/nav.style';
+import { navStyles } from '@styles-components/nav/nav.style';
 import { breakpoints } from '@styles/variables';
 
 
@@ -21,8 +21,10 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
 
   render() {
-    const isHome = (getWindowVariable('location.pathname') === '/');
+    const { isHome = false } = this.props;
     const homeStr = (isHome) ? 'home' : '';
+
+
     const isMobile = (getWindowVariable('innerWidth') < breakpoints[2]);
     const { isOpen } = this.state;
     const mobileMargin = (isMobile && !isHome) ? -400 : 0;
@@ -38,9 +40,10 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
       });
     }
 
+
     return (
-      <nav className={`${createNavStyle(isHome)} ${homeStr}`}>
-        <>
+      <nav className={`${navStyles} ${homeStr}`}>
+        <React.Fragment>
 
           {/*NAV LOGO*/}
           {!isHome &&
@@ -94,7 +97,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
             }}
 
           </Spring>
-        </>
+        </React.Fragment>
 
 
       </nav>
@@ -104,6 +107,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
 interface SiteNavProps {
   items?: Array<NavItem>;
+  isHome?: boolean;
 }
 
 // const z = (<Spring {...springConfigs.fadeAndPan}>

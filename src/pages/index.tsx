@@ -149,6 +149,7 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
           </SiteHeaderContent>
 
           <SiteNav
+            isHome={true}
             items={NAV_ITEMS}
           />
 

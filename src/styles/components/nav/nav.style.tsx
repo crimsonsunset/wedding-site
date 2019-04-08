@@ -1,29 +1,7 @@
 import { css } from 'react-emotion';
 import { colors, mediaQueries } from '@styles/variables';
 
-export function createNavStyle(isHome) {
-
-
-  const navContentMQ = (isHome) ? '' :
-    `${mediaQueries[2]}{
-      justify-content: center;
-      flex-direction: column;
-    }`;
-
-  const navDividerMQ = (isHome) ?
-
-    `${mediaQueries[2]}{
-      margin-top: 20px;
-      width: 30px;
-    }`
-    :
-    `${mediaQueries[2]}{
-      margin-top: 10px;
-      width: 0px;
-    }`;
-
-
-  return css`
+export const navStyles = css`
    
   position: fixed;
   display: flex;
@@ -55,12 +33,11 @@ export function createNavStyle(isHome) {
   
   &.home{
   
-  
-    margin-top: -30px;
     display: flex;
     position: initial;
-    bottom: 70px;
-    margin: 0 auto;
+    bottom: 70px; 
+    margin-top: -30px;
+    margin: 0 auto;  
     max-width: 1040px;
     margin-bottom: 4vh;
     background: initial;
@@ -73,11 +50,21 @@ export function createNavStyle(isHome) {
     ul{  
       background: rgba(21,23,26,0.28);
       border-radius: 7px;
+      flex-direction: initial !important;
       
         ${mediaQueries[2]}{
           flex-wrap: wrap;
         } 
     }
+    
+    
+    hr {    
+      ${mediaQueries[2]}{
+        margin-top: 20px;
+        width: 30px;
+      }
+    }
+    
   }
  
   
@@ -97,7 +84,10 @@ export function createNavStyle(isHome) {
     justify-content: space-around;
     flex-wrap: wrap;
     
-    ${navContentMQ}
+    ${mediaQueries[2]}{
+      justify-content: center;
+      flex-direction: column;
+    }
    
     
     a {
@@ -137,7 +127,9 @@ export function createNavStyle(isHome) {
       visibility: hidden;
     }
     
-    ${navDividerMQ}
+    ${mediaQueries[2]}{
+      margin-top: 10px;
+      width: 0px;
+    }
   
   }`;
-}

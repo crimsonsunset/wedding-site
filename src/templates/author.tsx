@@ -144,7 +144,9 @@ const Author: React.SFC<AuthorTemplateProps> = (props) => {
           }}
         >
           <div className={`${inner}`}>
-            <SiteNav />
+            <SiteNav
+              isHome={false}
+            />
             <SiteHeaderContent>
               <img
                 className={`${AuthorProfileBioImage} ${AuthorProfileImage}`}
