@@ -102,5 +102,30 @@ module.exports = {
     },
     'gatsby-plugin-offline',
 
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      exclude: [
+        '/tags/*',
+        '/author/*',
+        '/tags/**',
+        '/author/*',
+        'tags/*',
+        'author/*',
+        '/bridal-party',
+        '/contact-us',
+        '/rsvp',
+        '/about',
+        'rsvp/',
+        'about/',
+      ],
+    },
+
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    }
+
   ],
 };
