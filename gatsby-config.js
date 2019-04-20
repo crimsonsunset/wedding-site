@@ -103,7 +103,7 @@ module.exports = {
     'gatsby-plugin-offline',
 
     {
-      resolve: `gatsby-plugin-advanced-sitemap`,
+      resolve: `gatsby-plugin-sitemap`,
       options: {
         exclude: [
           `/dev-404-page`,
