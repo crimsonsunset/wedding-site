@@ -103,69 +103,10 @@ exports.createPages = async ({ graphql, actions }) => {
     throw new Error(result.errors);
   }
 
-  // Create post pages
-  const posts = result.data.allMarkdownRemark.edges;
-  posts.forEach(({ node }, index) => {
-    const { slug, layout } = node.fields;
-    const prev = index === 0 ? null : posts[index - 1].node;
-    const next = index === posts.length - 1 ? null : posts[index + 1].node;
+  _createPosts();
+  // _createTags();
+  // _createAuthors();
 
-
-    console.log('creating POST: ', slug);
-    createPage({
-      path: slug,
-      // This will automatically resolve the template to a corresponding
-      // `layout` frontmatter in the Markdown.
-      //
-      // Feel free to set any `layout` as you'd like in the frontmatter, as
-      // long as the corresponding template file exists in src/templates.
-      // If no template is set, it will fall back to the default `post`
-      // template.
-      //
-      // Note that the template has to exist first, or else the build will fail.
-      component: path.resolve(`./src/templates/${layout || 'post'}.tsx`),
-      context: {
-        // Data passed to context is available in page queries as GraphQL variables.
-        slug,
-        prev,
-        next,
-        primaryTag: node.frontmatter.tags ? node.frontmatter.tags[0] : '',
-      },
-    });
-  });
-
-  // Create tag pages
-  const tagTemplate = path.resolve('./src/templates/tags.tsx');
-  const tags = _.uniq(
-    _.flatten(
-      result.data.allMarkdownRemark.edges.map(edge => {
-        return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
-      }),
-    ),
-  );
-  tags.forEach(tag => {
-    console.log('creating TAG: ', tag)
-    createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
-      component: tagTemplate,
-      context: {
-        tag,
-      },
-    });
-  });
-
-  // Create author pages
-  const authorTemplate = path.resolve('./src/templates/author.tsx');
-  result.data.allAuthorYaml.edges.forEach(edge => {
-    console.log('creating AUTHOR: ', edge.node.id)
-    createPage({
-      path: `/author/${_.kebabCase(edge.node.id)}/`,
-      component: authorTemplate,
-      context: {
-        author: edge.node.id,
-      },
-    });
-  });
 
   // const { createRedirect } = actions;
   //
@@ -177,6 +118,74 @@ exports.createPages = async ({ graphql, actions }) => {
   //   toPath: `/rsvp`,
   // });
 
+  function _createPosts(){
+    // Create post pages
+    const posts = result.data.allMarkdownRemark.edges;
+    posts.forEach(({ node }, index) => {
+      const { slug, layout } = node.fields;
+      const prev = index === 0 ? null : posts[index - 1].node;
+      const next = index === posts.length - 1 ? null : posts[index + 1].node;
+
+
+      console.log('creating POST: ', slug);
+      createPage({
+        path: slug,
+        // This will automatically resolve the template to a corresponding
+        // `layout` frontmatter in the Markdown.
+        //
+        // Feel free to set any `layout` as you'd like in the frontmatter, as
+        // long as the corresponding template file exists in src/templates.
+        // If no template is set, it will fall back to the default `post`
+        // template.
+        //
+        // Note that the template has to exist first, or else the build will fail.
+        component: path.resolve(`./src/templates/${layout || 'post'}.tsx`),
+        context: {
+          // Data passed to context is available in page queries as GraphQL variables.
+          slug,
+          prev,
+          next,
+          primaryTag: node.frontmatter.tags ? node.frontmatter.tags[0] : '',
+        },
+      });
+    });
+  }
+  function _createTags(){
+// Create tag pages
+    const tagTemplate = path.resolve('./src/templates/tags.tsx');
+    const tags = _.uniq(
+      _.flatten(
+        result.data.allMarkdownRemark.edges.map(edge => {
+          return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
+        }),
+      ),
+    );
+    tags.forEach(tag => {
+      console.log('creating TAG: ', tag)
+      createPage({
+        path: `/tags/${_.kebabCase(tag)}/`,
+        component: tagTemplate,
+        context: {
+          tag,
+        },
+      });
+    });
+
+  }
+  function _createAuthors(){
+    // Create author pages
+    const authorTemplate = path.resolve('./src/templates/author.tsx');
+    result.data.allAuthorYaml.edges.forEach(edge => {
+      console.log('creating AUTHOR: ', edge.node.id)
+      createPage({
+        path: `/author/${_.kebabCase(edge.node.id)}/`,
+        component: authorTemplate,
+        context: {
+          author: edge.node.id,
+        },
+      });
+    });
+  }
 
 };
 

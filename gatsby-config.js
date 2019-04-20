@@ -10,7 +10,7 @@ module.exports = {
     title: `Jess and Joe`,
     description: `The official home for everything related to Jess & Joe's wedding`,
     siteUrl: 'https://www.jessandjoe.co', // full path to blog - no ending slash
-    ...webpackUtils.buildInfo
+    ...webpackUtils.buildInfo,
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
@@ -20,20 +20,20 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@components": path.resolve(__dirname, 'src/components'),
-          "@config": path.resolve(__dirname, 'src/config'),
-          "@content": path.resolve(__dirname, 'src/content'),
-          "@img": path.resolve(__dirname, 'src/content/img'),
-          "@favicon": path.resolve(__dirname, 'src/content/img/favicon'),
-          "@layouts": path.resolve(__dirname, 'src/layouts'),
-          "@styles": path.resolve(__dirname, 'src/styles'),
-          "@styles-components": path.resolve(__dirname, 'src/styles/components'),
-          "@styles-pages": path.resolve(__dirname, 'src/styles/pages'),
-          "@util": path.resolve(__dirname, 'src/util'),
-          "@root": path.resolve(__dirname, 'src/'),
+          '@components': path.resolve(__dirname, 'src/components'),
+          '@config': path.resolve(__dirname, 'src/config'),
+          '@content': path.resolve(__dirname, 'src/content'),
+          '@img': path.resolve(__dirname, 'src/content/img'),
+          '@favicon': path.resolve(__dirname, 'src/content/img/favicon'),
+          '@layouts': path.resolve(__dirname, 'src/layouts'),
+          '@styles': path.resolve(__dirname, 'src/styles'),
+          '@styles-components': path.resolve(__dirname, 'src/styles/components'),
+          '@styles-pages': path.resolve(__dirname, 'src/styles/pages'),
+          '@util': path.resolve(__dirname, 'src/util'),
+          '@root': path.resolve(__dirname, 'src/'),
         },
-        extensions: []
-      }
+        extensions: [],
+      },
     },
 
     'gatsby-plugin-sharp',
@@ -103,29 +103,28 @@ module.exports = {
     'gatsby-plugin-offline',
 
     {
-      resolve: `gatsby-plugin-sitemap`,
-      exclude: [
-        '/tags/*',
-        '/author/*',
-        '/tags/**',
-        '/author/*',
-        'tags/*',
-        'author/*',
-        '/bridal-party',
-        '/contact-us',
-        '/rsvp',
-        '/about',
-        'rsvp/',
-        'about/',
-      ],
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/contact-us`,
+          `/bridal-party`,
+          `/about`,
+          `/rsvp`,
+          `/offline-plugin-app-shell-fallback`,
+        ],
+        createLinkInHead: true,
+      },
     },
 
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
-    }
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
 
   ],
 };
