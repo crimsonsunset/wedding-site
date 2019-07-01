@@ -22,7 +22,7 @@ export function getWindowVariable(propertyPath: string) {
 
 export function redirectComponent(url: string) {
   return () => {
-    window && window.location.replace(url);
+    typeof window !== 'undefined' && window.location.replace(url);
   }
 }
 
