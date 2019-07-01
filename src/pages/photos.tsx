@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import React, { PureComponent } from 'react';
 import Helmet from 'react-helmet';
 import styled from 'react-emotion';
+import { shuffle, bindAll } from 'lodash';
 
 import IndexLayout from '@layouts/index';
 import Wrapper from '@components/Wrapper';
@@ -10,16 +11,24 @@ import SiteNav from '@components/header/SiteNav';
 import Footer from '@components/Footer';
 
 import { SiteHeader, outer, inner, SiteMain } from '@styles/shared';
-import { PostFullHeader, PostFullTitle, NoImage, PostFull, PostTemplate, BottomPaddingPost } from '@styles-components/post/post.style';
+import {
+  PostFullHeader,
+  PostFullTitle,
+  NoImage,
+  PostFull,
+  PostTemplate,
+  BottomPaddingPost,
+} from '@styles-components/post/post.style';
 import { fileNameToCaption } from '@util/helpers';
+
 
 const IMG_GALLERY_QUERY = graphql`
   query imgGalleryQuery {
     allFile(filter: { absolutePath: { regex: "/gallery/" } }) {
       edges{
         node{
-#          size
-#          prettySize
+          #          size
+          #          prettySize
           name
           childImageSharp {
             fixed (width: 2000){
@@ -35,17 +44,35 @@ const IMG_GALLERY_QUERY = graphql`
   }`;
 
 
+const StyledGallery = styled.section`
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto; 
+      
+      img{
+        margin: 0 auto !important;
+      }
+    
+    `;
+
 class About extends PureComponent {
+
+  private edges: Array<any> = [];
 
   constructor(props: any) {
     super(props);
-    // bindAll(this, [
-    //   'renderGallery',
-    // ]);
+    bindAll(this, [
+      'renderGallery',
+    ]);
   };
 
-  renderGallery(imgData: any) {
-    const { edges } = imgData.allFile;
+  renderGallery(imgData?: any) {
+
+    let edges = (!imgData) ? this.edges : imgData.allFile.edges;
+
+    this.edges = edges;
+    // edges = shuffle(edges);
+
     const images = edges.map((e) => {
       const {
         width: thumbnailWidth,
@@ -63,18 +90,6 @@ class About extends PureComponent {
       };
     });
 
-    const StyledGallery = styled.section`
-      width: 100%;
-      max-width: 1300px;
-      margin: 0 auto; 
-      
-      img{
-        margin: 0 auto !important;
-      }
-    
-    `;
-
-
     return (
       <StyledGallery>
         <Gallery
@@ -86,6 +101,15 @@ class About extends PureComponent {
           preloadNextImage={true}
           showLightboxThumbnails={true}
           images={images}/>
+
+        {/*<button*/}
+        {/*  onClick={() => {*/}
+        {/*    this.renderGallery();*/}
+        {/*    this.forceUpdate();*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  Shuffle*/}
+        {/*</button>*/}
       </StyledGallery>
     );
   }
@@ -95,7 +119,7 @@ class About extends PureComponent {
     return (
       <IndexLayout>
         <Helmet>
-          <title>About</title>
+          <title>Photos</title>
         </Helmet>
         <Wrapper>
           <header className={`${SiteHeader} ${outer}`}>
@@ -106,7 +130,7 @@ class About extends PureComponent {
           <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
             <article className={`${BottomPaddingPost} post page ${NoImage}`}>
               <PostFullHeader>
-                <PostFullTitle>Story</PostFullTitle>
+                <PostFullTitle>Photos</PostFullTitle>
               </PostFullHeader>
 
               <StaticQuery
@@ -123,21 +147,3 @@ class About extends PureComponent {
 };
 
 export default About;
-
-
-// const IMG_GALLERY_QUERY = graphql`
-//   query imgGalleryQuery {
-//     allFile(filter: { absolutePath: { regex: "/gallery/" } }) {
-//       edges{
-//         node{
-//           childImageSharp {
-//             fluid (maxWidth: 5000){
-//               ...GatsbyImageSharpFluid_tracedSVG
-//               presentationWidth
-//
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }`;

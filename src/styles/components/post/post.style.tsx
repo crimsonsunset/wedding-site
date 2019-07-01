@@ -51,7 +51,7 @@ export const NoImage = css`
 export const PostFullHeader = styled.header`
   margin: 0 auto;
   padding: 6vw 3vw 3vw;
-  max-width: 1040px;
+  max-width: 1060px;
   text-align: center;
 
   @media (max-width: 500px) {

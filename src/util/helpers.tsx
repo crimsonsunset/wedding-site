@@ -20,3 +20,9 @@ export function getWindowVariable(propertyPath: string) {
   return get(possWindow, propertyPath);
 }
 
+export function redirectComponent(url: string) {
+  return () => {
+    window.location.replace(url);
+  }
+}
+

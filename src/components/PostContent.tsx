@@ -138,10 +138,10 @@ export const PostFullContent = styled.section`
   video {
     display: block;
     margin: 1.5em auto;
-    max-width: 1040px;
+    max-width: 1060px;
     height: auto;
   }
-  @media (max-width: 1040px) {
+  @media (max-width: 1060px) {
     img,
     video {
       width: 100%;

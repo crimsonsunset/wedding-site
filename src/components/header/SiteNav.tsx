@@ -212,19 +212,21 @@ export let NAV_ITEMS: Array<NavItem> = [
   },
   {
     name: 'Photos',
-    link: 'https://elevatephotography.com/blog/jess-joe-keystone-winter-engagement-photos/',
-    isExternal: true,
+    link: '/photos',
+    // link: 'https://elevatephotography.com/blog/jess-joe-keystone-winter-engagement-photos/',
+    // isExternal: true,
   },
-  // {
-  //   name: 'Registry',
-  //   link: '/registry',
-  //   // ! todo: update when registry is ready
-  //   // isExternal: true,
-  // },
+  {
+    name: 'Registry',
+    link: '/registry',
+    // ! todo: update when registry is ready
+    // isExternal: true,
+  },
   {
     name: 'RSVP',
-    link: 'https://jess-joe-wedding.app.rsvpify.com/',
-    isExternal: true,
+    link: '/rsvp',
+    // link: 'https://jess-joe-wedding.app.rsvpify.com/',
+    // isExternal: true,
   },
 ];
 
