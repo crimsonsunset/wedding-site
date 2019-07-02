@@ -486,9 +486,9 @@ h6 {
   font-weight: 500;
 }
 
-body {
-  background: #f4f8fb;
-}
+//body {
+//  background: #f4f8fb !important;
+//}
 
 
 #lightboxBackdrop{

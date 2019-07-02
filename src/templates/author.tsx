@@ -247,13 +247,6 @@ export const pageQuery = graphql`
       bio
       facebook
       location
-      profile_image {
-        childImageSharp {
-          fluid(maxWidth: 3720) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       avatar {
         childImageSharp {
           fluid(maxWidth: 200) {

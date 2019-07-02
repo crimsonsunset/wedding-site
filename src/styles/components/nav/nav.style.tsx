@@ -38,7 +38,7 @@ export const navStyles = css`
     bottom: 70px; 
     margin-top: -30px;
     margin: 0 auto;  
-    max-width: 1040px;
+    max-width: 1060px;
     margin-bottom: 4vh;
     background: initial;
     
@@ -79,7 +79,7 @@ export const navStyles = css`
     list-style-type: none;
     width: 100%;
     padding: 0;
-    max-width: 1040px;
+    max-width: 1060px;
     margin: 0 auto;
     justify-content: space-around;
     flex-wrap: wrap;
