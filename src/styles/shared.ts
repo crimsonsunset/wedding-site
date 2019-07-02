@@ -8,6 +8,9 @@ export const outer = css`
   //padding: 0 4vw;
 `;
 
+export const HEADER_PICTURE_WIDTH = '1364px';
+// export const HEADER_PICTURE_WIDTH = '1394px';
+
 // Centered content container blocks
 export const inner = css`
   margin: 0 auto;
@@ -68,7 +71,7 @@ export const PostFeed = css`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -20px;
-  padding: 40px 0 0 0;
+  padding: 40px 0 0 0;  
 `;
 
 export const PostFeedRaise = css`

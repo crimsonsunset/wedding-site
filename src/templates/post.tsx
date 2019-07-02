@@ -97,64 +97,6 @@ const PostHelmet: React.SFC = ({ postData }: any) => {
 };
 
 
-const JoeTest = () => {
-
-  const FuncComp = ({ style, data }) => <h1 style={style}>{data}</h1>;
-
-  return (
-    <Transition
-      from={{
-        marginLeft: '0px',
-        marginTop: '100px',
-        position: 'absolute',
-        opacity: 0,
-      }}
-      enter={{
-        marginTop: '0px',
-        marginLeft: '100px',
-        opacity: 1,
-      }}>
-      {(props) => <FuncComp style={props} data={'JOE TEST ONE'}/>}
-    </Transition>
-  );
-
-};
-
-// https://codesandbox.io/embed/88lmnl6w88
-function Demo(props: any) {
-  const [state, toggle] = React.useState(true);
-  const { y } = useSpring({
-    from: {
-      y: 0,
-    },
-    y: state ? 1 : 0,
-    config: {
-      duration: 5000,
-    },
-  });
-
-
-  return (
-    <div onClick={() => toggle(!state)}>
-      <animated.div
-        style={{
-          transform: y
-            .interpolate({
-              range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
-              output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
-            })
-            .interpolate((y) => `scale(${y})`),
-        }}>
-
-        <PostFullHeader>
-          <PostFullTitle>{props.title}</PostFullTitle>
-        </PostFullHeader>
-
-      </animated.div>
-    </div>
-  );
-}
-
 const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
   const post = props.data.markdownRemark;
   let width = '';
@@ -164,7 +106,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = (props) => {
     height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio);
   }
 
-  const propz = useSpring({ opacity: true ? 1 : 0 });
+  // const propz = useSpring({ opacity: true ? 1 : 0 });
   // debugger;
   return (
     <IndexLayout className="post-template">
@@ -383,3 +325,63 @@ export interface PageContext {
     };
   };
 }
+
+
+
+// const JoeTest = () => {
+//
+//   const FuncComp = ({ style, data }) => <h1 style={style}>{data}</h1>;
+//
+//   return (
+//     <Transition
+//       from={{
+//         marginLeft: '0px',
+//         marginTop: '100px',
+//         position: 'absolute',
+//         opacity: 0,
+//       }}
+//       enter={{
+//         marginTop: '0px',
+//         marginLeft: '100px',
+//         opacity: 1,
+//       }}>
+//       {(props) => <FuncComp style={props} data={'JOE TEST ONE'}/>}
+//     </Transition>
+//   );
+//
+// };
+
+// https://codesandbox.io/embed/88lmnl6w88
+// function Demo(props: any) {
+//   const [state, toggle] = React.useState(true);
+//   const { y } = useSpring({
+//     from: {
+//       y: 0,
+//     },
+//     y: state ? 1 : 0,
+//     config: {
+//       duration: 5000,
+//     },
+//   });
+//
+//
+//   return (
+//     <div onClick={() => toggle(!state)}>
+//       <animated.div
+//         style={{
+//           transform: y
+//             .interpolate({
+//               range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+//               output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
+//             })
+//             .interpolate((y) => `scale(${y})`),
+//         }}>
+//
+//         <PostFullHeader>
+//           <PostFullTitle>{props.title}</PostFullTitle>
+//         </PostFullHeader>
+//
+//       </animated.div>
+//     </div>
+//   );
+// }

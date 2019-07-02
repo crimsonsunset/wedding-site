@@ -27,7 +27,8 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
     const isMobile = (getWindowVariable('innerWidth') < breakpoints[2]);
     const { isOpen } = this.state;
-    const mobileMargin = (isMobile && !isHome) ? -400 : 0;
+    const navHeight = NAV_ITEMS.length * 68;
+    const mobileMargin = (isMobile && !isHome) ? Number(`-${navHeight}`) : 0;
 
     let currNavItems = (this.props.items) ? this.props.items : cloneDeep(NAV_ITEMS);
     const hasHome = (findIndex(currNavItems, ['name', 'Home']) !== -1);
@@ -216,12 +217,12 @@ export let NAV_ITEMS: Array<NavItem> = [
     // link: 'https://elevatephotography.com/blog/jess-joe-keystone-winter-engagement-photos/',
     // isExternal: true,
   },
-  {
-    name: 'Registry',
-    link: '/registry',
-    // ! todo: update when registry is ready
-    // isExternal: true,
-  },
+
+  // ! todo: update when registry is ready
+  // {
+  //   name: 'Registry',
+  //   link: '/registry',
+  // },
   {
     name: 'RSVP',
     link: '/rsvp',

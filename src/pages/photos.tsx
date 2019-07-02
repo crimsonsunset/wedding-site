@@ -10,7 +10,7 @@ import Wrapper from '@components/Wrapper';
 import SiteNav from '@components/header/SiteNav';
 import Footer from '@components/Footer';
 
-import { SiteHeader, outer, inner, SiteMain } from '@styles/shared';
+import { SiteHeader, outer, inner, SiteMain, HEADER_PICTURE_WIDTH } from '@styles/shared';
 import {
   PostFullHeader,
   PostFullTitle,
@@ -46,8 +46,9 @@ const IMG_GALLERY_QUERY = graphql`
 
 const StyledGallery = styled.section`
       width: 100%;
-      max-width: 1300px;
-      margin: 0 auto; 
+      max-width: ${HEADER_PICTURE_WIDTH};
+      margin: 0 auto;
+      margin-top: -3px; 
       
       img{
         margin: 0 auto !important;
@@ -122,7 +123,7 @@ class About extends PureComponent {
           <title>Photos</title>
         </Helmet>
         <Wrapper>
-          <header className={`${SiteHeader} ${outer}`}>
+          <header className={`${SiteHeader}`}>
 
             <SiteNav/>
 
@@ -130,7 +131,9 @@ class About extends PureComponent {
           <main id="site-main" className={`site-main ${SiteMain} ${outer}`}>
             <article className={`${BottomPaddingPost} post page ${NoImage}`}>
               <PostFullHeader>
-                <PostFullTitle>Photos</PostFullTitle>
+                <PostFullTitle
+                style={{marginTop: '26px'}}
+                >Photos</PostFullTitle>
               </PostFullHeader>
 
               <StaticQuery

@@ -15,7 +15,7 @@ class WebpackUtils {
     // console.log(process.env)
     let { NODE_ENV, npm_lifecycle_event } = process.env;
 
-    const environment = npm_lifecycle_event === 'build' ? 'Production Build' : 'Development Build';
+    const environment = npm_lifecycle_event === 'dev' ? 'Development Build' : 'Production Build';
     const version = packageJSON ? packageJSON.version : 'NA-Version';
     const name = packageJSON ? packageJSON.name : 'NA-Name';
 
@@ -36,7 +36,7 @@ class WebpackUtils {
       environment: JSON.stringify(environment),
     };
     this.buildInfoPlugin = new webpack.DefinePlugin({ BUILD_INFO });
-    this.buildInfo =BUILD_INFO ;
+    this.buildInfo = BUILD_INFO;
   }
 
   _listFolderContents(dir) {

@@ -1,7 +1,7 @@
 {
   "name": "jj-wedding",
   "description": "The official home for everything related to Jess & Joe's wedding",
-  "version": "1.5.0",
+  "version": "1.6.1",
   "author": "Joe Sangiorgio <jsangio1@gmail.com>",
   "license": "MIT",
   "scripts": {
