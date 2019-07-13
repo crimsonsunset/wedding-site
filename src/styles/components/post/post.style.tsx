@@ -101,9 +101,15 @@ export const PostFullTitle = styled.h1`
   margin: 0;
   font-size: 8rem;
   color: ${colors.$navy};
-  //@media (max-width: 500px) {
-  //  font-size: 2.9rem;
-  //}
+   
+  ${mediaQueries[3]}{
+    margin-top: 60px !important;   
+  }
+  
+  ${mediaQueries[2]}{
+    margin-top: initial !important;   
+  }
+  
 `;
 
 export const PostFullImage = styled.figure`
