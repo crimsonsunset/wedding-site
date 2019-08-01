@@ -222,11 +222,11 @@ export let NAV_ITEMS: Array<NavItem> = [
     link: '/registry',
     isExternal: true,
   },
-  {
-    name: 'RSVP',
-    link: '/rsvp',
-    isExternal: true,
-  },
+  // {
+  //   name: 'RSVP',
+  //   link: '/rsvp',
+  //   isExternal: true,
+  // },
 ];
 
 
