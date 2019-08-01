@@ -46,19 +46,19 @@ const ErrorLink = css`
   margin-top: 5px;
 `;
 
-interface NotFoundTemplateProps {
-  data: {
-    allMarkdownRemark: {
-      totalCount: number;
-      edges: {
-        node: PageContext;
-      }[];
-    };
-  };
-}
+// interface NotFoundTemplateProps {
+//   data: {
+//     allMarkdownRemark: {
+//       totalCount: number;
+//       edges: {
+//         node: PageContext;
+//       }[];
+//     };
+//   };
+// }
 
-const NotFoundPage: React.SFC<NotFoundTemplateProps> = props => {
-  const { edges } = props.data.allMarkdownRemark;
+const NotFoundPage: React.SFC = (props) => {
+  // const { edges } = props.data.allMarkdownRemark;
 
   return (
     <IndexLayout>
@@ -66,7 +66,7 @@ const NotFoundPage: React.SFC<NotFoundTemplateProps> = props => {
         <header className={`${SiteHeader} ${outer}`}>
           <div className="inner">
             <SiteNavCenter>
-              <NavLogo />
+              <NavLogo/>
             </SiteNavCenter>
           </div>
         </header>
@@ -81,15 +81,15 @@ const NotFoundPage: React.SFC<NotFoundTemplateProps> = props => {
             </section>
           </div>
         </main>
-        <aside className={`${outer}`}>
-          <div className={`${inner}`}>
-            <div className={`${PostFeed}`}>
-              {edges.map(({ node }) => (
-                <PostCard key={node.fields.slug} post={node} />
-              ))}
-            </div>
-          </div>
-        </aside>
+        {/*<aside className={`${outer}`}>*/}
+        {/*  <div className={`${inner}`}>*/}
+        {/*    <div className={`${PostFeed}`}>*/}
+        {/*      {edges.map(({ node }) => (*/}
+        {/*        <PostCard key={node.fields.slug} post={node}/>*/}
+        {/*      ))}*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</aside>*/}
       </Wrapper>
     </IndexLayout>
   );
@@ -97,44 +97,44 @@ const NotFoundPage: React.SFC<NotFoundTemplateProps> = props => {
 
 export default NotFoundPage;
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          timeToRead
-          frontmatter {
-            title
-            date
-            tags
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            author {
-              id
-              bio
-              avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(quality: 100) {
-                      src
-                    }
-                  }
-                }
-              }
-            }
-          }
-          excerpt
-          fields {
-            layout
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query {
+//     allMarkdownRemark(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
+//       edges {
+//         node {
+//           timeToRead
+//           frontmatter {
+//             title
+//             date
+//             tags
+//             image {
+//               childImageSharp {
+//                 fluid(maxWidth: 3720) {
+//                   ...GatsbyImageSharpFluid
+//                 }
+//               }
+//             }
+//             author {
+//               id
+//               bio
+//               avatar {
+//                 children {
+//                   ... on ImageSharp {
+//                     fixed(quality: 100) {
+//                       src
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//           excerpt
+//           fields {
+//             layout
+//             slug
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
