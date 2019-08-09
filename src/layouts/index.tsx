@@ -1,10 +1,13 @@
 import {injectGlobal} from 'emotion';
 import {darken, lighten} from 'polished';
 import * as React from 'react';
+// import { Transition, config } from 'react-spring'
 
-import {colors, primaryColors} from '../styles/variables';
+import {colors, primaryColors} from '@styles/variables';
 import {graphql, StaticQuery} from 'gatsby';
+
 // import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
+
 import {words, forEach, map} from 'lodash';
 
 import 'typeface-rancho';

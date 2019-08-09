@@ -1,32 +1,71 @@
 // tslint:disable:no-http-string
-import { Link } from 'gatsby';
+import {graphql, Link, StaticQuery} from 'gatsby';
 import * as React from 'react';
-import { Component } from 'react';
+import {Component} from 'react';
 import NavLogo from './NavLogo';
-import { navStyles } from '@styles-components/nav/nav.style';
-import { breakpoints } from '@styles/variables';
-
+import {navStyles} from '@styles-components/nav/nav.style';
+import {breakpoints} from '@styles/variables';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 // import { useSpring,animated } from 'react-spring';
-import { Spring, animated } from 'react-spring/renderprops';
-import { findIndex, cloneDeep } from 'lodash';
-import { getWindowVariable } from '@util/helpers';
+import {Spring, animated} from 'react-spring/renderprops';
+import {findIndex, cloneDeep, bindAll, forEach} from 'lodash';
+import {getWindowVariable} from '@util/helpers';
+
+
+const IMG_GALLERY_QUERYZ = graphql`
+  query imgGalleryQueryz {
+    allFile(filter: { absolutePath: { regex: "/transition-images/" } }) {
+      edges{
+        node{
+          #          size
+          #          prettySize
+          name
+          childImageSharp {
+            fixed (width: 2000){
+              width
+              height
+              src
+              #              srcSet
+            }
+          }
+        }
+      }
+    }
+  }`;
+
 
 class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
+  private transitionImages = {
+    ['others']:[]
+  };
+
   constructor(props: SiteNavProps) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = {isOpen: false};
+    bindAll(this, [
+      'renderNav',
+    ]);
   }
 
-
-  render() {
-    const { isHome = false } = this.props;
+  renderNav(transitionImages?: any){
+    const {isHome = false} = this.props;
     const homeStr = (isHome) ? 'home' : '';
+    forEach(transitionImages.allFile.edges, ({node}, i) => {
+      console.log('image, i');
+      if(node.name.includes('eyes')){
+        this.transitionImages['main'] = node;
+      }else{
+        this.transitionImages['others'].push(node)
+      }
+    });
 
+    console.log('this.transitionImages');
+    console.log(this.transitionImages);
 
     const isMobile = (getWindowVariable('innerWidth') < breakpoints[2]);
-    const { isOpen } = this.state;
+    const {isOpen} = this.state;
     const navHeight = NAV_ITEMS.length * 68;
     const mobileMargin = (isMobile && !isHome) ? Number(`-${navHeight}`) : 0;
 
@@ -35,7 +74,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
     // add link for home if on mobile
     if (isMobile && !hasHome && !isHome) {
-      currNavItems.unshift(  {
+      currNavItems.unshift({
         name: 'Home',
         link: '',
       });
@@ -49,7 +88,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
           {/*NAV LOGO*/}
           {!isHome &&
           <div
-            onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+            onClick={() => this.setState({isOpen: !this.state.isOpen})}
             className={'logo-container'}>
             <NavLogo
             />
@@ -64,8 +103,8 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
               precision: 1,
               duration: 300,
             }}
-            from={{ marginTop : (isOpen) ? mobileMargin : 0 }}
-            to={{ marginTop: (isOpen) ? 0 : mobileMargin }}
+            from={{marginTop: (isOpen) ? mobileMargin : 0}}
+            to={{marginTop: (isOpen) ? 0 : mobileMargin}}
           >
             {(props) => {
               return (
@@ -76,12 +115,42 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
                   {/* TODO: mark current nav item - add class nav-current */}
                   {
                     currNavItems.map((navItem, navIndex) => {
-                      const { name, link, isExternal } = navItem;
+                      const {name, link, isExternal} = navItem;
                       const linkElem = (isExternal) ?
                         (<a
                           rel="noreferrer"
-                          href={link} target="_blank">{name}</a>) :
-                        (<Link to={link}>{name}</Link>);
+                          href={link} target="_blank">{name}</a>)
+                        :
+                        // (<Link to={link}>{name}</Link>);
+
+                        // (<AniLink
+                        //   paintDrip
+                        //   to={link}
+                        //   duration={1}>
+                        //   {name}
+                        // </AniLink>);
+
+                        (
+
+
+                          <AniLink
+                            cover
+                            to={link}
+                            direction="left"
+                            duration={1}
+                            bg={`
+                              url(${this.transitionImages.main.childImageSharp.fixed.src})
+                              center / cover   /* position / size */
+                              no-repeat        /* repeat */
+                              fixed            /* attachment */
+                              padding-box      /* origin */
+                              content-box      /* clip */
+                             `}
+
+
+                          >
+                            {name}
+                          </AniLink>);
                       return (
                         <React.Fragment
                           key={navIndex}
@@ -105,6 +174,13 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
       </nav>
     );
+  }
+
+  render() {
+    return <StaticQuery
+      query={IMG_GALLERY_QUERYZ}
+      render={this.renderNav}
+    />
   }
 }
 
@@ -187,7 +263,7 @@ interface SiteNavProps {
 export default SiteNav;
 
 
-type NavItem  = {
+type NavItem = {
   name: string;
   link: string;
   isExternal?: boolean;
