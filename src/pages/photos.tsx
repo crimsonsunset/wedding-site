@@ -162,7 +162,7 @@ class Photos extends PureComponent {
     return (
       <IndexLayout>
         <Helmet>
-          <title>Photos</title>
+          <title>Jess & Joe | Photos</title>
         </Helmet>
         <Wrapper>
           <header className={`${SiteHeader}`}>

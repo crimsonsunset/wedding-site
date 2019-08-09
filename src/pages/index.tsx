@@ -22,6 +22,7 @@ import {
   SiteTitle,
 } from '@styles/shared';
 import { PageContext } from '../templates/post';
+import {get} from 'lodash';
 
 const HomePosts = css`
   @media (min-width: 795px) {
@@ -88,6 +89,7 @@ export interface IndexProps {
 const IndexPage: React.SFC<IndexProps> = (props) => {
   const width = props.data.header.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
   const height = String(Number(width) / props.data.header.childImageSharp.fluid.aspectRatio);
+  const EXCLUDED_POSTS = ['About'];
 
   return (
     <IndexLayout className={`${HomePosts}`}>
@@ -198,7 +200,11 @@ const IndexPage: React.SFC<IndexProps> = (props) => {
           <div className={`${inner}`}>
             <div className={`${PostFeed} ${PostFeedRaise}`}>
               {props.data.allMarkdownRemark.edges.map((post) => {
-                return <PostCard key={post.node.fields.slug} post={post.node}/>;
+
+                // exclude certain posts from the frontpage cards
+                const currTitle = get(post, 'node.frontmatter.title');
+                const isExcluded = EXCLUDED_POSTS.includes(currTitle);
+                return ( isExcluded) ? <React.Fragment/> : <PostCard key={post.node.fields.slug} post={post.node}/>
               })}
             </div>
           </div>

@@ -91,7 +91,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'jess-and-joe-wedding',
+        name: 'J&J Wedding',
         short_name: 'J&J Wedding',
         start_url: '/',
         background_color: '#2F496E',

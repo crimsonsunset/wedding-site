@@ -70,6 +70,8 @@ const Footer: React.SFC = () => {
         <section className="copyright">
           <Link to="/">{config.title}</Link> &copy; {getCurrentYear()}
           &nbsp;⎮&nbsp;
+          <Link to="/about">About</Link>
+          &nbsp;⎮&nbsp;
           <a
             rel="noreferrer"
             className='instagram-link'
