@@ -1,16 +1,37 @@
 // tslint:disable:no-http-string
-import { Link, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import * as React from 'react';
 import { Component } from 'react';
 import NavLogo from './NavLogo';
 import { navStyles } from '@styles-components/nav/nav.style';
 import { breakpoints, colors } from '@styles/variables';
-import { IMG_GALLERY_QUERY } from '@root/pages/photos';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { TransitionPortal } from 'gatsby-plugin-transition-link';
 import { Spring } from 'react-spring/renderprops';
 import { findIndex, bindAll, forEach, sample, get } from 'lodash';
 import { getAspectRatio, getWindowVariable } from '@util/helpers';
+
+
+export const IMG_GALLERY_QUERYZ = graphql`
+  query imgGalleryQueryz {
+    allFile(filter: { absolutePath: { regex: "/gallery/" } }) {
+      edges{
+        node{
+          #          size
+          #          prettySize
+          name
+          childImageSharp {
+            fixed (width: 2000){
+              width
+              height
+              src
+              #              srcSet
+            }
+          }
+        }
+      }
+    }
+  }`;
 
 
 class SiteNav extends Component<SiteNavProps, SiteNavState> {
@@ -36,6 +57,11 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
   private _storeImages(transitionImages) {
     const windowWidth = getWindowVariable('innerWidth');
     const windowHeight = getWindowVariable('innerHeight');
+
+    if(!windowWidth){
+      return;
+    }
+
     const { type: windowType } = getAspectRatio(windowWidth, windowHeight);
 
     // sort images into buckets
@@ -88,6 +114,8 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
     // mobile and home cant keep nav on top (looks bad)
     const WrapperElem = (isHome || isMobile) ? React.Fragment : TransitionPortal;
     const wrapperProps = (isHome || isMobile) ? {} : { level: 'top' };
+
+
 
     return (
       <WrapperElem
@@ -193,7 +221,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
   render() {
     return <StaticQuery
-      query={IMG_GALLERY_QUERY}
+      query={IMG_GALLERY_QUERYZ}
       render={this.renderNav}
     />;
   }
