@@ -1,186 +1,187 @@
 // tslint:disable:no-http-string
-import {graphql, Link, StaticQuery} from 'gatsby';
+import { Link, StaticQuery } from 'gatsby';
 import * as React from 'react';
-import {Component} from 'react';
+import { Component } from 'react';
 import NavLogo from './NavLogo';
-import {navStyles} from '@styles-components/nav/nav.style';
-import {breakpoints} from '@styles/variables';
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { navStyles } from '@styles-components/nav/nav.style';
+import { breakpoints } from '@styles/variables';
+import { IMG_GALLERY_QUERY } from '@root/pages/photos';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { TransitionPortal } from 'gatsby-plugin-transition-link';
 
 // import { useSpring,animated } from 'react-spring';
-import {Spring, animated} from 'react-spring/renderprops';
-import {findIndex, cloneDeep, bindAll, forEach} from 'lodash';
-import {getWindowVariable} from '@util/helpers';
-
-
-const IMG_GALLERY_QUERYZ = graphql`
-  query imgGalleryQueryz {
-    allFile(filter: { absolutePath: { regex: "/transition-images/" } }) {
-      edges{
-        node{
-          #          size
-          #          prettySize
-          name
-          childImageSharp {
-            fixed (width: 2000){
-              width
-              height
-              src
-              #              srcSet
-            }
-          }
-        }
-      }
-    }
-  }`;
+import { Spring } from 'react-spring/renderprops';
+import { findIndex, bindAll, forEach, sample, get } from 'lodash';
+import { getAspectRatio, getWindowVariable } from '@util/helpers';
 
 
 class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
+  // private transitionImages = {
+  //   ['others']:[]
+  // };
   private transitionImages = {
-    ['others']:[]
+    portrait: [],
+    landscape: [],
   };
+
+  private windowType = 'NA';
 
   constructor(props: SiteNavProps) {
     super(props);
-    this.state = {isOpen: false};
+    this.state = {
+      isOpen: false,
+      didInit: false,
+    };
     bindAll(this, [
       'renderNav',
     ]);
   }
 
-  renderNav(transitionImages?: any){
-    const {isHome = false} = this.props;
-    const homeStr = (isHome) ? 'home' : '';
-    forEach(transitionImages.allFile.edges, ({node}, i) => {
-      console.log('image, i');
-      if(node.name.includes('eyes')){
-        this.transitionImages['main'] = node;
-      }else{
-        this.transitionImages['others'].push(node)
-      }
+  private _storeImages(transitionImages) {
+    const windowWidth = getWindowVariable('innerWidth');
+    const windowHeight = getWindowVariable('innerHeight');
+    const { type: windowType } = getAspectRatio(windowWidth, windowHeight);
+
+    // sort images into buckets
+    forEach(transitionImages.allFile.edges, ({ node }) => {
+      const { height, width } = node.childImageSharp.fixed;
+      const { type } = getAspectRatio(width, height);
+      this.transitionImages[type].push(node);
     });
 
-    console.log('this.transitionImages');
-    console.log(this.transitionImages);
+    // set navlink images 1x only
+    forEach(NAV_ITEMS, (e, i) => {
+      NAV_ITEMS[i].imageNode = sample(this.transitionImages[windowType]);
+    });
+
+    this.windowType = windowType;
+    this.setState({
+      didInit: true,
+    });
+
+  }
+
+  private renderNav(transitionImages?: any) {
+    const { isHome = false } = this.props;
+    const homeStr = (isHome) ? 'home' : '';
+
+    if (!this.state.didInit) {
+      this._storeImages(transitionImages);
+    }
+    const { windowType } = this;
+    const { isOpen } = this.state;
 
     const isMobile = (getWindowVariable('innerWidth') < breakpoints[2]);
-    const {isOpen} = this.state;
     const navHeight = NAV_ITEMS.length * 68;
     const mobileMargin = (isMobile && !isHome) ? Number(`-${navHeight}`) : 0;
 
-    let currNavItems = (this.props.items) ? this.props.items : cloneDeep(NAV_ITEMS);
-    const hasHome = (findIndex(currNavItems, ['name', 'Home']) !== -1);
+    const hasHome = (findIndex(NAV_ITEMS, ['name', 'Home']) !== -1);
 
     // add link for home if on mobile
     if (isMobile && !hasHome && !isHome) {
-      currNavItems.unshift({
+      NAV_ITEMS.unshift({
         name: 'Home',
         link: '',
       });
     }
 
+    const WrapperElem = (isHome) ? React.Fragment : TransitionPortal;
+    const wrapperProps = (isHome) ? {} : { level: 'top' };
 
     return (
-      <nav className={`${navStyles} ${homeStr}`}>
-        <React.Fragment>
+      <WrapperElem
+        {...wrapperProps}
+      >
+        <nav className={`${navStyles} ${homeStr}`}>
+          <React.Fragment>
 
-          {/*NAV LOGO*/}
-          {!isHome &&
-          <div
-            onClick={() => this.setState({isOpen: !this.state.isOpen})}
-            className={'logo-container'}>
-            <NavLogo
-            />
-          </div>
-          }
+            {/*NAV LOGO*/}
+            {!isHome &&
+            <div
+              onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+              className={'logo-container'}>
+              <NavLogo
+              />
+            </div>
+            }
 
-          {/*NAV BODY*/}
-          <Spring
-            config={{
-              tension: 2000,
-              friction: 100,
-              precision: 1,
-              duration: 300,
-            }}
-            from={{marginTop: (isOpen) ? mobileMargin : 0}}
-            to={{marginTop: (isOpen) ? 0 : mobileMargin}}
-          >
-            {(props) => {
-              return (
-                <ul
-                  style={props}
-                  className={''}
-                  role="menu">
-                  {/* TODO: mark current nav item - add class nav-current */}
-                  {
-                    currNavItems.map((navItem, navIndex) => {
-                      const {name, link, isExternal} = navItem;
-                      const linkElem = (isExternal) ?
-                        (<a
-                          rel="noreferrer"
-                          href={link} target="_blank">{name}</a>)
-                        :
-                        // (<Link to={link}>{name}</Link>);
-
-                        // (<AniLink
-                        //   paintDrip
-                        //   to={link}
-                        //   duration={1}>
-                        //   {name}
-                        // </AniLink>);
-
-                        (
-
-
-                          <AniLink
-                            cover
-                            to={link}
-                            direction="left"
-                            duration={1}
-                            bg={`
-                              url(${this.transitionImages.main.childImageSharp.fixed.src})
-                              center / cover   /* position / size */
-                              no-repeat        /* repeat */
-                              fixed            /* attachment */
-                              padding-box      /* origin */
-                              content-box      /* clip */
-                             `}
+            {/*NAV BODY*/}
+            <Spring
+              config={{
+                tension: 2000,
+                friction: 100,
+                precision: 1,
+                duration: 300,
+              }}
+              from={{ marginTop: (isOpen) ? mobileMargin : 0 }}
+              to={{ marginTop: (isOpen) ? 0 : mobileMargin }}
+            >
+              {(props) => {
+                return (
+                  <ul
+                    style={props}
+                    className={''}
+                    role="menu">
+                    {/* TODO: mark current nav item - add class nav-current */}
+                    {
+                      NAV_ITEMS.map((navItem, navIndex) => {
+                        const { name, link, isExternal } = navItem;
+                        const image = get(navItem, 'imageNode.childImageSharp.fixed.src');
+                        const linkElem = (isExternal) ?
+                          (<a
+                            rel="noreferrer"
+                            href={link} target="_blank">{name}</a>)
+                          :
+                          // center 70px / cover
+                          (
+                            <AniLink
+                              cover
+                              to={link}
+                              direction="left"
+                              duration={1.4}
+                              bg={`
+                                url(${image})
+                                center center / cover   
+                                no-repeat        
+                                fixed            
+                                padding-box      
+                                content-box      
+                                  `}
+                            >
+                              {name}
+                            </AniLink>);
 
 
+                        return (
+                          <React.Fragment
+                            key={navIndex}
                           >
-                            {name}
-                          </AniLink>);
-                      return (
-                        <React.Fragment
-                          key={navIndex}
-                        >
-                          <li
-                            role="menuitem">
-                            {linkElem}
-                          </li>
-                          {(navIndex !== currNavItems.length - 1) && <hr/>}
-                        </React.Fragment>
-                      );
-                    })
-                  }
-                </ul>
-              );
-            }}
+                            <li
+                              role="menuitem">
+                              {linkElem}
+                            </li>
+                            {(navIndex !== NAV_ITEMS.length - 1) && <hr/>}
+                          </React.Fragment>
+                        );
+                      })
+                    }
+                  </ul>
+                );
+              }}
 
-          </Spring>
-        </React.Fragment>
-
-
-      </nav>
+            </Spring>
+          </React.Fragment>
+        </nav>
+      </WrapperElem>
     );
   }
 
   render() {
     return <StaticQuery
-      query={IMG_GALLERY_QUERYZ}
+      query={IMG_GALLERY_QUERY}
       render={this.renderNav}
-    />
+    />;
   }
 }
 
@@ -266,6 +267,7 @@ export default SiteNav;
 type NavItem = {
   name: string;
   link: string;
+  imageNode?: any;
   isExternal?: boolean;
 }
 
@@ -293,6 +295,10 @@ export let NAV_ITEMS: Array<NavItem> = [
     // link: 'https://elevatephotography.com/blog/jess-joe-keystone-winter-engagement-photos/',
     // isExternal: true,
   },
+  // {
+  //   name: 'About',
+  //   link: '/about',
+  // },
   {
     name: 'Registry',
     link: '/registry',
@@ -312,4 +318,5 @@ interface SiteNavProps {
 
 interface SiteNavState {
   isOpen: boolean;
+  didInit: boolean;
 }

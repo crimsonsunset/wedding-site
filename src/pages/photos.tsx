@@ -23,7 +23,7 @@ import { fileNameToCaption } from '@util/helpers';
 import { useSwipe } from '@util/component.hooks';
 
 
-const IMG_GALLERY_QUERY = graphql`
+export const IMG_GALLERY_QUERY = graphql`
   query imgGalleryQuery {
     allFile(filter: { absolutePath: { regex: "/gallery/" } }) {
       edges{

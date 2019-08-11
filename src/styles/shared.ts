@@ -25,7 +25,6 @@ export const SiteMain = css`
 
 export const SiteTitle = styled.h1`
   ${shadows.text}
-  
   z-index: 10;
   margin: 0;
   padding: 0;
