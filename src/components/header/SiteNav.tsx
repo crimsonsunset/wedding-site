@@ -314,17 +314,17 @@ type NavItem = {
 }
 
 const ALLOWED_IMAGES = [
-  'ski-onesies',
+  // 'ski-onesies',
   'ps-theater',
   'ps-kiss',
   'nyc-skyline',
   'minus-zero-sign',
   'lucy',
-  'lookin-cute',
+  // 'lookin-cute',
   'in-trees',
-  'formal',
-  'flavortown',
-  'first-ski',
+  // 'formal',
+  // 'flavortown',
+  // 'first-ski',
   'blind-tiger-4',
 ];
 
