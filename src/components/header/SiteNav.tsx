@@ -15,9 +15,6 @@ import { getAspectRatio, getWindowVariable } from '@util/helpers';
 
 class SiteNav extends Component<SiteNavProps, SiteNavState> {
 
-  // private transitionImages = {
-  //   ['others']:[]
-  // };
   private transitionImages = {
     portrait: [],
     landscape: [],
@@ -45,7 +42,10 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
     forEach(transitionImages.allFile.edges, ({ node }) => {
       const { height, width } = node.childImageSharp.fixed;
       const { type } = getAspectRatio(width, height);
-      this.transitionImages[type].push(node);
+
+      if(ALLOWED_IMAGES.includes(node.name)){
+        this.transitionImages[type].push(node);
+      }
     });
 
     // set navlink images 1x only
@@ -284,6 +284,21 @@ type NavItem = {
   imageNode?: any;
   isExternal?: boolean;
 }
+
+const ALLOWED_IMAGES = [
+  'ski-onesies',
+  'ps-theater',
+  'ps-kiss',
+  'nyc-skyline',
+  'minus-zero-sign',
+  'lucy',
+  'lookin-cute',
+  'in-trees',
+  'formal',
+  'flavortown',
+  'first-ski',
+  'blind-tiger-4',
+];
 
 export let NAV_ITEMS: Array<NavItem> = [
 

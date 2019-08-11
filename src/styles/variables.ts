@@ -54,17 +54,18 @@ export const margin = {
 };
 
 export const animations = {
-  scaleHover(scaleAmount: number, childSelector?: string) {
+  scaleHover(scaleAmount: number, childSelector?: string, enableShadow?: boolean) {
+    const shadow = (enableShadow) ? 'box-shadow: 0 2px 2px rgba(0,0,0,.1), 0 4px 4px rgba(0,0,0,.1), 0 8px 8px rgba(0,0,0,.1), 0 16px 16px rgba(0,0,0,.1);' : '';
     const childPop = (!childSelector) ? '' :
       `
       ${childSelector}{
-        transition: color 1s ease;
+        transition: color 0.7s ease;
         color: ${colors.$yellow};
         }
       `;
     return css`
       :hover {
-        //box-shadow: rgba(39, 44, 49, 0.07) 8px 28px 50px, rgba(39, 44, 49, 0.04) 1px 6px 12px;
+        ${shadow};
         transition: all 0.4s ease;
         transform: translate3D(0, -1px, 0) scale(${scaleAmount});
         ${childSelector && shadows.inverseText}

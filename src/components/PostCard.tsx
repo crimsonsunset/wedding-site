@@ -21,8 +21,9 @@ const PostCardStyles = css`
   border-radius: 5px;
   box-shadow: rgba(39, 44, 49, 0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
   transition: all 0.5s ease;
+  will-change: auto;
 
-  ${animations.scaleHover(1.04)};
+  ${animations.scaleHover(1.08,'',true)};
   
 `;
 
@@ -196,9 +197,10 @@ export interface PostCardProps {
 
 const PostCard: React.SFC<PostCardProps> = ({ post }) => {
 
-  // if (!_.get(post, 'frontmatter.author.id')) {
-  //   _.set(post, 'frontmatter.author.id',_.uniqueId())
-  // }
+  // cover
+  // direction="up"
+  // duration={1.4}
+  // bg={mainColors.$navy}
 
   return (
     <article className={`post-card ${PostCardStyles} ${!post.frontmatter.image ? 'no-image' : ''}`}>

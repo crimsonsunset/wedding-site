@@ -41,9 +41,10 @@ export const SiteTitle = styled.h1`
 
 export const SiteDescription = styled.h2`
   ${shadows.text}
-  ${animations.scaleHover(1.3, '.instagram-link')};
+  ${animations.scaleHover(1.4, '.instagram-link')};
  
-  
+ transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  will-change: auto;
   z-index: 10;
   margin: 0;
   padding: 5px 0;
@@ -52,7 +53,6 @@ export const SiteDescription = styled.h2`
   letter-spacing: 0.5px;
   width: 100%;
   display: flex;
- 
   justify-content: center;
     
   
