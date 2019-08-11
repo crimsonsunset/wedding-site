@@ -1,13 +1,13 @@
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import * as _ from 'lodash';
 import { lighten } from 'polished';
 import * as React from 'react';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import styled, { css } from 'react-emotion';
-import { colors } from '../styles/colors';
+import { colors } from '@styles/colors';
 import { PageContext } from '../templates/post';
-import { animations } from '../styles/variables';
+import { animations, colors as mainColors } from '@styles/variables';
 
 const PostCardStyles = css`
   flex: 1 1 300px;
@@ -21,8 +21,9 @@ const PostCardStyles = css`
   border-radius: 5px;
   box-shadow: rgba(39, 44, 49, 0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
   transition: all 0.5s ease;
+  will-change: auto;
 
-  ${animations.scaleHover(1.04)};
+  ${animations.scaleHover(1.08,'',true)};
   
 `;
 
@@ -196,14 +197,21 @@ export interface PostCardProps {
 
 const PostCard: React.SFC<PostCardProps> = ({ post }) => {
 
-  // if (!_.get(post, 'frontmatter.author.id')) {
-  //   _.set(post, 'frontmatter.author.id',_.uniqueId())
-  // }
+  // cover
+  // direction="up"
+  // duration={1.4}
+  // bg={mainColors.$navy}
 
   return (
     <article className={`post-card ${PostCardStyles} ${!post.frontmatter.image ? 'no-image' : ''}`}>
       {post.frontmatter.image && (
-        <Link className={`${PostCardImageLink} post-card-image-link`} to={post.fields.slug}>
+        <AniLink
+          paintDrip
+          hex={mainColors.$navy}
+          duration={0.6}
+          className={`${PostCardImageLink} post-card-image-link`}
+          to={post.fields.slug}
+        >
           <PostCardImage className="post-card-image">
             {post.frontmatter.image &&
             post.frontmatter.image.childImageSharp.fluid && (
@@ -214,10 +222,15 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
               />
             )}
           </PostCardImage>
-        </Link>
+        </AniLink>
       )}
       <PostCardContent className="post-card-content">
-        <Link className={`${PostCardContentLink} post-card-content-link`} to={post.fields.slug}>
+        <AniLink
+          paintDrip
+          hex={mainColors.$navy}
+          duration={0.6}
+          className={`${PostCardContentLink} post-card-content-link`}
+          to={post.fields.slug}>
 
           {/*todo: put back for tags above post cards*/}
           <header className="post-card-header">
@@ -227,7 +240,7 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
           <PostCardExcerpt>
             <p>{post.excerpt}</p>
           </PostCardExcerpt>
-        </Link>
+        </AniLink>
         <PostCardMeta className="post-card-meta">
 
           {/*<ReadingTime>{post.timeToRead} min read</ReadingTime>*/}

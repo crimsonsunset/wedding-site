@@ -82,6 +82,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-yaml',
     'gatsby-plugin-feed',
+    'gatsby-plugin-transition-link',
     {
       resolve: 'gatsby-plugin-postcss',
       options: {

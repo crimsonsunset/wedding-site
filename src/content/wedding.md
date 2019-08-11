@@ -16,25 +16,25 @@ tags:
 # Schedule  
 
 1. ## Welcome Drinks
-#### Date / Time : <span class='event-info'> Thurs, Aug 15 [TBD] </span>   
-#### Location: <span class='event-info'> [TBD] </span>
-Enjoy casual drinks with the bride, groom and guests of the wedding as you arrive in summit county! Come taste some local beer and light snacks. 
+#### Date / Time : <span class='event-info'> Thurs, Aug 15 / 6PM - 9PM </span>   
+#### Location: <span class='event-info'> <a href="https://goo.gl/maps/gevUHoWRbPaVL1r46" target="_blank">307 Granite Street, Unit C</a> </span>
+Enjoy casual drinks with the bride, groom and guests of the wedding as you arrive in summit county! Make sure to grab your welcome bag!
 
 2. ## Wedding Ceremony
-#### Date / Time : <span class='event-info'> Sat, Aug 17  / 3PM </span>     
+#### Date / Time : <span class='event-info'> Sat, Aug 17  / 3PM - 4PM </span>     
 #### Location: <span class='event-info'> <a href="https://www.google.com/maps?cid=16681846218033110966" target="_blank"> Marina Park Pavilion </a> </span> 
 
 3. ## Wedding Reception
-#### Date / Time : <span class='event-info'> Sat, Aug 17  / 5PM </span>
+#### Date / Time : <span class='event-info'> Sat, Aug 17  / 5PM - 12AM </span>
 #### Location: <span class='event-info'> <a href="https://www.google.com/maps?cid=12439780851266415659" target="_blank">10 Mile Music Hall</a> </span> 
 
 4. ## Afterparty
-#### Date / Time : <span class='event-info'> Sun, Aug 17  / 2AM </span>
-#### Location: <span class='event-info'> [TBD] </span>
-There will be a late night “after hours” after the reception at a house that’s walking distance from Main Street in Frisco. More information will be available on the day-of! 
+#### Date / Time : <span class='event-info'> Sun, Aug 17  / 2AM - ? </span>
+#### Location: <span class='event-info'> Details to come on day of </span>
+There will be a late night “after hours” after the reception at a house that’s walking distance from the reception.  
 
 5. ## Post Wedding Brunch
-#### Date / Time : <span class='event-info'> Sun, Aug 18  / 10:30AM </span>
+#### Date / Time : <span class='event-info'> Sun, Aug 18  / 10:30AM - 2:30PM </span>
 #### Location: <span class='event-info'> <a href="https://www.google.com/maps?cid=12391644541869046535" target="_blank">The Uptown on Main</a> </span> 
 Stop by for food and drinks before heading out of town after the wedding! Casual brunch in an indoor/outdoor space with games and awesome views! 
 

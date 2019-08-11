@@ -1,9 +1,10 @@
 import { graphql, Link, StaticQuery } from 'gatsby';
 import * as React from 'react';
 import { styles } from '@styles-components/nav/nav-logo.style';
-import { breakpoints } from '@styles/variables';
+import { breakpoints, colors } from '@styles/variables';
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { getWindowVariable } from '@util/helpers';
 
 const svgLogo = require('@img/favicon/favicon.svg');
@@ -17,7 +18,7 @@ interface NavLogoProps {
 }
 
 
-function Demo() {
+function AnimatedLogo() {
   const [state, toggle] = useState(false);
   const {x} = useSpring({
     from: { x: 0 },
@@ -49,15 +50,18 @@ const NavLogo = () => {
 
   const currLogo = (isMobile) ?
 
-    (<Demo/>) :
+    (<AnimatedLogo/>) :
 
-    (<Link
+
+    (<AniLink
       className={`${styles} site-nav-logo`}
-      to="/"
-    >
+      paintDrip
+      hex={colors.$navy}
+      duration={0.6}
+      to={'/'}
+      >
       <img src={svgLogo}/>
-
-    </Link>);
+    </AniLink>);
 
   return (
     <StaticQuery
