@@ -4,12 +4,10 @@ import * as React from 'react';
 import { Component } from 'react';
 import NavLogo from './NavLogo';
 import { navStyles } from '@styles-components/nav/nav.style';
-import { breakpoints } from '@styles/variables';
+import { breakpoints, colors } from '@styles/variables';
 import { IMG_GALLERY_QUERY } from '@root/pages/photos';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { TransitionPortal } from 'gatsby-plugin-transition-link';
-
-// import { useSpring,animated } from 'react-spring';
 import { Spring } from 'react-spring/renderprops';
 import { findIndex, bindAll, forEach, sample, get } from 'lodash';
 import { getAspectRatio, getWindowVariable } from '@util/helpers';
@@ -82,12 +80,14 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
     if (isMobile && !hasHome && !isHome) {
       NAV_ITEMS.unshift({
         name: 'Home',
-        link: '',
+        link: '/',
+        imageNode: this.transitionImages[windowType][0],
       });
     }
 
-    const WrapperElem = (isHome) ? React.Fragment : TransitionPortal;
-    const wrapperProps = (isHome) ? {} : { level: 'top' };
+    // mobile and home cant keep nav on top (looks bad)
+    const WrapperElem = (isHome || isMobile) ? React.Fragment : TransitionPortal;
+    const wrapperProps = (isHome || isMobile) ? {} : { level: 'top' };
 
     return (
       <WrapperElem
@@ -114,7 +114,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
                 precision: 1,
                 duration: 300,
               }}
-              from={{ marginTop: (isOpen) ? mobileMargin : 0 }}
+              from={{ marginTop: 0 }}
               to={{ marginTop: (isOpen) ? 0 : mobileMargin }}
             >
               {(props) => {
@@ -128,26 +128,40 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
                       NAV_ITEMS.map((navItem, navIndex) => {
                         const { name, link, isExternal } = navItem;
                         const image = get(navItem, 'imageNode.childImageSharp.fixed.src');
+
+                        // home link gets drip
+                        const linkProps = (link === '/') ?
+                          {
+                            paintDrip: true,
+                            hex: colors.$navy,
+                            duration: 0.6,
+                            to: link,
+                          }
+                          :
+                          {
+                            cover: true,
+                            to: link,
+                            direction: 'left',
+                            duration: 1.4,
+                            bg: `
+                                url(${image})
+                                center center / cover
+                                no-repeat
+                                fixed
+                                padding-box
+                                content-box
+                                  `,
+                          };
+
+                        // external links use a tags
                         const linkElem = (isExternal) ?
                           (<a
                             rel="noreferrer"
                             href={link} target="_blank">{name}</a>)
                           :
-                          // center 70px / cover
                           (
                             <AniLink
-                              cover
-                              to={link}
-                              direction="left"
-                              duration={1.4}
-                              bg={`
-                                url(${image})
-                                center center / cover   
-                                no-repeat        
-                                fixed            
-                                padding-box      
-                                content-box      
-                                  `}
+                              {...linkProps}
                             >
                               {name}
                             </AniLink>);
@@ -275,7 +289,7 @@ export let NAV_ITEMS: Array<NavItem> = [
 
   {
     name: 'Wedding',
-    link: 'wedding',
+    link: '/wedding',
   },
   {
     name: 'Travel',
@@ -293,7 +307,6 @@ export let NAV_ITEMS: Array<NavItem> = [
     name: 'Photos',
     link: '/photos',
     // link: 'https://elevatephotography.com/blog/jess-joe-keystone-winter-engagement-photos/',
-    // isExternal: true,
   },
   // {
   //   name: 'About',

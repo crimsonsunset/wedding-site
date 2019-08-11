@@ -57,8 +57,9 @@ const NavLogo = () => {
       className={`${styles} site-nav-logo`}
       paintDrip
       hex={colors.$navy}
+      duration={0.6}
       to={'/'}
-      duration={0.6}>
+      >
       <img src={svgLogo}/>
     </AniLink>);
 

@@ -1,7 +1,4 @@
 import { css } from 'emotion';
-import { Spring } from 'react-spring/renderprops-universal';
-import { config } from 'react-spring';
-import * as React from 'react';
 
 export const colors = {
   $darkGreen: '#1C3103',
