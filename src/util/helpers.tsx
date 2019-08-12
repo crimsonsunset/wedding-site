@@ -41,7 +41,6 @@ export function getAspectRatio(width,height){
   };
 }
 
-
 export function redirectComponent(url: string) {
   return () => {
     typeof window !== 'undefined' && window.location.replace(url);
@@ -75,4 +74,22 @@ export function printBuildInfo(buildInfo: any) {
 
 }
 
+// todo: this is the seeds of a app service
+export function setLatestImageIndex(arrLength) {
+  const currRoute = getWindowVariable('location.pathname');
+  const prevRoute = getWindowVariable('latestRoute');
+  const currIndex = getWindowVariable('imageIndex') || 0;
+  const latestRoute = getWindowVariable('location.pathname');
 
+  // an actual change, increment variables
+  if( prevRoute !== latestRoute){
+    let latestUpdate = (currIndex < arrLength - 1) ? currIndex + 1 : 0;
+    setWindowVariable('imageIndex', latestUpdate);
+    console.log('change', latestRoute, latestUpdate);
+    const z = getWindowVariable('imageIndex');
+    console.log('changed', z)
+  }
+
+  setWindowVariable('latestRoute', latestRoute);
+  return getWindowVariable('imageIndex');
+}

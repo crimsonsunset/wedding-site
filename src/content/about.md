@@ -14,7 +14,8 @@ tags:
 
 ## Text Message Updates
 
-By default, the phone number you used when you filled out our RSVP form will be enrolled in our text message notification system. If you are not enrolled but would like to be, please text TWOJSALWAYS to <a href="tel:43506" target="_blank">43506</a>.
+By default, the phone number you used when you filled out our RSVP form will be enrolled in our text message notification system. If you are not enrolled but would like to be, please text TWOJSALWAYS to <a href="tel:43506" target="_blank">43506</a>. Or just fill out the form <a href="https://app.txtsignal.io/w/ad2ab1aa" target="_blank"> here </a> 
+
 
 
 ## Use this website as an App!

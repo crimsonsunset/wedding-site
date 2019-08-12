@@ -9,7 +9,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { TransitionPortal } from 'gatsby-plugin-transition-link';
 import { Spring } from 'react-spring/renderprops';
 import { findIndex, bindAll, forEach, sample, get } from 'lodash';
-import { getAspectRatio, getWindowVariable } from '@util/helpers';
+import { getAspectRatio, getWindowVariable, setLatestImageIndex } from '@util/helpers';
 
 
 export const IMG_GALLERY_QUERYZ = graphql`
@@ -42,6 +42,9 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
   };
 
   private windowType = 'NA';
+  private portraitLength = -1;
+  private landscapeLength = -1;
+  private imageType = '';
 
   constructor(props: SiteNavProps) {
     super(props);
@@ -63,6 +66,7 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
     }
 
     const { type: windowType } = getAspectRatio(windowWidth, windowHeight);
+    this.imageType = windowType;
 
     // sort images into buckets
     forEach(transitionImages.allFile.edges, ({ node }) => {
@@ -74,10 +78,8 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
       }
     });
 
-    // set navlink images 1x only
-    forEach(NAV_ITEMS, (e, i) => {
-      NAV_ITEMS[i].imageNode = sample(this.transitionImages[windowType]);
-    });
+    this.portraitLength = this.transitionImages['portrait'].length;
+    this.landscapeLength = this.transitionImages['landscape'].length;
 
     this.windowType = windowType;
     this.setState({
@@ -116,6 +118,11 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
     const wrapperProps = (isHome || isMobile) ? {} : { level: 'top' };
 
 
+    const { imageType } = this;
+    const currLength = get(this, `${imageType}Length`);
+
+    const imageIndex = setLatestImageIndex(currLength);
+    const image = get(this, `transitionImages.${imageType}[${imageIndex}].childImageSharp.fixed.src`);
 
     return (
       <WrapperElem
@@ -155,7 +162,6 @@ class SiteNav extends Component<SiteNavProps, SiteNavState> {
                     {
                       NAV_ITEMS.map((navItem, navIndex) => {
                         const { name, link, isExternal } = navItem;
-                        const image = get(navItem, 'imageNode.childImageSharp.fixed.src');
 
                         // home link gets drip
                         const linkProps = (link === '/') ?
@@ -315,15 +321,16 @@ type NavItem = {
 
 const ALLOWED_IMAGES = [
   // 'ski-onesies',
-  'ps-theater',
-  'ps-kiss',
   'nyc-skyline',
+  'ps-theater',
+
   'minus-zero-sign',
   'lucy',
   // 'lookin-cute',
   'in-trees',
   // 'formal',
-  // 'flavortown',
+  'flavortown',
+  'ps-kiss',
   // 'first-ski',
   'blind-tiger-4',
 ];
@@ -355,6 +362,7 @@ export let NAV_ITEMS: Array<NavItem> = [
   //   name: 'About',
   //   link: '/about',
   // },
+
   {
     name: 'Registry',
     link: '/registry',
