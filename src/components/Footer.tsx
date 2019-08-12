@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
 import styled, { css } from 'react-emotion';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { outer, inner } from '@styles/shared';
 import config from '@root/website-config';
 import { colors, primaryColors } from '@styles/variables';
@@ -68,7 +69,21 @@ const Footer: React.SFC = () => {
     <footer className={`${outer} ${SiteFooter}`}>
       <div className={`${inner} ${SiteFooterContent}`}>
         <section className="copyright">
-          <Link to="/">{config.title}</Link> &copy; {getCurrentYear()}
+          <Link
+            to="">
+            {config.title} &copy; {getCurrentYear()}
+          </Link>
+
+          &nbsp;⎮&nbsp;
+          <AniLink
+            cover
+            to={'/about'}
+            direction="up"
+            duration={1.4}
+            bg={colors.$navy}
+          >
+            About
+          </AniLink>
           &nbsp;⎮&nbsp;
           <a
             rel="noreferrer"
@@ -78,9 +93,6 @@ const Footer: React.SFC = () => {
           >{'#twoJSalways'}</a>
         </section>
         <SiteFooterNav>
-
-          {/*<Link to="/contact-us">Contact Us</Link>*/}
-
           <a href="https://gatsbyjs.org" target="_blank" rel="noopener noreferrer">
             Made with ❤️ & GatsbyJS in 🗽
           </a>

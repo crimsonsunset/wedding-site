@@ -1,9 +1,9 @@
 import Gallery from 'react-grid-gallery';
 import { graphql, StaticQuery } from 'gatsby';
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Ref } from 'react';
 import Helmet from 'react-helmet';
 import styled from 'react-emotion';
-import { shuffle, bindAll } from 'lodash';
+import { shuffle, bindAll, delay, get, defer } from 'lodash';
 
 import IndexLayout from '@layouts/index';
 import Wrapper from '@components/Wrapper';
@@ -20,9 +20,10 @@ import {
   BottomPaddingPost,
 } from '@styles-components/post/post.style';
 import { fileNameToCaption } from '@util/helpers';
+import { useSwipe } from '@util/component.hooks';
 
 
-const IMG_GALLERY_QUERY = graphql`
+export const IMG_GALLERY_QUERY = graphql`
   query imgGalleryQuery {
     allFile(filter: { absolutePath: { regex: "/gallery/" } }) {
       edges{
@@ -56,9 +57,13 @@ const StyledGallery = styled.section`
     
     `;
 
-class About extends PureComponent {
+class Photos extends PureComponent {
 
   private edges: Array<any> = [];
+  private galleryRef: Ref<any> = React.createRef();
+  // readonly state = {
+  //   isOpen: false,
+  // };
 
   constructor(props: any) {
     super(props);
@@ -66,6 +71,40 @@ class About extends PureComponent {
       'renderGallery',
     ]);
   };
+
+  setUpSwipeListener() {
+    const that = this;
+    defer(() => {
+      const lightbox = document && document.getElementById('lightboxBackdrop');
+      let numImages = get(that, 'state.images.length');
+      useSwipe({ current: lightbox },
+        {
+          left() {
+            let currentImage = get(that, 'state.currentImage');
+            let possImage = currentImage + 1;
+
+            // loop back around if at end
+            possImage = (possImage < numImages) ? possImage : 0;
+
+            that.setState({
+              currentImage: possImage,
+            });
+          },
+          right() {
+            let currentImage = get(that, 'state.currentImage');
+            let possImage = currentImage - 1;
+
+            // loop back around if at end
+            possImage = (possImage < 0) ? numImages-1 : possImage;
+
+            that.setState({
+              currentImage: possImage,
+            });
+          },
+        },
+      );
+    });
+  }
 
   renderGallery(imgData?: any) {
 
@@ -92,13 +131,16 @@ class About extends PureComponent {
     });
 
     return (
-      <StyledGallery>
+      <StyledGallery
+        innerRef={this.galleryRef}
+      >
         <Gallery
+          backdropClosesModal={true}
+          lightboxWillOpen={this.setUpSwipeListener}
           className={`${StyledGallery}`}
           enableImageSelection={false}
           showImageCount={false}
           showCloseButton={false}
-          backdropClosesModal={true}
           preloadNextImage={true}
           showLightboxThumbnails={true}
           images={images}/>
@@ -120,7 +162,7 @@ class About extends PureComponent {
     return (
       <IndexLayout>
         <Helmet>
-          <title>Photos</title>
+          <title>Jess & Joe | Photos</title>
         </Helmet>
         <Wrapper>
           <header className={`${SiteHeader}`}>
@@ -132,7 +174,7 @@ class About extends PureComponent {
             <article className={`${BottomPaddingPost} post page ${NoImage}`}>
               <PostFullHeader>
                 <PostFullTitle
-                style={{marginTop: '26px'}}
+                  style={{ marginTop: '26px' }}
                 >Photos</PostFullTitle>
               </PostFullHeader>
 
@@ -149,4 +191,4 @@ class About extends PureComponent {
   }
 };
 
-export default About;
+export default Photos;

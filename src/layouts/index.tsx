@@ -1,15 +1,14 @@
 import {injectGlobal} from 'emotion';
 import {darken, lighten} from 'polished';
 import * as React from 'react';
-
-import {colors, primaryColors} from '../styles/variables';
 import {graphql, StaticQuery} from 'gatsby';
-// import {ALL_MEMBERS_QUERY} from "../pages/bridal-party";
-import {words, forEach, map} from 'lodash';
 
 import 'typeface-rancho';
 import 'typeface-catamaran';
 import 'typeface-capriola';
+
+import {colors, primaryColors} from '@styles/variables';
+import {printBuildInfo} from '@util/helpers';
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -502,26 +501,6 @@ h6 {
 interface IndexProps {
   className?: string;
 }
-
-// todo: move this to helpers
-function printBuildInfo(buildInfo: any) {
-
-  forEach(buildInfo, (e, i) => {
-    buildInfo[i] = e.replace(/\"/g, '');
-  });
-
-  const {name, version, environment, date} = buildInfo;
-  const env = (process.env.IS_DEV) ? 'dev' : 'prod';
-  let red = `${words(name).join(' ')} | v${version} | ${environment}`;
-  let blue = 'Built at: ' + date;
-  let green = 'Backend ENV is: ' + env;
-
-  // stamp build
-  console.log('%c' + red, 'color:red;');
-  console.log('%c' + blue, 'color:blue;');
-  console.log('%c' + green, 'color:green;');
-}
-
 
 const IndexLayout = (props) => {
   return (
