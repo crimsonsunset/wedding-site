@@ -1,14 +1,15 @@
-// Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 exports.handler = async (event, context) => {
   const { password } = JSON.parse(event.body);
   const PASSWORD = process.env.PASSWORD;
+  const VIDEOS = process.env.VIDEOS;
+  const PHOTOS = process.env.PHOTOS;
   let payload = {};
   if (password === PASSWORD) {
     payload = {
       statusCode: 200,
       body: JSON.stringify({
-        photos: '',
-        videos: '',
+        photos: PHOTOS,
+        videos: VIDEOS,
       }),
     }
   }else{
@@ -19,20 +20,5 @@ exports.handler = async (event, context) => {
       })
     }
   }
-
   return payload;
-
-
-  // try {
-  //   const subject = event.queryStringParameters.name || 'World';
-  //   return {
-  //     statusCode: 200,
-  //     body: JSON.stringify({ message: `Hello ${subject}` }),
-  //     // // more keys you can return:
-  //     // headers: { "headerName": "headerValue", ... },
-  //     // isBase64Encoded: true,
-  //   };
-  // } catch (err) {
-  //   return { statusCode: 500, body: err.toString() };
-  // }
 };

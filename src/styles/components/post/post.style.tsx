@@ -54,17 +54,19 @@ export const PostFullHeader = styled.header`
   max-width: 1060px;
   text-align: center;
 
-h2{
-font-size: 21px;
-font-weight: normal;
-font-family: 'Catamaran',sans-serif;
-}
+  h2{
+    font-size: 21px;
+    font-weight: normal;
+    font-family: 'Catamaran',sans-serif;
 
-  a {
-    //text-decoration: none !important;
-    word-break: break-word;
-    box-shadow: ${primaryColors.blue} 0 -1px 0 inset;
-    font-size: 2rem;
+    div {
+      //border:5px solid red;
+      margin-top: 5px;
+      width: 284px;
+      display: flex;
+      justify-content: space-between;
+    }
+
   }
 
   @media (max-width: 500px) {

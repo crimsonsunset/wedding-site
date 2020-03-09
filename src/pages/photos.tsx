@@ -69,8 +69,10 @@ class Photos extends PureComponent {
     super(props);
     bindAll(this, [
       'renderGallery',
+      'onGalleryLinkClicked',
     ]);
   };
+
 
   setUpSwipeListener() {
     const that = this;
@@ -104,6 +106,30 @@ class Photos extends PureComponent {
         },
       );
     });
+  }
+
+
+  onGalleryLinkClicked(fromPhotos) {
+    const password = window.prompt('Please Enter a Password');
+    if(!password) return;
+    fetch(
+      '../.netlify/functions/checkPassword',
+      {
+        method: 'post',
+        body: JSON.stringify({ password }),
+      },
+    )
+      .then((res) => {
+        if (!res.ok) return Promise.reject(new Error(`HTTP Error ${res.status}`));
+        return res.json(); // parse json body
+      })
+      .then(({ photos, videos }) => {
+        const url = (fromPhotos) ? photos : videos;
+        typeof window !== 'undefined' && window.location.replace(url);
+      })
+      .catch(() => {
+        alert('Incorrect Password. Please Try Again');
+      });
   }
 
   renderGallery(imgData?: any) {
@@ -178,13 +204,25 @@ class Photos extends PureComponent {
                 >Photos
                 </PostFullTitle>
                 <h2>Click to view:
-                  <a href={'sss'}>
-                    Wedding Photos
-                  </a>
-                  ,
-                  <a href={'sss'}>
-                    Wedding Video
-                  </a>
+                  <div>
+                    <a
+                      href="javascript:void(0)"
+                      onClick={() => {
+                        this.onGalleryLinkClicked.bind(this)(true);
+                      }}
+                    >
+                      Wedding Photos
+                    </a>
+
+                    <a
+                      href="javascript:void(0)"
+                      onClick={() => {
+                        this.onGalleryLinkClicked.bind(this)(false);
+                      }}
+                    >
+                      Wedding Video
+                    </a>
+                  </div>
                 </h2>
               </PostFullHeader>
 
