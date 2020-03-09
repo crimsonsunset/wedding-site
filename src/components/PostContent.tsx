@@ -3,7 +3,7 @@ import * as React from 'react';
 import styled from 'react-emotion';
 import rehypeReact from 'rehype-react';
 
-import {colors, primaryColors} from '../styles/variables';
+import { colors, primaryColors } from '../styles/variables';
 
 export const PostFullContent = styled.section`
   position: relative;
@@ -102,14 +102,6 @@ export const PostFullContent = styled.section`
     margin-top: 0.7em;
   }
 
-  a {
-    color: #000;
-    word-break: break-word;
-    box-shadow: ${primaryColors.blue} 0 -1px 0 inset;
-    font-size: 2rem;
-  }
-  
-  
   .gatsby-resp-image-link{
   box-shadow: none !important;
   }
@@ -288,7 +280,7 @@ export const PostFullContent = styled.section`
     margin: 0.5em 0 0.5em 0;
     font-weight: 700;
     font-size: 23px;
-   
+
     font-family: 'Catamaran',sans-serif;
     color: ${colors.$navy}
   }
@@ -297,9 +289,9 @@ export const PostFullContent = styled.section`
   //    font-size: 2.2rem;
   //  }
   //}
-  
+
   h3 a {
- 
+
     font-size: 23px;
     color: ${colors.$navy}
   }
@@ -309,7 +301,7 @@ export const PostFullContent = styled.section`
     font-size: 2.8rem;
     font-weight: 700;
     color: ${colors.$orange};
-    
+
   }
   @media (max-width: 500px) {
     h4 {
@@ -327,7 +319,7 @@ export const PostFullContent = styled.section`
     line-height: 1.35em;
     text-align: center;
     font-family: 'Catamaran', sans-serif;
-   
+
   }
   @media (min-width: 1180px) {
     h5 {
@@ -426,18 +418,18 @@ export const PostFullContent = styled.section`
       display: none;
     }
   }
-  
+
   .event-info {
-    
+
     border: 0;
     font: inherit;
     vertical-align: baseline;
     font-family: 'Catamaran',sans-serif;
     font-size: 2.1rem;
     font-weight:400;
-  
+
   }
-  
+
 `;
 
 const renderAst = new rehypeReact({
@@ -459,7 +451,7 @@ const PostContent: React.SFC<PostContentProps> = ({ htmlAst }) => {
   return (
     <PostFullContent className="post-full-content">
       {/* TODO: this will apply the class when rehype-react is published https://github.com/rhysd/rehype-react/pull/11 */}
-      <Ast className="post-content" ast={htmlAst} />
+      <Ast className="post-content" ast={htmlAst}/>
     </PostFullContent>
   );
 };

@@ -49,12 +49,12 @@ const StyledGallery = styled.section`
       width: 100%;
       max-width: ${HEADER_PICTURE_WIDTH};
       margin: 0 auto;
-      margin-top: -3px; 
-      
+      margin-top: -3px;
+
       img{
         margin: 0 auto !important;
       }
-    
+
     `;
 
 class Photos extends PureComponent {
@@ -95,7 +95,7 @@ class Photos extends PureComponent {
             let possImage = currentImage - 1;
 
             // loop back around if at end
-            possImage = (possImage < 0) ? numImages-1 : possImage;
+            possImage = (possImage < 0) ? numImages - 1 : possImage;
 
             that.setState({
               currentImage: possImage,
@@ -175,7 +175,17 @@ class Photos extends PureComponent {
               <PostFullHeader>
                 <PostFullTitle
                   style={{ marginTop: '26px' }}
-                >Photos</PostFullTitle>
+                >Photos
+                </PostFullTitle>
+                <h2>Click to view:
+                  <a href={'sss'}>
+                    Wedding Photos
+                  </a>
+                  ,
+                  <a href={'sss'}>
+                    Wedding Video
+                  </a>
+                </h2>
               </PostFullHeader>
 
               <StaticQuery
