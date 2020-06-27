@@ -9,23 +9,29 @@ import { PostFullContent } from '@components/PostContent';
 import Footer from '@components/Footer';
 import Helmet from 'react-helmet';
 
+import { useSpring, animated } from 'react-spring';
+import styled from 'react-emotion';
+
+
+import { useState, useEffect } from 'react';
+import { interpolate } from 'react-spring';
+import { Spring, Transition } from 'react-spring/renderprops';
+import { springConfigs } from '@styles/variables';
+
 const PageTemplate = css`
   .site-main {
     background: #fff;
     padding-bottom: 4vw;
   }
-  
+
   .calendar-container{
-  
+
     margin: 0 auto;
     display: flex;
-  
-  }
-  
-`;
 
-import { useSpring, animated } from 'react-spring';
-import styled from 'react-emotion';
+  }
+
+`;
 
 
 // const ContactUs = () => {
@@ -40,10 +46,7 @@ import styled from 'react-emotion';
 // };
 
 
-import { useState, useEffect } from 'react';
-import { interpolate } from 'react-spring';
-import { Spring, Transition } from 'react-spring/renderprops';
-import { springConfigs } from '@styles/variables';
+
 // import { jsx, css } from "@emotion/core";
 const svgLogo = require('@img/favicon/favicon.svg');
 
@@ -79,11 +82,12 @@ const ContactUs = () => {
 
         </header>
 
+        {/*style={styles}*/}
         <Spring {...springConfigs.fadeAndPan}>
           {(styles) => {
             return (
               <main
-                style={styles}
+
                 id="site-main" className={`site-main ${SiteMain} ${outer}`}>
                 <article className={`${PostFull} post page ${NoImage}`}>
 
