@@ -9,7 +9,7 @@ export const PostTemplate = css`
     background: ${primaryColors.white} !important;
     padding-bottom: 4vw;
     //margin-top: 4vw;;
-    
+
     // ${mediaQueries[0]}{
     //   margin-top: 200px !important;
     // }
@@ -49,32 +49,47 @@ export const NoImage = css`
 
 
 export const PostFullHeader = styled.header`
-  margin: 0 auto;  
+  margin: 0 auto;
   padding: 6vh 0vw;
   max-width: 1060px;
   text-align: center;
 
+  h2{
+    font-size: 21px;
+    font-weight: normal;
+    font-family: 'Catamaran',sans-serif;
+
+    div {
+      //border:5px solid red;
+      margin-top: 5px;
+      width: 284px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+  }
+
   @media (max-width: 500px) {
     padding: 14vw 3vw 10vw;
-    
-    
+
+
     .back-arrow{
-    
+
     margin-top: -4vh;
     a {
           font-size: 18px !important;
     }
   }
-    
+
   }
-  
+
   .back-arrow{
-    display: flex; 
+    display: flex;
     a {
       font-size: 22px;
     }
   }
-    
+
 `;
 
 
@@ -101,15 +116,15 @@ export const PostFullTitle = styled.h1`
   margin: 0;
   font-size: 8rem;
   color: ${colors.$navy};
-   
+
   ${mediaQueries[3]}{
-    margin-top: 60px !important;   
+    margin-top: 60px !important;
   }
-  
+
   ${mediaQueries[2]}{
-    margin-top: initial !important;   
+    margin-top: initial !important;
   }
-  
+
 `;
 
 export const PostFullImage = styled.figure`

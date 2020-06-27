@@ -49,12 +49,12 @@ const StyledGallery = styled.section`
       width: 100%;
       max-width: ${HEADER_PICTURE_WIDTH};
       margin: 0 auto;
-      margin-top: -3px; 
-      
+      margin-top: -3px;
+
       img{
         margin: 0 auto !important;
       }
-    
+
     `;
 
 class Photos extends PureComponent {
@@ -69,8 +69,10 @@ class Photos extends PureComponent {
     super(props);
     bindAll(this, [
       'renderGallery',
+      'onGalleryLinkClicked',
     ]);
   };
+
 
   setUpSwipeListener() {
     const that = this;
@@ -95,7 +97,7 @@ class Photos extends PureComponent {
             let possImage = currentImage - 1;
 
             // loop back around if at end
-            possImage = (possImage < 0) ? numImages-1 : possImage;
+            possImage = (possImage < 0) ? numImages - 1 : possImage;
 
             that.setState({
               currentImage: possImage,
@@ -104,6 +106,30 @@ class Photos extends PureComponent {
         },
       );
     });
+  }
+
+
+  onGalleryLinkClicked(fromPhotos) {
+    const password = window.prompt('Please Enter a Password');
+    if(!password) return;
+    fetch(
+      '../.netlify/functions/checkPassword',
+      {
+        method: 'post',
+        body: JSON.stringify({ password }),
+      },
+    )
+      .then((res) => {
+        if (!res.ok) return Promise.reject(new Error(`HTTP Error ${res.status}`));
+        return res.json(); // parse json body
+      })
+      .then(({ photos, videos }) => {
+        const url = (fromPhotos) ? photos : videos;
+        typeof window !== 'undefined' && window.location.replace(url);
+      })
+      .catch(() => {
+        alert('Incorrect Password. Please Try Again');
+      });
   }
 
   renderGallery(imgData?: any) {
@@ -175,7 +201,29 @@ class Photos extends PureComponent {
               <PostFullHeader>
                 <PostFullTitle
                   style={{ marginTop: '26px' }}
-                >Photos</PostFullTitle>
+                >Photos
+                </PostFullTitle>
+                <h2>Click to view:
+                  <div>
+                    <a
+                      href="javascript:void(0)"
+                      onClick={() => {
+                        this.onGalleryLinkClicked.bind(this)(true);
+                      }}
+                    >
+                      Wedding Photos
+                    </a>
+
+                    <a
+                      href="javascript:void(0)"
+                      onClick={() => {
+                        this.onGalleryLinkClicked.bind(this)(false);
+                      }}
+                    >
+                      Wedding Video
+                    </a>
+                  </div>
+                </h2>
               </PostFullHeader>
 
               <StaticQuery
